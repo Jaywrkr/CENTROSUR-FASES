@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CENTROSUR — Proyecto por Fases</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:    #132244;
+  --navy2:   #1a2e57;
+  --orange:  #d95f0a;
+  --orange2: #f07020;
+  --bg:      #f4f3f0;
+  --bg2:     #eceae6;
+  --white:   #ffffff;
+  --text:    #1a1a1a;
+  --muted:   #6b6b6b;
+  --muted2:  #9a9a9a;
+  --border:  #dddbd7;
+  --red:     #c0392b;
+  --amber:   #c97a10;
+  --green:   #1a7a4a;
+  --serif:   'DM Serif Display', serif;
+  --mono:    'DM Mono', monospace;
+  --sans:    'Inter', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--navy);
+  border-bottom: 3px solid var(--orange);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 52px;
+}
+.nav-left {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.5); text-transform: uppercase;
+  display: flex; align-items: center; gap: 16px;
+}
+.nav-sep { opacity: 0.3; }
+.nav-tabs { display: flex; gap: 2px; }
+.nav-tab {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+  padding: 7px 18px; border-radius: 3px; border: none;
+  background: transparent; color: rgba(255,255,255,0.45);
+  cursor: pointer; text-transform: uppercase; transition: all 0.2s;
+}
+.nav-tab:hover { color: rgba(255,255,255,0.8); }
+.nav-tab.active {
+  background: var(--orange);
+  color: #fff;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--navy);
+  padding: 56px 48px 48px;
+  color: white;
+}
+.hero-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em;
+  color: var(--orange2); text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-label::after {
+  content: '';
+  display: block; flex: 1; max-width: 40px;
+  height: 1px; background: var(--orange);
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(34px, 5vw, 62px);
+  line-height: 1.05; font-weight: 400;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--orange2);
+}
+.hero-sub {
+  font-family: var(--sans); font-size: 14px;
+  color: rgba(255,255,255,0.6); max-width: 500px;
+  line-height: 1.7; margin-top: 16px;
+}
+.hero-stats {
+  display: flex; margin-top: 40px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px; overflow: hidden;
+}
+.hstat {
+  flex: 1; padding: 18px 24px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.hstat:last-child { border-right: none; }
+.hstat-val {
+  font-family: var(--serif); font-size: 30px; line-height: 1;
+  margin-bottom: 4px;
+}
+.hstat-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.45); text-transform: uppercase;
+  line-height: 1.5;
+}
+
+/* ─── PANELS ─── */
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* ══════════════════════════════════
+   PANEL RIESGOS
+══════════════════════════════════ */
+.prob-layout {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  max-width: 1200px;
+}
+.prob-col {
+  padding: 40px 48px;
+  border-right: 1px solid var(--border);
+}
+.prob-col:last-child { border-right: none; }
+
+.col-header { margin-bottom: 28px; }
+.col-cat {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em;
+  text-transform: uppercase; margin-bottom: 8px;
+  display: flex; align-items: center; gap: 8px;
+}
+.col-cat-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-red { background: var(--red); }
+.dot-amber { background: var(--amber); }
+.col-title {
+  font-family: var(--serif); font-size: 22px;
+  font-weight: 400; color: var(--navy);
+}
+
+/* RISK CARD */
+.risk-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: var(--white);
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+.risk-card:hover { border-color: #c0c0c0; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+.risk-card.open { border-color: var(--navy); box-shadow: 0 2px 12px rgba(19,34,68,0.1); }
+.risk-card.warn.open { border-color: var(--amber); box-shadow: 0 2px 12px rgba(201,122,16,0.12); }
+
+.risk-top {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px 18px;
+}
+.risk-num {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--muted2); flex-shrink: 0;
+  padding-top: 2px; min-width: 20px;
+}
+.risk-card.open .risk-num { color: var(--orange); }
+
+.risk-body { flex: 1; }
+.risk-impact {
+  font-size: 13px; font-weight: 600;
+  line-height: 1.45; color: var(--text);
+  margin-bottom: 3px;
+}
+.risk-card.open .risk-impact { color: var(--navy); }
+.risk-card.open.warn .risk-impact { color: var(--amber); }
+
+.risk-sub {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--muted); line-height: 1.6;
+}
+.risk-arrow {
+  flex-shrink: 0; color: var(--muted2); font-size: 12px;
+  padding-top: 2px; transition: transform 0.25s;
+}
+.risk-card.open .risk-arrow { transform: rotate(180deg); }
+
+.risk-detail {
+  display: none;
+  padding: 0 18px 16px 52px;
+  font-size: 13px; line-height: 1.8; color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+.risk-card.open .risk-detail { display: block; }
+.risk-detail strong { color: var(--text); font-weight: 600; }
+
+/* ══════════════════════════════════
+   PANEL FASES
+══════════════════════════════════ */
+.fases-outer { padding: 0 48px 64px; max-width: 1200px; }
+
+.fases-intro {
+  padding: 32px 0 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 36px;
+}
+.fases-intro p {
+  font-family: var(--mono); font-size: 12px;
+  color: var(--muted); line-height: 1.9; max-width: 560px;
+}
+
+/* TIMELINE */
+.tl-wrap { margin-bottom: 36px; }
+.tl-track { display: flex; position: relative; }
+.tl-line {
+  position: absolute; top: 26px; left: 28px; right: 28px;
+  height: 2px; background: var(--border);
+}
+.tl-fill {
+  position: absolute; top: 26px; left: 28px;
+  height: 2px; background: var(--orange);
+  transition: width 0.4s ease; width: 0;
+}
+.fn {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; cursor: pointer; position: relative; z-index: 1;
+}
+.fn-dot {
+  width: 52px; height: 52px; border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 10px;
+  color: var(--muted); transition: all 0.3s;
+  margin-bottom: 10px;
+}
+.fn.active .fn-dot {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: white;
+}
+.fn-label {
+  font-size: 12px; font-weight: 600; text-align: center;
+  color: var(--muted); transition: color 0.2s; line-height: 1.4;
+}
+.fn.active .fn-label { color: var(--navy); }
+.fn-period {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--muted2); margin-top: 3px;
+}
+
+/* FASE DETAIL */
+.fd { display: none; }
+.fd.active { display: block; }
+
+.fd-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 24px;
+  margin-bottom: 24px;
+}
+.fd-eyebrow {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--orange);
+  margin-bottom: 6px;
+}
+.fd-title {
+  font-family: var(--serif); font-size: 32px;
+  font-weight: 400; color: var(--navy);
+  letter-spacing: -0.01em; line-height: 1.1;
+  margin-bottom: 10px;
+}
+.fd-desc {
+  font-size: 13px; color: var(--muted);
+  line-height: 1.8; max-width: 440px;
+}
+.fd-badge {
+  flex-shrink: 0; padding: 8px 20px;
+  border-radius: 100px; border: 1px solid var(--border);
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.1em; color: var(--muted);
+  background: var(--white); white-space: nowrap;
+}
+
+/* WHY BAR */
+.why-bar {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 6px; padding: 16px 20px; margin-bottom: 20px;
+  border-left: 3px solid var(--orange);
+}
+.why-bar-label {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted2); margin-bottom: 10px;
+}
+.why-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.why-tag {
+  font-family: var(--mono); font-size: 11px;
+  padding: 4px 12px; border-radius: 100px;
+  border: 1px solid var(--border); color: var(--muted);
+  background: var(--bg);
+}
+.why-tag.k {
+  border-color: rgba(19,34,68,0.25); color: var(--navy);
+  background: rgba(19,34,68,0.05);
+  font-weight: 500;
+}
+.why-tag.alert {
+  border-color: rgba(201,122,16,0.3); color: var(--amber);
+  background: rgba(201,122,16,0.05);
+}
+
+/* TECH CARDS */
+.tc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+  gap: 8px;
+}
+.tc {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 6px; padding: 16px 18px;
+  cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.tc::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; width: 3px; height: 100%;
+  background: var(--tc-c); border-radius: 6px 0 0 6px;
+  opacity: 0.4; transition: opacity 0.2s;
+}
+.tc:hover { border-color: #c0c0c0; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+.tc:hover::before { opacity: 0.8; }
+.tc.open { border-color: var(--navy); }
+.tc.open::before { opacity: 1; }
+
+.tc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+.tc-name { font-size: 13px; font-weight: 600; color: var(--navy); }
+.tc-vendor {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em;
+  padding: 3px 8px; border-radius: 3px; text-transform: uppercase;
+}
+.v-cp { background: rgba(19,34,68,0.08); color: var(--navy); border: 1px solid rgba(19,34,68,0.15); }
+.v-tbd { background: var(--bg2); color: var(--muted); border: 1px solid var(--border); }
+.v-ext { background: rgba(192,57,43,0.07); color: var(--red); border: 1px solid rgba(192,57,43,0.2); }
+
+.tc-brief { font-family: var(--mono); font-size: 11px; color: var(--muted); line-height: 1.6; }
+
+.tc-expand {
+  display: none; margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--muted); line-height: 1.8;
+}
+.tc.open .tc-expand { display: block; }
+
+.dep {
+  margin-top: 8px; padding: 8px 10px; border-radius: 4px;
+  font-family: var(--mono); font-size: 10px; line-height: 1.6;
+}
+.dep-warn { background: rgba(201,122,16,0.07); color: var(--amber); border: 1px solid rgba(201,122,16,0.2); }
+.dep-info { background: rgba(26,122,74,0.06); color: var(--green); border: 1px solid rgba(26,122,74,0.18); }
+.dep-crit { background: rgba(192,57,43,0.07); color: var(--red); border: 1px solid rgba(192,57,43,0.18); }
+
+/* CRITICAL CALLOUT — the main message */
+.callout-main {
+  background: var(--navy);
+  border-radius: 6px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+  display: flex; gap: 20px; align-items: flex-start;
+}
+.callout-icon {
+  font-size: 22px; flex-shrink: 0; padding-top: 2px;
+}
+.callout-text {}
+.callout-title {
+  font-family: var(--serif); font-size: 18px;
+  color: #fff; margin-bottom: 6px; font-weight: 400;
+}
+.callout-title em { font-style: italic; color: var(--orange2); }
+.callout-body {
+  font-family: var(--mono); font-size: 11px;
+  color: rgba(255,255,255,0.6); line-height: 1.8;
+}
+
+/* 11 RAZONES */
+.w11 { margin-top: 48px; padding-top: 36px; border-top: 1px solid var(--border); }
+.w11-title {
+  font-family: var(--serif); font-size: 26px; font-weight: 400;
+  color: var(--navy); margin-bottom: 24px;
+}
+.w11-title span { color: var(--orange); }
+.w11-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 8px;
+}
+.w11-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 6px; padding: 16px 18px; cursor: pointer;
+  transition: all 0.2s;
+}
+.w11-card:hover { border-color: #c0c0c0; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+.w11-card.open {
+  border-color: var(--navy);
+  background: rgba(19,34,68,0.03);
+}
+.w11-icon { font-size: 16px; margin-bottom: 8px; }
+.w11-head { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.4; }
+.w11-body {
+  display: none; margin-top: 10px; padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono); font-size: 11px;
+  color: var(--muted); line-height: 1.8;
+}
+.w11-card.open .w11-body { display: block; }
+
+/* FOOTER */
+footer {
+  padding: 20px 48px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono); font-size: 10px; color: var(--muted2);
+  display: flex; justify-content: space-between;
+  background: var(--bg);
+}
+
+/* RESPONSIVE */
+@media (max-width: 720px) {
+  nav, .hero { padding-left: 20px; padding-right: 20px; }
+  .prob-layout { grid-template-columns: 1fr; }
+  .prob-col { border-right: none; border-bottom: 1px solid var(--border); padding: 28px 20px; }
+  .fases-outer { padding-left: 20px; padding-right: 20px; }
+  .hero-stats { flex-direction: column; }
+  .hstat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <span>Coresolutions</span>
+    <span class="nav-sep">·</span>
+    <span>CENTROSUR</span>
+    <span class="nav-sep">·</span>
+    <span>Uso interno</span>
+  </div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showPanel('problema',this)">01 — Riesgos</button>
+    <button class="nav-tab" onclick="showPanel('fases',this)">02 — Propuesta por fases</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Fortalecimiento integral de ciberseguridad</div>
+  <h1>Por qué un contrato único<br><em>no va a funcionar</em></h1>
+  <p class="hero-sub">Contratar todas las herramientas del stack en un solo proyecto no es eficiencia. Es instalar todo de golpe sin respetar las dependencias técnicas que hacen que cada herramienta tenga sentido.</p>
+  <div class="hero-stats">
+    <div class="hstat">
+      <div class="hstat-val" style="color:var(--orange2)">3–6</div>
+      <div class="hstat-label">meses por<br>herramienta</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-val" style="color:rgba(255,255,255,0.9)">15+</div>
+      <div class="hstat-label">herramientas<br>en el stack</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-val" style="color:rgba(255,255,255,0.9)">11</div>
+      <div class="hstat-label">razones para<br>dividir por fases</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-val" style="color:var(--orange2)">4</div>
+      <div class="hstat-label">fases con<br>entregables reales</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PANEL RIESGOS
+══════════════════════════════════ -->
+<div class="panel active" id="panel-problema">
+  <div class="prob-layout">
+
+    <!-- COL TÉCNICO -->
+    <div class="prob-col">
+      <div class="col-header">
+        <div class="col-cat">
+          <div class="col-cat-dot dot-red"></div>
+          <span style="color:var(--red)">Riesgo técnico-operacional</span>
+        </div>
+        <div class="col-title">Lo que deja de funcionar</div>
+      </div>
+
+      <!-- 1 -->
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">01</div>
+          <div class="risk-body">
+            <div class="risk-impact">Todo se instala, nada queda operativo</div>
+            <div class="risk-sub">Cuando todo depende de todo, nada puede configurarse correctamente.</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          En un proyecto único con 15+ herramientas, cada implementación queda en estado de espera porque la siguiente no puede arrancar sin que la anterior esté lista. El Firewall necesita semanas de ajuste de políticas. El EDR necesita el Firewall estabilizado. El SIEM necesita ambos. El resultado: <strong>todo instalado, nada realmente funcionando</strong>, y el equipo de TI de CENTROSUR gestionando 15 proyectos a medias simultáneamente.
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">02</div>
+          <div class="risk-body">
+            <div class="risk-impact">El SIEM se activa sin tener datos que correlacionar</div>
+            <div class="risk-sub">Sin sensores operativos, el SIEM genera ruido — no inteligencia.</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          El SIEM necesita logs de calidad del Firewall, el EDR, el IAM y el NAC para ser útil. Si esas herramientas se instalan en paralelo y ninguna está completamente configurada, el SIEM recibe datos parciales e inconsistentes. <strong>El equipo de TI se ahoga en alertas que no puede clasificar ni responder</strong>, y termina apagando las reglas para poder trabajar.
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">03</div>
+          <div class="risk-body">
+            <div class="risk-impact">Conflictos de políticas entre herramientas que no se coordinaron</div>
+            <div class="risk-sub">ZTNA, NAC, Endpoint y VPN operan sobre la misma capa de acceso.</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          Cuando ZTNA, NAC, Endpoint Protection y VPN se implementan en paralelo sin un orden definido, cada herramienta aplica sus propias reglas de acceso sin conocer las de la otra. <strong>El resultado son contradicciones: un usuario bloqueado por NAC pero aprobado por ZTNA</strong>, tráfico inspeccionado dos veces con reglas distintas, o brechas donde ninguna herramienta asume responsabilidad porque cada una cree que la otra lo maneja.
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">04</div>
+          <div class="risk-body">
+            <div class="risk-impact">Incompatibilidades técnicas que bloquean el proyecto completo</div>
+            <div class="risk-sub">Comprarlo todo a la vez sin validar integraciones es una bomba de tiempo. El IAM debe ser compatible con el NAC, el Firewall y el EDR.</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          Si el IAM no se integra correctamente con el NAC o el EDR, el proyecto completo queda en pausa hasta resolver ese problema — o peor, se opera con integraciones parcheadas. Validar esas integraciones requiere que las herramientas base estén funcionando primero. <strong>En un contrato único ese problema se descubre a los 8 meses</strong>, cuando ya todo está firmado, los fabricantes cobran soporte, y la solución implica rediseño.
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">05</div>
+          <div class="risk-body">
+            <div class="risk-impact">DLP activo sin que haya información clasificada para proteger</div>
+            <div class="risk-sub">¿CENTROSUR tiene mapeada y etiquetada su información sensible?</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          El DLP requiere que la organización tenga previamente definida su política de clasificación de información: qué es "Confidencial", qué es "Reservado", cómo se etiqueta, quién lo aprueba. Sin esa base, el DLP no sabe qué proteger. <strong>Instalarlo antes de que CENTROSUR complete ese trabajo es exactamente como instalar una cerradura sin saber qué puertas tiene el edificio.</strong> Esta es una pregunta que hay que hacerle al cliente antes de incluirlo en cualquier propuesta.
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">06</div>
+          <div class="risk-body">
+            <div class="risk-impact">El administrador de contrato colapsa gestionando 15 proyectos a la vez</div>
+            <div class="risk-sub">Cada herramienta requiere levantamientos, validaciones y hitos propios.</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          Cada implementación necesita reuniones de levantamiento, pruebas de aceptación, documentación y seguimiento con el cliente. Con 15 corriendo en paralelo, el administrador de contrato se convierte en un cuello de botella. <strong>Decisiones sin seguimiento, hitos que se pierden, herramientas en estado "instalado pero sin configurar" por semanas.</strong> No es un problema de voluntad — es un problema de capacidad física.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COL FINANCIERO -->
+    <div class="prob-col">
+      <div class="col-header">
+        <div class="col-cat">
+          <div class="col-cat-dot" style="background:var(--green)"></div>
+          <span style="color:var(--green)">Riesgo financiero</span>
+        </div>
+        <div class="col-title">Lo que cuesta dinero real</div>
+      </div>
+
+      <!-- F1 -->
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">F1</div>
+          <div class="risk-body">
+            <div class="risk-impact">Inactividad operacional con costo directo</div>
+            <div class="risk-sub">CENTROSUR opera infraestructura eléctrica crítica — cada hora sin servicio tiene impacto medible.</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          Si el stack de seguridad falla o queda mal configurado en producción — un firewall con políticas incorrectas que bloquea tráfico legítimo, un NAC que rechaza dispositivos operativos — CENTROSUR enfrenta interrupción de servicios reales. <strong>En una empresa del sector eléctrico, eso no es un inconveniente: es un incidente con costo regulatorio, operacional y reputacional directo.</strong> Un contrato único no tiene mecanismos de aislamiento: si algo falla, el impacto se propaga a todo el stack simultáneamente.
+        </div>
+      </div>
+
+      <!-- F2 -->
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">F2</div>
+          <div class="risk-body">
+            <div class="risk-impact">Licencias pagadas corriendo sobre herramientas sin usar</div>
+            <div class="risk-sub">El soporte anual no espera a que la implementación esté lista.</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          En un contrato único, todas las licencias se activan al mismo tiempo. El SIEM, el DLP y el NDR empiezan a cobrar soporte anual desde el día uno, independientemente de si están operativos o no. <strong>CENTROSUR paga el 100% de un stack que opera al 20% de su capacidad real</strong> durante los primeros 12 meses — mientras el equipo técnico todavía está configurando las capas base. Esto no es un riesgo teórico: es el modelo de licenciamiento estándar de todos los fabricantes del stack.
+        </div>
+      </div>
+
+      <!-- F3 -->
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">F3</div>
+          <div class="risk-body">
+            <div class="risk-impact">Costos ocultos cuando aparecen las incompatibilidades</div>
+            <div class="risk-sub">Las horas de consultoría extra no estaban en el presupuesto original.</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          Cuando el IAM no se integra con el NAC según lo esperado, cuando el SIEM requiere parsers personalizados para los logs del FW, cuando el DLP necesita rediseño porque la clasificación de datos no estaba hecha — <strong>esas horas de trabajo extra no estaban en el contrato original.</strong> En un contrato monolítico, ese costo recae sobre el cliente o se convierte en una renegociación. Con fases, ese problema se detecta y se cierra antes de comprometer el siguiente contrato.
+        </div>
+      </div>
+
+      <!-- F4 — ROI -->
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">F4</div>
+          <div class="risk-body">
+            <div class="risk-impact">Inversión sin retorno demostrable</div>
+            <div class="risk-sub">Sin resultados técnicos reales, no hay forma de justificar el gasto frente a la dirección.</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          Si el stack no produce los resultados técnicos esperados — reducción de incidentes, mejora en tiempos de detección, cumplimiento regulatorio verificable — el proyecto queda en una situación indefendible: <strong>presupuesto ejecutado, objetivos no cumplidos, sin métrica que demuestre valor.</strong> Las fases generan entregables concretos y medibles en cada cierre. El ROI de Fase 1 es demostrable antes de comprometer el presupuesto de Fase 2. En un contrato único, el ROI solo puede evaluarse al final — cuando ya no hay nada que corregir.
+        </div>
+      </div>
+
+      <!-- F5 — ROLLBACK -->
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">F5</div>
+          <div class="risk-body">
+            <div class="risk-impact">El costo de dar un paso hacia atrás a mitad del proyecto</div>
+            <div class="risk-sub">Revertir una herramienta mal implementada en producción no es gratis.</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          Si una herramienta del stack falla en producción y hay que revertir la implementación — cambiar de fabricante, rediseñar la integración, o simplemente desinstalar y volver al estado anterior — los costos son múltiples y simultáneos: <strong>horas de trabajo ya cobradas no recuperables, licencias del fabricante descartado que siguen vigentes, tiempo del equipo de TI del cliente consumido en el proceso de reversión, y el período de vulnerabilidad mientras el stack queda en estado intermedio.</strong> Con un contrato por fases, ese rollback aplica solo a la fase afectada. En un contrato único, un rollback parcial puede desestabilizar todo lo que ya funcionaba.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COL ESTRATÉGICO -->
+    <div class="prob-col">
+      <div class="col-header">
+        <div class="col-cat">
+          <div class="col-cat-dot dot-amber"></div>
+          <span style="color:var(--amber)">Riesgo estratégico</span>
+        </div>
+        <div class="col-title">Lo que no puede resolverse después</div>
+      </div>
+
+      <!-- 1 -->
+      <div class="risk-card warn" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">07</div>
+          <div class="risk-body">
+            <div class="risk-impact">El mismo proveedor no puede auditar su propio trabajo</div>
+            <div class="risk-sub">Implementar y hacer Pen Testing sobre lo mismo es un conflicto de interés directo.</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          Si Coresolutions implementa los firewalls, el EDR y el WAF, y también ejecuta el Pen Testing y opera el SOC sobre esa infraestructura, el resultado del Pen Testing no tiene validez. <strong>Ningún auditor externo ni regulador del sector financiero y eléctrico lo aceptaría.</strong> El Pen Testing y el SOC deben ser ejecutados por un proveedor que no participó en el diseño ni en la implementación. En un contrato único esto es estructuralmente imposible.
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="risk-card warn" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">08</div>
+          <div class="risk-body">
+            <div class="risk-impact">Un proveedor que dice dominar todo el stack está mintiendo</div>
+            <div class="risk-sub">NGFW, IAM, SIEM, WAF y NDR son dominios de especialización distintos.</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          Un proveedor que afirma dominar NGFW, IAM/PAM, SIEM, SOAR, UEBA, WAF, NAC, DLP y NDR al mismo nivel de profundidad tiene dos opciones: <strong>personal junior en la mitad de esas áreas, o está subcontratando sin decírselo al cliente.</strong> Las fases permiten elegir al especialista correcto para cada dominio sin estar atados a un único proveedor que promete demasiado.
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="risk-card warn" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">09</div>
+          <div class="risk-body">
+            <div class="risk-impact">Un fallo en cualquier herramienta paraliza el contrato entero</div>
+            <div class="risk-sub">2 años de contrato único sin hitos claros. Un problema contamina todo.</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          En un contrato monolítico de 2 años, si una herramienta tiene problemas de licenciamiento, hay un conflicto técnico irresolvable, o el fabricante cambia condiciones, todo el proyecto queda en disputa. <strong>Las fases son contratos independientes: si una fase tiene problemas, las otras continúan.</strong> El riesgo contractual no se propaga.
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="risk-card warn" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">10</div>
+          <div class="risk-body">
+            <div class="risk-impact">SIEM y SOAR sin marcos de seguridad definidos = alertas que nadie responde</div>
+            <div class="risk-sub">Sin procesos internos definidos por el cliente, las herramientas no saben qué detectar.</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          SIEM, UEBA y SOAR requieren que CENTROSUR defina previamente umbrales de alerta, procesos de respuesta a incidentes, roles del equipo SOC, y marcos de referencia como MITRE ATT&CK o NIST. <strong>Sin esa base organizacional, el SIEM genera cientos de alertas que nadie puede clasificar.</strong> El equipo de TI se ahoga en ruido y termina deshabilitando reglas para poder operar. Resultado: herramienta activa, postura de seguridad sin mejorar.
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="risk-card warn" onclick="toggleRisk(this)">
+        <div class="risk-top">
+          <div class="risk-num">11</div>
+          <div class="risk-body">
+            <div class="risk-impact">Un consultor que diseña todo el stack a la vez no puede hacerlo bien</div>
+            <div class="risk-sub">CENTROSUR quiere un solo arquitecto responsable de 12 tecnologías simultáneas.</div>
+          </div>
+          <div class="risk-arrow">▾</div>
+        </div>
+        <div class="risk-detail">
+          Diseñar correctamente un stack con NGFW, ZTNA, IAM, PAM, WAF, SIEM, SOAR, UEBA, DLP, NAC y NDR requiere equipos especializados, no un solo arquitecto que "conoce" todo. Si CENTROSUR exige un único consultor responsable del diseño completo, está eligiendo entre <strong>un diseño superficial o un proveedor que subcontrata sin decírselo.</strong> Las fases permiten traer el especialista correcto en el momento correcto.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PANEL FASES
+══════════════════════════════════ -->
+<div class="panel" id="panel-fases">
+<div class="fases-outer">
+
+  <div class="fases-intro">
+    <p>Cuatro fases independientes, con entregables concretos y dependencias respetadas. Cada fase puede contratarse, validarse y cerrarse de forma autónoma antes de iniciar la siguiente.</p>
+  </div>
+
+  <!-- CALLOUT PRINCIPAL -->
+  <div class="callout-main">
+    <div class="callout-icon">⚡</div>
+    <div class="callout-text">
+      <div class="callout-title">La lógica es simple: <em>cada herramienta necesita a la anterior para funcionar.</em></div>
+      <div class="callout-body">No es una decisión comercial. Es una dependencia técnica. El Firewall genera los datos que necesita la Observabilidad. El EDR alimenta al SIEM. El IAM debe integrarse con el NAC y el FW antes de activar el DLP. Saltarse ese orden produce lo mismo que construir el techo antes que los muros.</div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="tl-wrap">
+    <div class="tl-track">
+      <div class="tl-line"></div>
+      <div class="tl-fill" id="tl-fill"></div>
+      <div class="fn active" data-n="1" onclick="showFase(1)">
+        <div class="fn-dot">F1</div>
+        <div class="fn-label">Protección<br>Perimetral</div>
+        <div class="fn-period">Meses 1–6</div>
+      </div>
+      <div class="fn" data-n="2" onclick="showFase(2)">
+        <div class="fn-dot">F2</div>
+        <div class="fn-label">Control<br>de Acceso</div>
+        <div class="fn-period">Meses 5–10</div>
+      </div>
+      <div class="fn" data-n="3" onclick="showFase(3)">
+        <div class="fn-dot">F3</div>
+        <div class="fn-label">Protección<br>de Servicios</div>
+        <div class="fn-period">Meses 9–15</div>
+      </div>
+      <div class="fn" data-n="4" onclick="showFase(4)">
+        <div class="fn-dot">F4</div>
+        <div class="fn-label">Detección e<br>Inteligencia</div>
+        <div class="fn-period">Meses 14–24</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 1 -->
+  <div class="fd active" id="fd-1">
+    <div class="fd-top">
+      <div>
+        <div class="fd-eyebrow">Fase 01 — Fundación del stack</div>
+        <div class="fd-title">Protección Perimetral</div>
+        <div class="fd-desc">La primera y más crítica capa. Sin esta fase completamente estabilizada, ninguna herramienta posterior puede operar con datos confiables. Es la base del SIEM, el NDR y la Observabilidad.</div>
+      </div>
+      <div class="fd-badge">Meses 1–6</div>
+    </div>
+    <div class="why-bar">
+      <div class="why-bar-label">Por qué es la primera</div>
+      <div class="why-tags">
+        <span class="why-tag k">Capa base obligatoria</span>
+        <span class="why-tag k">Genera los sensores que necesita el SIEM</span>
+        <span class="why-tag k">Valida el equipo técnico antes de escalar</span>
+        <span class="why-tag">ROI demostrable desde el mes 1</span>
+        <span class="why-tag">Entregable claro y cerrable antes de Fase 2</span>
+      </div>
+    </div>
+    <div class="tc-grid">
+      <div class="tc" style="--tc-c: var(--navy)" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">NG Firewalls</div><div class="tc-vendor v-cp">Check Point</div></div>
+        <div class="tc-brief">TI, ISP, DC, TELCO — microsegmentación + DPI en todos los dominios de red.</div>
+        <div class="tc-expand">Quantum NGFW. Configuración en todos los dominios de red de CENTROSUR. DPI, filtrado de aplicaciones, integración con Threat Intelligence en tiempo real.<div class="dep dep-info">→ Requisito previo para Observabilidad y SIEM. No puede arrancar Fase 4 sin esto operativo.</div></div>
+      </div>
+      <div class="tc" style="--tc-c: var(--navy)" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">EDR / XDR</div><div class="tc-vendor v-cp">Check Point</div></div>
+        <div class="tc-brief">Endpoints y servidores — respuesta automática a incidentes en tiempo real.</div>
+        <div class="tc-expand">Harmony Endpoint / XDR. Instalación en toda la flota. Políticas de respuesta automática. Behavioral AI para detección de ransomware pre-cifrado.<div class="dep dep-info">→ Sus logs son fuente primaria del SIEM en Fase 4. Sin EDR maduro, el SIEM opera a ciegas en endpoints.</div></div>
+      </div>
+      <div class="tc" style="--tc-c: var(--navy)" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">Observabilidad</div><div class="tc-vendor v-cp">Check Point</div></div>
+        <div class="tc-brief">Dashboards de tráfico, anomalías y latencia — visibilidad operacional continua.</div>
+        <div class="tc-expand">SmartEvent / LogView + herramienta de observabilidad integrada al portal Infinity.<div class="dep dep-warn">⚠ No puede iniciarse hasta que FWs y EDR estén completamente operativos. Dependencia directa — sin datos de entrada no hay observabilidad.</div></div>
+      </div>
+      <div class="tc" style="--tc-c: #999" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">Infraestructura de Red</div><div class="tc-vendor v-tbd">Por definir</div></div>
+        <div class="tc-brief">Segmentación base: switches, VLANs, zonas de red.</div>
+        <div class="tc-expand">Fabricante por definir: Cisco, HPE Aruba u otro. Debe resolverse antes de iniciar la fase.<div class="dep dep-warn">⚠ Si no se define antes del inicio, genera un bloqueo técnico desde la semana 1 que retrasa todo lo demás.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 2 -->
+  <div class="fd" id="fd-2">
+    <div class="fd-top">
+      <div>
+        <div class="fd-eyebrow">Fase 02 — Identidad y acceso</div>
+        <div class="fd-title">Control de Acceso</div>
+        <div class="fd-desc">Asegurar que solo los usuarios, dispositivos y servicios correctos accedan a los recursos. El modelo Zero Trust no puede construirse antes de tener el perímetro de Fase 1 completamente definido.</div>
+      </div>
+      <div class="fd-badge">Meses 5–10</div>
+    </div>
+    <div class="why-bar">
+      <div class="why-bar-label">Por qué es la segunda</div>
+      <div class="why-tags">
+        <span class="why-tag k">Requiere FWs estabilizados de Fase 1</span>
+        <span class="why-tag k">ZTNA reemplaza VPNs de forma ordenada, no en paralelo</span>
+        <span class="why-tag k">IAM debe probarse e integrarse antes de activar DLP</span>
+        <span class="why-tag">Permite elegir especialistas en identidad sin estar atados</span>
+        <span class="why-tag">Valida compatibilidad NAC ↔ IAM ↔ FW antes de comprometerse</span>
+      </div>
+    </div>
+    <div class="tc-grid">
+      <div class="tc" style="--tc-c: #1a7a9a" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">ZTNA</div><div class="tc-vendor v-cp">Check Point</div></div>
+        <div class="tc-brief">Reemplaza VPNs — autenticación contextual por identidad, dispositivo y postura.</div>
+        <div class="tc-expand">Harmony SASE / Quantum SASE. Sustitución ordenada de VPN tradicionales. Microsegmentación por aplicación, no por red.<div class="dep dep-warn">⚠ Solapamiento con NAC y Endpoint — sin diseño coordinado previo, se generan contradicciones de políticas que abren brechas.</div></div>
+      </div>
+      <div class="tc" style="--tc-c: #1a7a9a" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">CASB</div><div class="tc-vendor v-cp">Check Point</div></div>
+        <div class="tc-brief">Control de acceso a servicios cloud — Microsoft 365, Google Workspace.</div>
+        <div class="tc-expand">Incluido en Harmony SASE. Políticas Zero Trust en tiempo real para SaaS corporativo. Visibilidad de shadow IT y control de transferencia de datos hacia servicios externos.</div>
+      </div>
+      <div class="tc" style="--tc-c: var(--red)" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">IAM / PAM</div><div class="tc-vendor v-tbd">Por definir</div></div>
+        <div class="tc-brief">Gestión de identidades y accesos privilegiados — gap crítico del portafolio actual.</div>
+        <div class="tc-expand">Opciones: CyberArk, SailPoint, Microsoft Entra. Ninguna está actualmente en el portafolio de Coresolutions. Este es el hueco más importante que resolver antes de presentar la propuesta.<div class="dep dep-crit">⚠ Debe integrarse con NAC, FW y EDR. Comprarlo sin validar esas integraciones es exactamente el escenario de incompatibilidad que paraliza el proyecto.</div></div>
+      </div>
+      <div class="tc" style="--tc-c: #999" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">NAC + MFA</div><div class="tc-vendor v-tbd">Por definir</div></div>
+        <div class="tc-brief">Control de acceso a red basado en postura del endpoint.</div>
+        <div class="tc-expand">Check Point cubre parcialmente con Harmony. NAC dedicado por definir.<div class="dep dep-warn">⚠ Solapamiento directo con ZTNA y Endpoint. Sin coordinar el diseño, una herramienta deshabilita lo que la otra acaba de configurar.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 3 -->
+  <div class="fd" id="fd-3">
+    <div class="fd-top">
+      <div>
+        <div class="fd-eyebrow">Fase 03 — Aplicaciones y validación</div>
+        <div class="fd-title">Protección de Servicios</div>
+        <div class="fd-desc">Proteger las aplicaciones y APIs críticas. Y, fundamentalmente, validar con un auditor completamente independiente que lo implementado en las fases anteriores realmente funciona.</div>
+      </div>
+      <div class="fd-badge">Meses 9–15</div>
+    </div>
+    <div class="why-bar">
+      <div class="why-bar-label">Por qué es la tercera</div>
+      <div class="why-tags">
+        <span class="why-tag k">Pen Testing sobre infraestructura ya estabilizada</span>
+        <span class="why-tag k">Proveedor externo — sin conflicto de interés</span>
+        <span class="why-tag k">WAF requiere catálogo de aplicaciones completado primero</span>
+        <span class="why-tag">Cierra brechas de hardening antes de activar Fase 4</span>
+        <span class="why-tag">El cliente ya absorbió la operación de Fases 1 y 2</span>
+      </div>
+    </div>
+    <div class="tc-grid">
+      <div class="tc" style="--tc-c: #6a4ab5" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">WAF</div><div class="tc-vendor v-cp">Check Point</div></div>
+        <div class="tc-brief">OWASP Top 10 — APIs — integración con pipeline CI/CD.</div>
+        <div class="tc-expand">Quantum WAF / CloudGuard AppSec. Protección de aplicaciones web y APIs con ML para detección de anomalías sin depender de firmas estáticas. Integración con pipelines de despliegue.</div>
+      </div>
+      <div class="tc" style="--tc-c: var(--red)" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">Pen Testing / Ethical Hacking</div><div class="tc-vendor v-ext">Proveedor externo</div></div>
+        <div class="tc-brief">Validación de vulnerabilidades sobre lo implementado en Fases 1 y 2.</div>
+        <div class="tc-expand">Debe ser un proveedor completamente independiente. El que implementó no puede auditarse a sí mismo.<div class="dep dep-crit">⚠ Si el mismo proveedor hace el Pen Testing sobre su propia implementación, el resultado no tiene validez técnica ni regulatoria. Ningún auditor externo lo aceptará.</div></div>
+      </div>
+      <div class="tc" style="--tc-c: #999" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">Hardening de Sistemas</div><div class="tc-vendor v-tbd">Servicio profesional</div></div>
+        <div class="tc-brief">CIS Benchmarks, DISA STIGs, gestión de parches críticos.</div>
+        <div class="tc-expand">Puede ejecutarlo Coresolutions como servicio profesional, no como producto de licenciamiento. Requiere acceso completo a los sistemas de Fases 1 y 2. Es una actividad de madurez, no de instalación.</div>
+      </div>
+      <div class="tc" style="--tc-c: #999" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">Seguridad SD-WAN</div><div class="tc-vendor v-tbd">Por confirmar</div></div>
+        <div class="tc-brief">Seguridad en capa de aplicación sobre SD-WAN corporativo.</div>
+        <div class="tc-expand">Depende de si CENTROSUR tiene o planea implementar SD-WAN. Requiere confirmación del cliente antes de incluirlo en cualquier propuesta.<div class="dep dep-warn">⚠ Incluirlo sin confirmar la arquitectura de red del cliente es proponer una solución para un problema que puede no existir.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 4 -->
+  <div class="fd" id="fd-4">
+    <div class="fd-top">
+      <div>
+        <div class="fd-eyebrow">Fase 04 — Inteligencia operacional</div>
+        <div class="fd-title">Detección e Inteligencia de Amenazas</div>
+        <div class="fd-desc">Centralizar visibilidad y responder con automatización. Esta fase solo produce resultados reales si las tres anteriores están generando datos de calidad y el cliente tiene madurez operacional para operar el SOC.</div>
+      </div>
+      <div class="fd-badge">Meses 14–24</div>
+    </div>
+    <div class="why-bar">
+      <div class="why-bar-label">Por qué es la última</div>
+      <div class="why-tags">
+        <span class="why-tag k">SIEM sin sensores maduros = solo ruido operacional</span>
+        <span class="why-tag k">DLP requiere clasificación de información completada antes</span>
+        <span class="why-tag k">Requiere datos de calidad de las 3 fases anteriores</span>
+        <span class="why-tag">El cliente ya tiene madurez para operar el SOC</span>
+        <span class="why-tag">SOC externo puede gestionar el ecosistema completo</span>
+      </div>
+    </div>
+    <div class="tc-grid">
+      <div class="tc" style="--tc-c: var(--red)" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">SIEM / SOAR / UEBA</div><div class="tc-vendor v-tbd">Por definir</div></div>
+        <div class="tc-brief">Correlación de eventos, automatización de respuesta e IA comportamental.</div>
+        <div class="tc-expand">Gap crítico del portafolio. Opciones: IBM QRadar, Splunk, Microsoft Sentinel.<div class="dep dep-crit">⚠ Sin logs de calidad del FW, EDR e IAM operativos en las fases anteriores, el SIEM no tiene nada que correlacionar. Activarlo antes produce un sistema que genera alertas sin contexto que nadie puede responder.</div></div>
+      </div>
+      <div class="tc" style="--tc-c: var(--red)" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">SOC / CSIRT / CTI</div><div class="tc-vendor v-ext">Proveedor externo</div></div>
+        <div class="tc-brief">Centro de operaciones — Threat Hunting — Inteligencia de amenazas.</div>
+        <div class="tc-expand">Servicio de SOC externalizado o interno a construir. Debe ser operacionalmente independiente del integrador.<div class="dep dep-crit">⚠ Un SOC sin herramientas maduras de las fases anteriores opera completamente a ciegas. El equipo SOC necesita datos confiables para cazar amenazas — no para configurar herramientas que deberían estar listas desde Fase 1.</div></div>
+      </div>
+      <div class="tc" style="--tc-c: var(--amber)" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">DLP Perimetral y Endpoint</div><div class="tc-vendor v-cp">Check Point</div></div>
+        <div class="tc-brief">Protección de datos sensibles en movimiento — perimetral y en endpoints.</div>
+        <div class="tc-expand">Harmony DLP integrado al ecosistema Check Point.<div class="dep dep-warn">⚠ Pregunta directa antes de incluirlo en la propuesta: ¿CENTROSUR tiene su información clasificada y etiquetada? ¿Existen políticas aprobadas? Si la respuesta es no, el DLP no tiene nada que proteger.</div></div>
+      </div>
+      <div class="tc" style="--tc-c: #999" onclick="toggleTc(this)">
+        <div class="tc-top"><div class="tc-name">NDR</div><div class="tc-vendor v-tbd">Por definir</div></div>
+        <div class="tc-brief">Detección de amenazas en tráfico de red lateral y este–oeste.</div>
+        <div class="tc-expand">Network Detection & Response. Complementa al SIEM con análisis de tráfico que los logs de FW no capturan.<div class="dep dep-warn">⚠ Requiere la infraestructura de red de Fase 1 completamente operativa con span ports o TAPs configurados. Sin eso, el NDR no tiene acceso al tráfico que necesita analizar.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 RAZONES -->
+  <div class="w11">
+    <div class="w11-title">Las <span>11 razones</span> para defender la división por fases</div>
+    <div class="w11-grid">
+      <div class="w11-card" onclick="toggleW11(this)">
+        <div class="w11-icon">⛓</div>
+        <div class="w11-head">Las dependencias técnicas no son opcionales</div>
+        <div class="w11-body">La Observabilidad depende del FW. El SIEM depende del EDR e IAM. El NDR depende de la red de Fase 1. Hay un orden que no puede saltarse sin consecuencias operacionales directas.</div>
+      </div>
+      <div class="w11-card" onclick="toggleW11(this)">
+        <div class="w11-icon">📦</div>
+        <div class="w11-head">Todo instalado, nada funcionando bien</div>
+        <div class="w11-body">Cuando 15 herramientas se implementan en paralelo, cada una queda con configuración mínima. El equipo de TI gestiona 15 proyectos a medias. El resultado es peor que no tener nada: falsa sensación de seguridad.</div>
+      </div>
+      <div class="w11-card" onclick="toggleW11(this)">
+        <div class="w11-icon">⚖️</div>
+        <div class="w11-head">El Pen Testing no puede ser del mismo proveedor</div>
+        <div class="w11-body">Auditar la propia implementación no tiene validez. Los reguladores del sector financiero y eléctrico en Ecuador no lo aceptarían. Es un conflicto de interés estructural.</div>
+      </div>
+      <div class="w11-card" onclick="toggleW11(this)">
+        <div class="w11-icon">🏭</div>
+        <div class="w11-head">Nadie domina todo el stack al mismo nivel</div>
+        <div class="w11-body">NGFW, IAM/PAM, SIEM, WAF, NDR son dominios de especialización distintos. Las fases permiten traer el especialista correcto para cada área.</div>
+      </div>
+      <div class="w11-card" onclick="toggleW11(this)">
+        <div class="w11-icon">🔧</div>
+        <div class="w11-head">Incompatibilidades descubiertas cuando ya no hay salida</div>
+        <div class="w11-body">Si el IAM no se integra con el NAC o el FW, eso se descubre a los 8 meses en producción. Las fases permiten validar integraciones antes de comprometer el siguiente contrato.</div>
+      </div>
+      <div class="w11-card" onclick="toggleW11(this)">
+        <div class="w11-icon">💣</div>
+        <div class="w11-head">Un problema en un componente paraliza el contrato entero</div>
+        <div class="w11-body">En un contrato monolítico de 2 años, cualquier fallo queda en disputa legal. Las fases son contratos independientes: el riesgo no se propaga.</div>
+      </div>
+      <div class="w11-card" onclick="toggleW11(this)">
+        <div class="w11-icon">🔀</div>
+        <div class="w11-head">Herramientas que se solapan sin diseño coordinado</div>
+        <div class="w11-body">Endpoint, VPN, ZTNA y NAC operan sobre la misma capa. Sin secuencia, se generan contradicciones de políticas que crean exactamente las brechas que se quieren evitar.</div>
+      </div>
+      <div class="w11-card" onclick="toggleW11(this)">
+        <div class="w11-icon">🐌</div>
+        <div class="w11-head">El cliente no puede absorber todo a la vez</div>
+        <div class="w11-body">Definir políticas de bloqueo en un Firewall toma meses. Con 15 herramientas activas simultáneamente, todas quedan con configuración básica. Seguridad cara, postura real mínima.</div>
+      </div>
+      <div class="w11-card" onclick="toggleW11(this)">
+        <div class="w11-icon">🧑‍💼</div>
+        <div class="w11-head">Un administrador no puede gestionar 15 proyectos a la vez</div>
+        <div class="w11-body">Es un problema de capacidad física, no de voluntad. Las fases distribuyen la carga. Cada fase tiene un administrador con foco, hitos claros y entregables cerrados.</div>
+      </div>
+      <div class="w11-card" onclick="toggleW11(this)">
+        <div class="w11-icon">📋</div>
+        <div class="w11-head">DLP sin clasificación de información previa</div>
+        <div class="w11-body">¿CENTROSUR tiene su información mapeada y etiquetada? Si no, el DLP no tiene nada que proteger. Esta pregunta hay que hacerla antes de incluirlo en la propuesta.</div>
+      </div>
+      <div class="w11-card" onclick="toggleW11(this)">
+        <div class="w11-icon">🎯</div>
+        <div class="w11-head">SIEM sin marcos definidos = ruido sin respuesta</div>
+        <div class="w11-body">Sin procesos de respuesta, umbrales y roles SOC definidos internamente, el SIEM genera alertas que nadie puede responder. El equipo lo apaga. La herramienta queda activa pero inútil.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>Coresolutions · Documento de uso interno · No distribuir</span>
+  <span id="fdate"></span>
+</footer>
+
+<script>
+function showPanel(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function showFase(n) {
+  document.querySelectorAll('.fn').forEach(nd => nd.classList.remove('active'));
+  document.querySelectorAll('.fd').forEach(d => d.classList.remove('active'));
+  document.querySelector('[data-n="' + n + '"]').classList.add('active');
+  document.getElementById('fd-' + n).classList.add('active');
+  const pct = {1:'0%', 2:'33%', 3:'66%', 4:'100%'};
+  document.getElementById('tl-fill').style.width = pct[n];
+}
+
+function toggleRisk(el) {
+  const wasOpen = el.classList.contains('open');
+  el.closest('.prob-col').querySelectorAll('.risk-card').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) el.classList.add('open');
+}
+
+function toggleTc(el) { el.classList.toggle('open'); }
+
+function toggleW11(el) {
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.w11-card').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) el.classList.add('open');
+}
+
+document.getElementById('fdate').textContent =
+  new Date().toLocaleDateString('es-EC', {year:'numeric', month:'long', day:'numeric'});
+</script>
+</body>
+</html>

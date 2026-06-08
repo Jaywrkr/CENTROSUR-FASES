@@ -675,15 +675,15 @@ footer {
     <button class="nav-tab" onclick="showPanel('casos',this)">03 — Casos reales</button>
     <button class="nav-tab" onclick="showPanel('datos',this)">04 — Datos</button>
     <button class="nav-tab" onclick="showPanel('matriz',this)">05 — Matriz</button>
-    <button class="nav-tab" onclick="showPanel('roles',this)">06 — Por rol</button>
+    <button class="nav-tab" onclick="showPanel('consultor',this)">06 — El consultor</button>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-label">Fortalecimiento integral de ciberseguridad</div>
-  <h1>Por qué un contrato único<br><em>no va a funcionar</em></h1>
-  <p class="hero-sub">Contratar todas las herramientas del stack en un solo proyecto no es eficiencia. Es instalar todo de golpe sin respetar las dependencias técnicas que hacen que cada herramienta tenga sentido.</p>
+  <h1>La ciberseguridad se debe<br><em>implementar en fases.</em></h1>
+  <p class="hero-sub">Contratar todas las herramientas del stack en un solo proyecto no es eficiencia. Es intentar instalar todo de golpe sin respetar las dependencias técnicas que hacen que cada herramienta tenga sentido.</p>
   <div class="hero-stats">
     <div class="hstat">
       <div class="hstat-val" style="color:var(--orange2)">3–6</div>
@@ -1051,7 +1051,7 @@ footer {
         <span class="why-tag k">Capa base obligatoria</span>
         <span class="why-tag k">Genera los sensores que necesita el SIEM</span>
         <span class="why-tag k">Valida el equipo técnico antes de escalar</span>
-        <span class="why-tag">ROI demostrable desde el mes 1</span>
+        <span class="why-tag">ROI demostrable</span>
         <span class="why-tag">Entregable claro y cerrable antes de Fase 2</span>
       </div>
     </div>
@@ -2104,7 +2104,7 @@ function showFase(n) {
   document.querySelectorAll('.fd').forEach(d => d.classList.remove('active'));
   document.querySelector('[data-n="' + n + '"]').classList.add('active');
   document.getElementById('fd-' + n).classList.add('active');
-  const pct = {1:'0%', 2:'25%', 3:'50%', 4:'75%', 5:'100%'};
+  const pct = {1:'0%', 2:'33%', 3:'66%', 4:'100%'};
   document.getElementById('tl-fill').style.width = pct[n];
 }
 

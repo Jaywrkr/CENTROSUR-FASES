@@ -235,10 +235,11 @@ nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:3px s
 .ref-badge{font-family:var(--mono);font-size:9px;padding:3px 8px;background:var(--navy);color:#fff;border-radius:3px;flex-shrink:0;}
 .ref-text{font-family:var(--mono);font-size:10px;color:var(--muted);line-height:1.6;}
 
-.mx-leyenda-explicada{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;padding:18px 20px;background:var(--white);border:1px solid var(--border);border-radius:6px;}
-.mxle-item{display:flex;align-items:flex-start;gap:12px;font-size:12px;color:var(--muted);line-height:1.6;}
-.mxle-item strong{color:var(--text);}
-.mxle-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:3px;}
+.mx-leyenda-explicada{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:18px;}
+.mx-note-card{padding:14px 16px;background:var(--white);border:1px solid var(--border);border-radius:6px;}
+.mx-note-kicker{font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
+.mx-note-card p{font-size:12px;color:var(--muted);line-height:1.75;}
+.mx-note-card strong{color:var(--text);}
 .mx-detail-body strong{color:var(--navy);font-weight:600;display:block;margin-bottom:6px;}
 .matriz-outer{padding:0 48px 64px;max-width:1300px;}
 .mx-intro{padding:32px 0 28px;border-bottom:1px solid var(--border);margin-bottom:24px;}
@@ -748,9 +749,9 @@ footer{padding:18px 48px;border-top:1px solid var(--border);font-family:var(--mo
     <p class="mx-sub">Cada control de seguridad mitiga riesgos específicos. Pero solo puede mitigarlos si las capas anteriores están operativas. Referenciado contra NIST CSF 2.0, C2M2 (DOE/NIST) y los casos documentados.</p>
   </div>
   <div class="mx-leyenda-explicada">
-    <div class="mxle-item"><span class="mxle-dot" style="background:var(--green)"></span><div><strong>Qué se quiere mostrar:</strong> la matriz no compara marcas ni proveedores. Muestra en qué fase cada control empieza a producir valor real.</div></div>
-    <div class="mxle-item"><span class="mxle-dot" style="background:var(--amber)"></span><div><strong>Cómo se lee:</strong> verde significa que esa fase cubre el control; amarillo significa que ayuda, pero depende de algo previo; rojo significa que todavía no conviene activarlo porque faltan bases técnicas.</div></div>
-    <div class="mxle-item"><span class="mxle-dot" style="background:var(--border)"></span><div><strong>Conclusión:</strong> si se compra todo al mismo tiempo, la tabla se llena de dependencias abiertas. Si se hace por fases, cada dependencia se cierra antes de pasar a la siguiente.</div></div>
+    <div class="mx-note-card"><div class="mx-note-kicker">Qué muestra</div><p><strong>La matriz no compara marcas ni proveedores.</strong> Muestra en qué fase cada control empieza a producir valor real.</p></div>
+    <div class="mx-note-card"><div class="mx-note-kicker">Cómo se lee</div><p><strong>La fila se interpreta de izquierda a derecha.</strong> Cada columna F1–F4 indica si el control conviene activarlo ahí, si todavía depende de otra fase o si no aplica en ese momento.</p></div>
+    <div class="mx-note-card"><div class="mx-note-kicker">Conclusión</div><p><strong>Si se compra todo al mismo tiempo, se abren dependencias por todos lados.</strong> Si se hace por fases, cada dependencia se cierra antes de pasar a la siguiente.</p></div>
   </div>
   <div class="mx-legend">
     <div class="mxl-item"><strong>Cubrir aquí:</strong> esta fase ya tiene base para activar el control.</div>

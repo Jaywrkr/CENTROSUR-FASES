@@ -3,31 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CENTROSUR — Ciberseguridad por Fases · Coresolutions</title>
+<title>CENTROSUR — Ciberseguridad por Fases</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --navy:#132244; --navy2:#1a2e57; --orange:#d95f0a; --orange2:#f07020;
-  --bg:#f4f3f0; --bg2:#eceae6; --white:#ffffff; --text:#1a1a1a;
-  --muted:#6b6b6b; --muted2:#9a9a9a; --border:#dddbd7;
-  --red:#c0392b; --amber:#c97a10; --green:#1a7a4a;
-  --serif:'DM Serif Display',serif; --mono:'DM Mono',monospace; --sans:'Inter',sans-serif;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#132244;--navy2:#1a2e57;--orange:#d95f0a;--orange2:#f07020;
+  --bg:#f4f3f0;--bg2:#eceae6;--white:#ffffff;--text:#1a1a1a;
+  --muted:#6b6b6b;--muted2:#9a9a9a;--border:#dddbd7;
+  --red:#c0392b;--amber:#c97a10;--green:#1a7a4a;
+  --serif:'DM Serif Display',serif;--mono:'DM Mono',monospace;--sans:'Inter',sans-serif;
 }
 html,body{margin:0;padding:0;background:var(--navy);}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;overflow-x:hidden;}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:3px solid var(--orange);display:flex;flex-direction:column;padding:0;margin:0;}
-.nav-top{display:flex;align-items:center;padding:0 24px;height:36px;border-bottom:1px solid rgba(255,255,255,0.08);background:var(--navy);}
+nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:3px solid var(--orange);display:flex;flex-direction:column;}
+.nav-top{display:flex;align-items:center;padding:0 24px;height:36px;border-bottom:1px solid rgba(255,255,255,0.08);}
 .nav-left{font-family:var(--mono);font-size:9px;letter-spacing:0.15em;color:rgba(255,255,255,0.4);text-transform:uppercase;display:flex;align-items:center;gap:10px;}
 .nav-sep{opacity:0.3;}
-.nav-tabs{display:flex;gap:6px;padding:6px 24px 8px;overflow-x:auto;scrollbar-width:none;background:var(--navy);}
+.nav-tabs{display:flex;gap:6px;padding:6px 24px 8px;overflow-x:auto;scrollbar-width:none;}
 .nav-tabs::-webkit-scrollbar{display:none;}
 .nav-tab{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;padding:7px 18px;border-radius:4px;border:none;background:#2a3f6f;color:#fff;cursor:pointer;text-transform:uppercase;transition:all 0.15s;white-space:nowrap;flex-shrink:0;font-weight:500;}
 .nav-tab:hover{background:#354d85;}
-.nav-tab.active{background:var(--orange);color:#fff;}
+.nav-tab.active{background:var(--orange);}
 
 /* HERO */
 .hero{background:var(--navy);padding:56px 48px 48px;color:white;}
@@ -35,7 +35,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:3px s
 .hero-label::after{content:'';display:block;flex:1;max-width:40px;height:1px;background:var(--orange);}
 .hero h1{font-family:var(--serif);font-size:clamp(34px,5vw,62px);line-height:1.05;font-weight:400;margin-bottom:8px;}
 .hero h1 em{font-style:italic;color:var(--orange2);}
-.hero-sub{font-family:var(--sans);font-size:14px;color:rgba(255,255,255,0.6);max-width:520px;line-height:1.7;margin-top:16px;}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.6);max-width:520px;line-height:1.7;margin-top:16px;}
 .hero-lema{margin-top:20px;font-family:var(--mono);font-size:11px;color:var(--orange2);letter-spacing:0.08em;padding:10px 16px;border:1px solid rgba(240,112,32,0.35);border-radius:4px;display:inline-block;background:rgba(240,112,32,0.08);}
 .hero-stats{display:flex;margin-top:32px;border:1px solid rgba(255,255,255,0.1);border-radius:6px;overflow:hidden;}
 .hstat{flex:1;padding:18px 24px;border-right:1px solid rgba(255,255,255,0.1);}
@@ -43,14 +43,13 @@ nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:3px s
 .hstat-val{font-family:var(--serif);font-size:30px;line-height:1;margin-bottom:4px;}
 .hstat-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.45);text-transform:uppercase;line-height:1.5;}
 
-/* PANELS */
 .panel{display:none;}.panel.active{display:block;}
 
 /* RIESGOS */
 .prob-layout{display:grid;grid-template-columns:1fr 1fr 1fr;max-width:1400px;}
-.prob-col{padding:40px 36px;border-right:1px solid var(--border);}
+.prob-col{padding:36px 32px;border-right:1px solid var(--border);}
 .prob-col:last-child{border-right:none;}
-.col-header{margin-bottom:24px;}
+.col-header{margin-bottom:20px;}
 .col-cat{font-family:var(--mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
 .col-cat-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
 .col-title{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--navy);}
@@ -68,7 +67,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:3px s
 .risk-sub{font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.6;}
 .risk-arrow{flex-shrink:0;color:var(--muted2);font-size:12px;padding-top:2px;transition:transform 0.25s;}
 .risk-card.open .risk-arrow{transform:rotate(180deg);}
-.risk-detail{display:none;padding:0 16px 14px 50px;font-size:12px;line-height:1.8;color:var(--muted);border-top:1px solid var(--border);padding-top:12px;}
+.risk-detail{display:none;padding:12px 16px 14px 50px;font-size:12px;line-height:1.8;color:var(--muted);border-top:1px solid var(--border);}
 .risk-card.open .risk-detail{display:block;}
 .risk-detail strong{color:var(--text);font-weight:600;}
 
@@ -76,14 +75,6 @@ nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:3px s
 .fases-outer{padding:0 48px 64px;max-width:1200px;}
 .fases-intro{padding:28px 0 24px;border-bottom:1px solid var(--border);margin-bottom:28px;}
 .fases-intro p{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.9;max-width:600px;}
-.exec-split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;}
-.exec-col{padding:14px 18px;border-radius:6px;border:1px solid var(--border);}
-.exec-core{background:rgba(19,34,68,0.05);border-color:rgba(19,34,68,0.2);}
-.exec-ext{background:rgba(192,57,43,0.05);border-color:rgba(192,57,43,0.2);}
-.exec-label{font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);margin-bottom:6px;}
-.exec-fases{font-family:var(--serif);font-size:22px;color:var(--navy);margin-bottom:4px;}
-.exec-ext .exec-fases{color:var(--red);}
-.exec-note{font-family:var(--mono);font-size:10px;color:var(--muted);line-height:1.6;}
 .callout-main{background:var(--navy);border-radius:6px;padding:20px 24px;margin-bottom:28px;display:flex;gap:18px;align-items:flex-start;}
 .callout-icon{font-size:20px;flex-shrink:0;padding-top:2px;}
 .callout-title{font-family:var(--serif);font-size:17px;color:#fff;margin-bottom:5px;font-weight:400;}
@@ -96,7 +87,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:3px s
 .fn{flex:1;display:flex;flex-direction:column;align-items:center;cursor:pointer;position:relative;z-index:1;}
 .fn-dot{width:52px;height:52px;border-radius:50%;border:2px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--muted);transition:all 0.3s;margin-bottom:10px;}
 .fn.active .fn-dot{background:var(--navy);border-color:var(--navy);color:white;}
-.fn-label{font-size:11px;font-weight:600;text-align:center;color:var(--muted);transition:color 0.2s;line-height:1.4;}
+.fn-label{font-size:11px;font-weight:600;text-align:center;color:var(--muted);line-height:1.4;}
 .fn.active .fn-label{color:var(--navy);}
 .fn-period{font-family:var(--mono);font-size:10px;color:var(--muted2);margin-top:3px;}
 .fd{display:none;}.fd.active{display:block;}
@@ -104,10 +95,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:3px s
 .fd-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange);margin-bottom:6px;}
 .fd-title{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--navy);line-height:1.1;margin-bottom:8px;}
 .fd-desc{font-size:13px;color:var(--muted);line-height:1.8;max-width:480px;}
-.fd-badge{flex-shrink:0;padding:7px 18px;border-radius:100px;border:1px solid var(--border);font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--muted);background:var(--white);white-space:nowrap;}
-.exec-badge-core{background:rgba(19,34,68,0.08);color:var(--navy);border-color:rgba(19,34,68,0.2);}
-.exec-badge-ext{background:rgba(192,57,43,0.07);color:var(--red);border-color:rgba(192,57,43,0.2);}
-.exec-badge-mixed{background:rgba(201,122,16,0.07);color:var(--amber);border-color:rgba(201,122,16,0.2);}
+.fd-badge{flex-shrink:0;padding:7px 18px;border-radius:100px;border:1px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--muted);background:var(--white);white-space:nowrap;}
 .why-bar{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:14px 18px;margin-bottom:16px;border-left:3px solid var(--orange);}
 .why-bar-label{font-family:var(--mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted2);margin-bottom:8px;}
 .why-tags{display:flex;flex-wrap:wrap;gap:6px;}
@@ -118,19 +106,12 @@ nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:3px s
 .fd-dom-label{font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);margin-bottom:8px;}
 .fd-dom-tags{display:flex;flex-wrap:wrap;gap:6px;}
 .dom-tag{font-family:var(--mono);font-size:11px;padding:4px 12px;border-radius:100px;border:1px solid rgba(19,34,68,0.2);background:rgba(19,34,68,0.05);color:var(--navy);}
-.dom-tag.dom-note{border-color:rgba(201,122,16,0.3);background:rgba(201,122,16,0.05);color:var(--amber);}
 .tc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;}
-.tc{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:14px 16px;cursor:pointer;transition:border-color 0.2s;position:relative;}
-.tc::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--tc-c);border-radius:6px 0 0 6px;opacity:0.4;transition:opacity 0.2s;}
-.tc:hover{border-color:#c0c0c0;}.tc:hover::before{opacity:0.8;}
-.tc.open{border-color:var(--navy);}.tc.open::before{opacity:1;}
+.tc{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:14px 16px;position:relative;}
+.tc::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--tc-c);border-radius:6px 0 0 6px;opacity:0.5;}
 .tc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;}
 .tc-name{font-size:13px;font-weight:600;color:var(--navy);}
-.tc-vendor{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;padding:3px 8px;border-radius:3px;text-transform:uppercase;}
-.v-ext{background:rgba(192,57,43,0.07);color:var(--red);border:1px solid rgba(192,57,43,0.2);}
 .tc-brief{font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.6;}
-.tc-expand{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);line-height:1.8;}
-.tc.open .tc-expand{display:block;}
 .dep{margin-top:8px;padding:8px 10px;border-radius:4px;font-family:var(--mono);font-size:10px;line-height:1.6;}
 .dep-warn{background:rgba(201,122,16,0.07);color:var(--amber);border:1px solid rgba(201,122,16,0.2);}
 .dep-info{background:rgba(26,122,74,0.06);color:var(--green);border:1px solid rgba(26,122,74,0.18);}
@@ -151,6 +132,109 @@ nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:3px s
 .w11-body{display:none;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.8;}
 .w11-card.open .w11-body{display:block;}
 
+/* MATRIZ */
+.matriz-outer{padding:0 48px 64px;max-width:1300px;}
+.mx-intro{padding:32px 0 24px;border-bottom:1px solid var(--border);margin-bottom:24px;}
+.mx-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
+.mx-title{font-family:var(--serif);font-size:clamp(26px,4vw,40px);font-weight:400;color:var(--navy);line-height:1.1;margin-bottom:14px;}
+.mx-title em{font-style:italic;color:var(--orange2);}
+.dep-diagram{padding:22px 26px;background:var(--navy);border-radius:8px;margin-bottom:24px;}
+.dd-title{font-family:var(--serif);font-size:18px;color:#fff;font-weight:400;margin-bottom:5px;}
+.dd-subtitle{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:18px;}
+.dd-flow{display:flex;align-items:stretch;overflow-x:auto;gap:0;}
+.dd-fase{flex:1;min-width:150px;padding:14px 12px;border:1px solid;border-radius:6px;background:rgba(255,255,255,0.05);}
+.dd-f-num{font-family:var(--mono);font-size:10px;color:var(--orange2);margin-bottom:5px;}
+.dd-f-name{font-size:12px;font-weight:700;color:#fff;margin-bottom:7px;line-height:1.3;}
+.dd-f-tools{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:8px;}
+.dd-f-output{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.35);line-height:1.5;border-top:1px solid rgba(255,255,255,0.1);padding-top:7px;}
+.dd-arrow{display:flex;align-items:center;padding:0 8px;color:var(--orange);font-size:18px;flex-shrink:0;}
+.mx-cards-top{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;}
+.mxc{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:16px 18px;}
+.mxc-label{font-family:var(--mono);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
+.mxc-text{font-size:12px;color:var(--muted);line-height:1.7;}
+.mxc-text strong{color:var(--text);}
+.mx-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+.mx-pill{font-family:var(--mono);font-size:10px;padding:5px 14px;border-radius:100px;border:1px solid;}
+.pill-green{background:rgba(26,122,74,0.07);color:var(--green);border-color:rgba(26,122,74,0.25);}
+.pill-amber{background:rgba(201,122,16,0.07);color:var(--amber);border-color:rgba(201,122,16,0.25);}
+.pill-red{background:rgba(192,57,43,0.07);color:var(--red);border-color:rgba(192,57,43,0.25);}
+.pill-gray{background:var(--bg2);color:var(--muted2);border-color:var(--border);}
+.mx-table-wrap{overflow-x:auto;margin-bottom:32px;}
+.mx-table{width:100%;border-collapse:collapse;font-size:12px;}
+.mx-table thead tr{background:var(--navy);color:#fff;}
+.mx-th-control{padding:10px 14px;text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;min-width:200px;}
+.mx-th-fw{padding:10px 10px;text-align:left;font-family:var(--mono);font-size:10px;min-width:120px;}
+.mx-th-f{padding:10px 8px;text-align:center;font-family:var(--mono);font-size:10px;min-width:90px;}
+.mx-th-f span{display:block;font-size:9px;opacity:0.6;font-weight:400;margin-top:2px;}
+.mx-th-dep{padding:10px 10px;text-align:left;font-family:var(--mono);font-size:10px;min-width:180px;}
+.mx-group-row td{background:rgba(19,34,68,0.06);padding:6px 14px;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--navy);font-weight:600;border-top:1px solid var(--border);}
+.mx-row{cursor:pointer;border-bottom:1px solid var(--border);transition:background 0.15s;}
+.mx-row:hover{background:rgba(19,34,68,0.03);}
+.mx-row.open{background:rgba(19,34,68,0.04);}
+.mx-ctrl{padding:10px 14px;color:var(--text);font-size:12px;line-height:1.5;}
+.mx-fw{padding:10px 10px;}
+.fw-pill{font-family:var(--mono);font-size:9px;padding:3px 8px;background:rgba(19,34,68,0.08);color:var(--navy);border-radius:3px;border:1px solid rgba(19,34,68,0.15);white-space:nowrap;}
+.mx-row td:nth-child(3),.mx-row td:nth-child(4),.mx-row td:nth-child(5),.mx-row td:nth-child(6){text-align:center;padding:10px 6px;}
+.mx-badge{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:4px;border:1px solid;white-space:nowrap;display:inline-block;}
+.badge-green{background:rgba(26,122,74,0.08);color:var(--green);border-color:rgba(26,122,74,0.3);}
+.badge-amber{background:rgba(201,122,16,0.08);color:var(--amber);border-color:rgba(201,122,16,0.3);}
+.badge-red{background:rgba(192,57,43,0.07);color:var(--red);border-color:rgba(192,57,43,0.25);}
+.badge-gray{background:var(--bg2);color:var(--muted2);border-color:var(--border);}
+.mx-dep{padding:10px 10px;font-family:var(--mono);font-size:10px;color:var(--muted2);line-height:1.5;}
+.mx-detail-row{display:none;}.mx-detail-row.open{display:table-row;}
+.mx-detail-body{padding:14px 16px;font-size:12px;color:var(--muted);line-height:1.8;background:rgba(244,243,240,0.7);border-bottom:2px solid var(--orange);}
+.mx-detail-body strong{color:var(--navy);font-weight:600;display:block;margin-bottom:4px;}
+.mx-detail-body em{font-style:italic;color:var(--muted2);font-size:11px;display:block;margin-top:8px;}
+
+/* CONSULTOR */
+.cons-outer{padding:0 48px 64px;max-width:1200px;}
+.cons-intro{padding:32px 0 28px;border-bottom:1px solid var(--border);margin-bottom:28px;}
+.cons-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
+.cons-title{font-family:var(--serif);font-size:clamp(26px,4vw,40px);font-weight:400;color:var(--navy);line-height:1.1;margin-bottom:20px;}
+.cons-title em{font-style:italic;color:var(--orange2);}
+.cons-lema-hero{display:flex;gap:16px;align-items:flex-start;background:var(--navy);border-radius:8px;padding:22px 26px;}
+.cons-lema-icon{font-size:26px;flex-shrink:0;}
+.cons-lema-main{font-family:var(--serif);font-size:24px;color:#fff;margin-bottom:8px;font-weight:400;}
+.cons-lema-main em{font-style:italic;color:var(--orange2);}
+.cons-lema-sub{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.6);line-height:1.8;}
+.cons-section-title{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--navy);margin-bottom:6px;margin-top:36px;}
+.cons-section-sub{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:18px;line-height:1.6;}
+.cons-dom-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px;}
+.cons-dom-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:18px 20px;border-top:3px solid var(--orange);}
+.cdc-icon{font-size:20px;margin-bottom:10px;}
+.cdc-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.3;}
+.cdc-body{font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:10px;}
+.cdc-fases{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);border-top:1px solid var(--border);padding-top:8px;}
+.cons-pilar-block{margin-top:36px;padding:26px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;}
+.cpb-title{font-family:var(--serif);font-size:20px;color:var(--navy);font-weight:400;margin-bottom:20px;}
+.cpb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;}
+.cpb-item{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:16px 18px;}
+.cpbi-icon{font-size:18px;margin-bottom:8px;}
+.cpbi-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.cpbi-body{font-size:12px;color:var(--muted);line-height:1.75;}
+
+/* COMPRAS PÚBLICAS */
+.cp-outer{padding:0 48px 64px;max-width:1100px;}
+.cp-intro{padding:32px 0 28px;border-bottom:1px solid var(--border);margin-bottom:32px;}
+.cp-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
+.cp-title{font-family:var(--serif);font-size:clamp(26px,4vw,40px);font-weight:400;color:var(--navy);line-height:1.1;margin-bottom:14px;}
+.cp-title em{font-style:italic;color:var(--orange2);}
+.cp-sub{font-size:13px;color:var(--muted);line-height:1.8;max-width:600px;}
+.cp-grid{display:flex;flex-direction:column;gap:8px;}
+.cp-card{background:var(--white);border:1px solid var(--border);border-radius:6px;overflow:hidden;cursor:pointer;}
+.cp-card.open{border-color:var(--navy);}
+.cp-top{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;}
+.cp-num{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--orange);flex-shrink:0;min-width:28px;padding-top:2px;}
+.cp-body{flex:1;}
+.cp-impact{font-size:13px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:3px;}
+.cp-card.open .cp-impact{color:var(--navy);}
+.cp-sub-text{font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.5;}
+.cp-arrow{flex-shrink:0;color:var(--muted2);font-size:12px;padding-top:2px;transition:transform 0.25s;}
+.cp-card.open .cp-arrow{transform:rotate(180deg);}
+.cp-detail{display:none;padding:12px 18px 16px 60px;font-size:12px;color:var(--muted);line-height:1.85;border-top:1px solid var(--border);}
+.cp-card.open .cp-detail{display:block;}
+.cp-detail strong{color:var(--text);font-weight:600;}
+
 /* CASOS */
 .casos-outer{padding:0 48px 64px;max-width:1200px;}
 .casos-intro{padding:32px 0 28px;border-bottom:1px solid var(--border);margin-bottom:32px;}
@@ -159,7 +243,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:3px s
 .casos-title em{font-style:italic;color:var(--orange2);}
 .casos-sub{font-size:13px;color:var(--muted);line-height:1.8;max-width:600px;}
 .casos-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
-.caso-card{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color 0.2s;}
+.caso-card{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
 .caso-card.open{border-color:var(--navy);}
 .caso-header{padding:20px 22px;cursor:pointer;}
 .caso-header:hover{background:rgba(19,34,68,0.02);}
@@ -223,11 +307,6 @@ nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:3px s
 .ds-label{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:6px;}
 .ds-source{font-family:var(--mono);font-size:9px;color:var(--orange);border-top:1px solid var(--border);padding-top:5px;margin-top:5px;}
 .db-note{font-family:var(--mono);font-size:11px;color:var(--muted2);line-height:1.7;border-top:1px solid var(--border);padding-top:12px;}
-.db-roi-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
-.roi-col{padding:14px 16px;background:var(--bg);border:1px solid var(--border);border-radius:6px;}
-.roi-col-title{font-size:13px;font-weight:700;margin-bottom:10px;}
-.roi-bad{color:var(--red);}.roi-good{color:var(--green);}
-.roi-item{font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:5px;}
 .ref-section{margin-top:28px;padding:22px 26px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;}
 .ref-title{font-family:var(--mono);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);margin-bottom:14px;}
 .ref-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px;}
@@ -235,93 +314,16 @@ nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:3px s
 .ref-badge{font-family:var(--mono);font-size:9px;padding:3px 8px;background:var(--navy);color:#fff;border-radius:3px;flex-shrink:0;}
 .ref-text{font-family:var(--mono);font-size:10px;color:var(--muted);line-height:1.6;}
 
-/* MATRIZ */
-.matriz-outer{padding:0 48px 64px;max-width:1300px;}
-.mx-intro{padding:32px 0 28px;border-bottom:1px solid var(--border);margin-bottom:24px;}
-.mx-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
-.mx-title{font-family:var(--serif);font-size:clamp(26px,4vw,40px);font-weight:400;color:var(--navy);line-height:1.1;margin-bottom:14px;}
-.mx-title em{font-style:italic;color:var(--orange2);}
-.mx-sub{font-size:13px;color:var(--muted);line-height:1.8;max-width:620px;}
-.mx-legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:18px;}
-.mxl-item{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;color:var(--muted);}
-.mxl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
-.mx-table-wrap{overflow-x:auto;margin-bottom:32px;}
-.mx-table{width:100%;border-collapse:collapse;font-size:12px;}
-.mx-table thead tr{background:var(--navy);color:#fff;}
-.mx-th-control{padding:10px 14px;text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;min-width:200px;}
-.mx-th-fw{padding:10px 10px;text-align:left;font-family:var(--mono);font-size:10px;min-width:120px;}
-.mx-th-f{padding:10px 8px;text-align:center;font-family:var(--mono);font-size:10px;min-width:60px;}
-.mx-th-f span{display:block;font-size:9px;opacity:0.6;font-weight:400;margin-top:2px;}
-.mx-th-dep{padding:10px 10px;text-align:left;font-family:var(--mono);font-size:10px;min-width:170px;}
-.mx-group-row td{background:rgba(19,34,68,0.06);padding:6px 14px;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--navy);font-weight:600;border-top:1px solid var(--border);}
-.mx-row{cursor:pointer;border-bottom:1px solid var(--border);transition:background 0.15s;}
-.mx-row:hover{background:rgba(19,34,68,0.03);}
-.mx-row.open{background:rgba(19,34,68,0.04);}
-.mx-ctrl{padding:10px 14px;color:var(--text);font-size:12px;line-height:1.5;}
-.mx-fw{padding:10px 10px;}
-.fw-pill{font-family:var(--mono);font-size:9px;padding:3px 8px;background:rgba(19,34,68,0.08);color:var(--navy);border-radius:3px;border:1px solid rgba(19,34,68,0.15);white-space:nowrap;}
-.mx-row td:nth-child(3),.mx-row td:nth-child(4),.mx-row td:nth-child(5),.mx-row td:nth-child(6){text-align:center;padding:10px 8px;}
-.mx-dot{width:12px;height:12px;border-radius:50%;margin:0 auto;}
-.mx-dot.g{background:var(--green);}.mx-dot.a{background:var(--amber);}.mx-dot.r{background:var(--red);}.mx-dot.b{background:var(--border);}
-.mx-dep{padding:10px 10px;font-family:var(--mono);font-size:10px;color:var(--muted2);line-height:1.5;}
-.mx-detail-row{display:none;}.mx-detail-row.open{display:table-row;}
-.mx-detail-body{padding:12px 14px;font-size:12px;color:var(--muted);line-height:1.8;background:rgba(244,243,240,0.7);border-bottom:2px solid var(--orange);}
-.mx-detail-body em{font-style:italic;color:var(--muted2);font-size:11px;display:block;margin-top:6px;}
-.dep-diagram{padding:22px 26px;background:var(--navy);border-radius:8px;}
-.dd-title{font-family:var(--serif);font-size:18px;color:#fff;font-weight:400;margin-bottom:5px;}
-.dd-subtitle{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:18px;}
-.dd-flow{display:flex;align-items:stretch;overflow-x:auto;gap:0;}
-.dd-fase{flex:1;min-width:150px;padding:14px 12px;border:1px solid;border-radius:6px;background:rgba(255,255,255,0.05);}
-.dd-f-num{font-family:var(--mono);font-size:10px;color:var(--orange2);margin-bottom:5px;}
-.dd-f-name{font-size:12px;font-weight:700;color:#fff;margin-bottom:7px;line-height:1.3;}
-.dd-f-tools{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:8px;}
-.dd-f-output{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.35);line-height:1.5;border-top:1px solid rgba(255,255,255,0.1);padding-top:7px;}
-.dd-arrow{display:flex;align-items:center;padding:0 8px;color:var(--orange);font-size:18px;flex-shrink:0;}
-
-/* CONSULTOR */
-.cons-outer{padding:0 48px 64px;max-width:1200px;}
-.cons-intro{padding:32px 0 28px;border-bottom:1px solid var(--border);margin-bottom:28px;}
-.cons-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
-.cons-title{font-family:var(--serif);font-size:clamp(26px,4vw,40px);font-weight:400;color:var(--navy);line-height:1.1;margin-bottom:20px;}
-.cons-title em{font-style:italic;color:var(--orange2);}
-.cons-lema-hero{display:flex;gap:16px;align-items:flex-start;background:var(--navy);border-radius:8px;padding:22px 26px;}
-.cons-lema-icon{font-size:26px;flex-shrink:0;}
-.cons-lema-main{font-family:var(--serif);font-size:24px;color:#fff;margin-bottom:8px;font-weight:400;}
-.cons-lema-main em{font-style:italic;color:var(--orange2);}
-.cons-lema-sub{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.6);line-height:1.8;}
-.cons-section-title{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--navy);margin-bottom:6px;margin-top:36px;}
-.cons-section-sub{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:18px;line-height:1.6;}
-.cons-dom-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px;}
-.cons-dom-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:18px 20px;border-top:3px solid var(--orange);}
-.cdc-icon{font-size:20px;margin-bottom:10px;}
-.cdc-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.3;}
-.cdc-body{font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:10px;}
-.cdc-fases{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);border-top:1px solid var(--border);padding-top:8px;}
-.cons-pilar-block{margin-top:36px;padding:26px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;}
-.cpb-title{font-family:var(--serif);font-size:20px;color:var(--navy);font-weight:400;margin-bottom:20px;}
-.cpb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;}
-.cpb-item{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:16px 18px;}
-.cpbi-icon{font-size:18px;margin-bottom:8px;}
-.cpbi-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:8px;}
-.cpbi-body{font-size:12px;color:var(--muted);line-height:1.75;}
-
-/* FOOTER */
 footer{padding:18px 48px;border-top:1px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--muted2);display:flex;justify-content:space-between;background:var(--bg);}
 
-/* RESPONSIVE */
 @media(max-width:900px){.prob-layout{grid-template-columns:1fr;}.prob-col{border-right:none;border-bottom:1px solid var(--border);padding:24px 20px;}}
 @media(max-width:720px){
   nav,.hero{padding-left:20px;padding-right:20px;}
-  .hero-stats{flex-direction:column;}
-  .hstat{border-right:none;border-bottom:1px solid rgba(255,255,255,0.1);}
-  .fases-outer,.casos-outer,.datos-outer,.matriz-outer,.cons-outer{padding-left:20px;padding-right:20px;}
-  .exec-split{grid-template-columns:1fr;}
+  .hero-stats{flex-direction:column;}.hstat{border-right:none;border-bottom:1px solid rgba(255,255,255,0.1);}
+  .fases-outer,.casos-outer,.datos-outer,.matriz-outer,.cons-outer,.cp-outer{padding-left:20px;padding-right:20px;}
   .caso-cols{grid-template-columns:1fr;}
-  .cib-item{min-width:40%;border-bottom:1px solid var(--border);}
-  .db-roi-compare{grid-template-columns:1fr;}
-  .ref-grid{grid-template-columns:1fr;}
-  .dd-flow{flex-direction:column;}
-  .dd-arrow{transform:rotate(90deg);padding:4px 0;text-align:center;}
+  .mx-cards-top{grid-template-columns:1fr;}
+  .dd-flow{flex-direction:column;}.dd-arrow{transform:rotate(90deg);padding:4px 0;}
 }
 </style>
 </head>
@@ -330,22 +332,21 @@ footer{padding:18px 48px;border-top:1px solid var(--border);font-family:var(--mo
 <nav>
   <div class="nav-top">
     <div class="nav-left">
-      <span>Coresolutions</span><span class="nav-sep">·</span>
       <span>CENTROSUR</span><span class="nav-sep">·</span>
-      <span>Uso interno</span>
+      <span>Fortalecimiento de Ciberseguridad</span>
     </div>
   </div>
   <div class="nav-tabs">
-    <button class="nav-tab active" onclick="showPanel('problema',this)">01 — Riesgos</button>
+    <button class="nav-tab active" onclick="showPanel('riesgos',this)">01 — Riesgos</button>
     <button class="nav-tab" onclick="showPanel('fases',this)">02 — 4 Fases</button>
-    <button class="nav-tab" onclick="showPanel('casos',this)">03 — Casos reales</button>
-    <button class="nav-tab" onclick="showPanel('datos',this)">04 — Datos</button>
-    <button class="nav-tab" onclick="showPanel('matriz',this)">05 — Matriz</button>
-    <button class="nav-tab" onclick="showPanel('consultor',this)">06 — El consultor</button>
+    <button class="nav-tab" onclick="showPanel('matriz',this)">03 — Matriz</button>
+    <button class="nav-tab" onclick="showPanel('consultor',this)">04 — El consultor</button>
+    <button class="nav-tab" onclick="showPanel('compras',this)">05 — Compras públicas</button>
+    <button class="nav-tab" onclick="showPanel('casos',this)">06 — Casos reales</button>
+    <button class="nav-tab" onclick="showPanel('datos',this)">07 — Datos</button>
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-label">Fortalecimiento integral de ciberseguridad</div>
   <h1>La ciberseguridad se debe<br><em>implementar en fases.</em></h1>
@@ -359,66 +360,112 @@ footer{padding:18px 48px;border-top:1px solid var(--border);font-family:var(--mo
   </div>
 </div>
 
-<!-- ══ PANEL 01 RIESGOS ══ -->
-<div class="panel active" id="panel-problema">
+<!-- ══ 01 RIESGOS ══ -->
+<div class="panel active" id="panel-riesgos">
   <div class="prob-layout">
 
-    <!-- COL TÉCNICO -->
+    <!-- TÉCNICO -->
     <div class="prob-col">
       <div class="col-header">
         <div class="col-cat"><div class="col-cat-dot" style="background:var(--red)"></div><span style="color:var(--red)">Riesgo técnico-operacional</span></div>
         <div class="col-title">Lo que deja de funcionar</div>
       </div>
-      <div class="risk-card" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">01</div><div class="risk-body"><div class="risk-impact">Todo se instala, nada queda operativo</div><div class="risk-sub">Cuando todo depende de todo, nada puede configurarse correctamente.</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">En un proyecto único con 15+ herramientas, cada implementación queda en estado de espera. El resultado: <strong>todo instalado, nada realmente funcionando</strong>, y el equipo de ciberseguridad de CENTROSUR gestionando 15 proyectos a medias simultáneamente.</div></div>
-      <div class="risk-card" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">02</div><div class="risk-body"><div class="risk-impact">El SIEM se activa sin datos que correlacionar</div><div class="risk-sub">Sin sensores operativos, el SIEM genera ruido — no inteligencia.</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">Si las herramientas de detección se instalan en paralelo sin configuración completa, el SIEM recibe datos parciales. <strong>El equipo de ciberseguridad se ahoga en alertas que no puede clasificar ni responder</strong>, y termina apagando las reglas para poder trabajar.</div></div>
-      <div class="risk-card" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">03</div><div class="risk-body"><div class="risk-impact">Conflictos de políticas entre herramientas no coordinadas</div><div class="risk-sub">Control de acceso, endpoint y acceso remoto operan sobre la misma capa.</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">Cuando varias capas de control de acceso se implementan en paralelo sin un orden definido, se generan contradicciones. <strong>Un usuario bloqueado por una herramienta pero aprobado por otra</strong>, o brechas donde ninguna asume responsabilidad porque cada una cree que la otra lo maneja.</div></div>
-      <div class="risk-card" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">04</div><div class="risk-body"><div class="risk-impact">Incompatibilidades técnicas que bloquean el proyecto completo</div><div class="risk-sub">La gestión de identidades debe ser compatible con el control de acceso y la detección de endpoint.</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">Si la gestión de identidades no se integra correctamente con el control de acceso a la red, el proyecto queda en pausa. <strong>En un contrato único ese problema se descubre a los 8 meses</strong>, cuando ya todo está firmado y la solución implica rediseño.</div></div>
-      <div class="risk-card" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">05</div><div class="risk-body"><div class="risk-impact">DLP activo sin información clasificada para proteger</div><div class="risk-sub">¿CENTROSUR tiene mapeada y etiquetada su información sensible?</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">El DLP requiere que la organización haya definido previamente su política de clasificación de información. Sin esa base, el DLP no sabe qué proteger. <strong>Instalarlo antes equivale a instalar una cerradura sin saber qué puertas tiene el edificio.</strong></div></div>
-      <div class="risk-card" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">06</div><div class="risk-body"><div class="risk-impact">El equipo de ciberseguridad colapsa con 15 proyectos simultáneos</div><div class="risk-sub">Cada herramienta requiere levantamientos, validaciones y hitos propios.</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">Con 15 implementaciones corriendo en paralelo, el equipo de ciberseguridad se convierte en un cuello de botella. <strong>Decisiones sin seguimiento, hitos perdidos, herramientas en estado "instalado pero sin configurar" por semanas.</strong> No es un problema de voluntad — es de capacidad física.</div></div>
+
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top"><div class="risk-num">01</div><div class="risk-body"><div class="risk-impact">Todo se está configurando, todo está en proceso — nada termina de quedar listo</div><div class="risk-sub">Cuando todo depende de todo, nada puede configurarse correctamente.</div></div><div class="risk-arrow">▾</div></div>
+        <div class="risk-detail">En un proyecto único con 15+ herramientas, cada implementación queda en estado de espera porque la siguiente no puede arrancar sin que la anterior esté lista. Todo está instalado, todo está "en proceso" — pero nada queda realmente operativo. El resultado: <strong>el equipo de ciberseguridad gestionando 15 implementaciones a medias simultáneamente, sin que ninguna llegue a producir valor real.</strong></div>
+      </div>
+
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top"><div class="risk-num">02</div><div class="risk-body"><div class="risk-impact">El SIEM se activa sin datos que correlacionar</div><div class="risk-sub">Sin sensores operativos, genera ruido — no inteligencia.</div></div><div class="risk-arrow">▾</div></div>
+        <div class="risk-detail">El SIEM necesita logs de calidad del firewall, la detección de endpoint, la gestión de identidades y el control de acceso para ser útil. Si esas herramientas se instalan en paralelo sin configuración completa, el SIEM recibe datos parciales. <strong>El equipo de ciberseguridad se ahoga en alertas que no puede clasificar ni responder</strong> y termina apagando las reglas para poder trabajar. Adicionalmente, en un proyecto de 2 años las herramientas evolucionan — algunas incorporarán IA, cambiarán su modelo de licenciamiento o quedarán reemplazadas por versiones completamente distintas. Lo que se configuró al inicio puede no ser lo que está corriendo al final.</div>
+      </div>
+
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top"><div class="risk-num">03</div><div class="risk-body"><div class="risk-impact">DLP activo sin información clasificada para proteger</div><div class="risk-sub">Puede estar funcionando técnicamente — pero sin datos definidos no sirve de nada.</div></div><div class="risk-arrow">▾</div></div>
+        <div class="risk-detail">El DLP requiere que la organización haya definido previamente su política de clasificación de información: qué es Confidencial, qué es Reservado, cómo se etiqueta. Sin esa base, el DLP no sabe qué proteger. <strong>Puede estar instalado, activo y generando reportes — y seguir siendo inútil porque no tiene ninguna definición sobre qué constituye una fuga.</strong> Instalarlo antes de que esa definición exista es exactamente como instalar una cerradura sin saber qué puertas tiene el edificio.</div>
+      </div>
+
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top"><div class="risk-num">04</div><div class="risk-body"><div class="risk-impact">Un solo administrador de contrato responsable de 15 implementaciones simultáneas</div><div class="risk-sub">Cada herramienta requiere levantamientos, validaciones y hitos propios.</div></div><div class="risk-arrow">▾</div></div>
+        <div class="risk-detail">Con 15 implementaciones corriendo en paralelo, el administrador de contrato se convierte en un cuello de botella. <strong>Decisiones sin seguimiento, hitos perdidos, herramientas en estado "instalado pero sin configurar" por semanas.</strong> No es un problema de voluntad — es de capacidad física. Un solo administrador no puede llevar el control técnico y operacional de 15 implementaciones simultáneas sin que alguna quede desatendida.</div>
+      </div>
     </div>
 
-    <!-- COL FINANCIERO -->
+    <!-- FINANCIERO -->
     <div class="prob-col">
       <div class="col-header">
         <div class="col-cat"><div class="col-cat-dot" style="background:var(--green)"></div><span style="color:var(--green)">Riesgo financiero</span></div>
         <div class="col-title">Lo que cuesta dinero real</div>
       </div>
-      <div class="risk-card" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">F1</div><div class="risk-body"><div class="risk-impact">Inactividad operacional con costo directo</div><div class="risk-sub">CENTROSUR opera infraestructura eléctrica crítica — cada hora sin servicio tiene impacto medible.</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">Si el stack de seguridad falla o queda mal configurado en producción, CENTROSUR enfrenta interrupción de servicios reales. <strong>En el sector eléctrico, eso no es un inconveniente: es un incidente con costo regulatorio, operacional y reputacional directo.</strong> Un contrato único no tiene mecanismos de aislamiento.</div></div>
-      <div class="risk-card" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">F2</div><div class="risk-body"><div class="risk-impact">Licencias pagadas corriendo sobre herramientas sin usar</div><div class="risk-sub">El soporte anual no espera a que la implementación esté lista.</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">En un contrato único, todas las licencias se activan al mismo tiempo. <strong>CENTROSUR paga el 100% de un stack que opera al 20% de su capacidad real.</strong> Y aunque se pudiera pedir licencias según se implemente, para eso se necesita estimar una fecha de inicio que puede no ser correcta — y esa imprecisión tiene costo directo.</div></div>
-      <div class="risk-card" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">F3</div><div class="risk-body"><div class="risk-impact">Costos ocultos cuando aparecen las incompatibilidades</div><div class="risk-sub">Las horas de consultoría extra no estaban en el presupuesto original.</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">Cuando una integración no funciona según lo esperado o requiere rediseño, <strong>esas horas de trabajo extra no estaban en el contrato original.</strong> Con fases, ese problema se detecta antes de comprometer el siguiente contrato.</div></div>
-      <div class="risk-card" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">F4</div><div class="risk-body"><div class="risk-impact">Inversión sin retorno demostrable</div><div class="risk-sub">Sin resultados técnicos reales, no hay forma de justificar el gasto.</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">Si el stack no produce los resultados esperados, el proyecto queda indefendible: <strong>presupuesto ejecutado, objetivos no cumplidos, sin métrica que demuestre valor.</strong> Las fases generan entregables medibles en cada cierre. En un contrato único, el ROI solo puede evaluarse al final.</div></div>
-      <div class="risk-card" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">F5</div><div class="risk-body"><div class="risk-impact">El costo de dar un paso hacia atrás a mitad del proyecto</div><div class="risk-sub">Revertir una herramienta mal implementada en producción no es gratis.</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">Si algo falla y hay que revertir: <strong>horas ya cobradas no recuperables, licencias vigentes del componente descartado, y un período de vulnerabilidad mientras el stack queda en estado intermedio.</strong> Con fases, ese rollback aplica solo a la fase afectada.</div></div>
+
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top"><div class="risk-num">F1</div><div class="risk-body"><div class="risk-impact">Inactividad operacional con costo directo</div><div class="risk-sub">CENTROSUR opera infraestructura eléctrica crítica — cada hora tiene impacto medible.</div></div><div class="risk-arrow">▾</div></div>
+        <div class="risk-detail">Si el stack de seguridad falla o queda mal configurado en producción, CENTROSUR enfrenta interrupción de servicios reales. <strong>En el sector eléctrico, eso es un incidente con costo regulatorio, operacional y reputacional directo.</strong> Un contrato único no tiene mecanismos de aislamiento: si algo falla, el impacto se propaga a todo el stack simultáneamente.</div>
+      </div>
+
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top"><div class="risk-num">F2</div><div class="risk-body"><div class="risk-impact">Licencias pagadas sobre herramientas sin usar</div><div class="risk-sub">Las licencias tienen que activarse en algún momento — pero esa fecha puede no coincidir con cuándo la herramienta está realmente lista.</div></div><div class="risk-arrow">▾</div></div>
+        <div class="risk-detail">En cualquier esquema de contratación, las licencias deben tener una fecha de activación definida — y una vez activadas, el costo corre independientemente del estado de la implementación. <strong>CENTROSUR puede estar pagando el 100% del soporte anual de herramientas que operan al 20% de su capacidad real</strong> porque las capas previas aún no están listas. La fecha de activación se estima al inicio del proyecto — y esa estimación puede no ser correcta.</div>
+      </div>
+
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top"><div class="risk-num">F3</div><div class="risk-body"><div class="risk-impact">Inversión sin retorno demostrable</div><div class="risk-sub">Sin resultados técnicos reales, no hay forma de justificar el gasto.</div></div><div class="risk-arrow">▾</div></div>
+        <div class="risk-detail">Si el stack no produce los resultados esperados, el proyecto queda en una posición indefendible: <strong>presupuesto ejecutado, objetivos no cumplidos, sin métricas que demuestren valor.</strong> Las fases generan entregables concretos y medibles en cada cierre. En un contrato único, el ROI solo puede evaluarse al final — cuando ya no hay nada que corregir.</div>
+      </div>
+
+      <div class="risk-card" onclick="toggleRisk(this)">
+        <div class="risk-top"><div class="risk-num">F4</div><div class="risk-body"><div class="risk-impact">El costo de dar un paso hacia atrás a mitad del proyecto</div><div class="risk-sub">Revertir una herramienta mal implementada en producción no es gratis.</div></div><div class="risk-arrow">▾</div></div>
+        <div class="risk-detail">Si algo falla y hay que revertir: <strong>horas ya cobradas no recuperables, licencias vigentes del componente descartado, y un período de vulnerabilidad mientras el stack queda en estado intermedio.</strong> Con fases, ese rollback aplica solo a la fase afectada. En un contrato único, un problema en un componente puede desestabilizar todo lo que ya funcionaba.</div>
+      </div>
     </div>
 
-    <!-- COL ESTRATÉGICO -->
+    <!-- ESTRATÉGICO -->
     <div class="prob-col">
       <div class="col-header">
         <div class="col-cat"><div class="col-cat-dot" style="background:var(--amber)"></div><span style="color:var(--amber)">Riesgo estratégico</span></div>
         <div class="col-title">Lo que no puede resolverse después</div>
       </div>
-      <div class="risk-card warn" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">07</div><div class="risk-body"><div class="risk-impact">El mismo proveedor no puede auditar su propio trabajo</div><div class="risk-sub">Implementar y hacer Pentesting sobre lo mismo es un conflicto de interés directo.</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">Si el mismo equipo implementa los controles y luego ejecuta el Pentesting y opera el SOC sobre esa infraestructura, el resultado no tiene validez. <strong>Ningún auditor externo ni regulador del sector eléctrico lo aceptaría.</strong></div></div>
-      <div class="risk-card warn" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">08</div><div class="risk-body"><div class="risk-impact">Un proveedor que dice dominar todo el stack está mintiendo</div><div class="risk-sub">Seguridad perimetral, identidades, SIEM, aplicaciones y NDR son dominios distintos.</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">Un proveedor que afirma dominar todos los dominios al mismo nivel tiene dos opciones: <strong>subcontratar a empresas no calificadas, o usar herramientas que no son las mejores porque son las únicas que conoce.</strong> Las fases permiten elegir al especialista correcto para cada dominio.</div></div>
-      <div class="risk-card warn" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">09</div><div class="risk-body"><div class="risk-impact">Un fallo en cualquier herramienta paraliza el contrato entero</div><div class="risk-sub">Un contrato monolítico de 2 años sin hitos claros. Un problema contamina todo.</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">En un contrato monolítico, cualquier problema deja todo el proyecto en disputa. <strong>Las fases son contratos independientes: si una fase tiene problemas, las otras continúan.</strong></div></div>
-      <div class="risk-card warn" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">10</div><div class="risk-body"><div class="risk-impact">SIEM y SOAR sin marcos definidos = alertas que nadie responde</div><div class="risk-sub">Sin procesos internos definidos, las herramientas no saben qué detectar.</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">El SIEM y el SOAR requieren que CENTROSUR defina previamente umbrales, procesos de respuesta y roles del equipo de ciberseguridad. <strong>Sin esa base, el SIEM genera cientos de alertas que nadie puede clasificar.</strong> El equipo lo apaga. La herramienta queda activa pero inútil.</div></div>
-      <div class="risk-card warn" onclick="toggleRisk(this)"><div class="risk-top"><div class="risk-num">11</div><div class="risk-body"><div class="risk-impact">Un consultor que diseña todo el stack a la vez no puede hacerlo bien</div><div class="risk-sub">Un único arquitecto responsable de 12 tecnologías simultáneas.</div></div><div class="risk-arrow">▾</div></div><div class="risk-detail">Diseñar correctamente un stack completo de ciberseguridad requiere equipos especializados. Si se exige un único consultor responsable del diseño completo, se está eligiendo entre <strong>un diseño superficial o simplemente lo que ese consultor conoce — sin que el cliente sepa qué quedó fuera.</strong> Las fases permiten traer el especialista correcto en el momento correcto.</div></div>
+
+      <div class="risk-card warn" onclick="toggleRisk(this)">
+        <div class="risk-top"><div class="risk-num">07</div><div class="risk-body"><div class="risk-impact">El mismo proveedor no puede auditar su propio trabajo</div><div class="risk-sub">Implementar y hacer Pentesting sobre lo mismo es un conflicto de interés.</div></div><div class="risk-arrow">▾</div></div>
+        <div class="risk-detail">Si el mismo equipo implementa los controles y luego ejecuta el Pentesting, el análisis de vulnerabilidades y opera el SOC sobre esa infraestructura, el resultado no tiene validez técnica ni regulatoria. <strong>Ningún auditor externo ni ente de control del sector eléctrico lo aceptaría.</strong> El auditor no puede ser el mismo que construyó.</div>
+      </div>
+
+      <div class="risk-card warn" onclick="toggleRisk(this)">
+        <div class="risk-top"><div class="risk-num">08</div><div class="risk-body"><div class="risk-impact">No existe un proveedor que realmente domine todo el stack</div><div class="risk-sub">Seguridad perimetral, identidades, SIEM, aplicaciones y detección son dominios completamente distintos.</div></div><div class="risk-arrow">▾</div></div>
+        <div class="risk-detail">Un proveedor que afirma dominar todos los dominios al mismo nivel tiene dos opciones: <strong>subcontratar a empresas no calificadas, o usar herramientas que no son las mejores porque son las únicas que conoce.</strong> Las fases permiten elegir al especialista correcto para cada dominio en lugar de quedar atados a uno que promete todo y entrega a medias.</div>
+      </div>
+
+      <div class="risk-card warn" onclick="toggleRisk(this)">
+        <div class="risk-top"><div class="risk-num">09</div><div class="risk-body"><div class="risk-impact">Un problema en un contrato monolítico de 2 años contamina todo</div><div class="risk-sub">Sin fases independientes, no hay forma de aislar el impacto.</div></div><div class="risk-arrow">▾</div></div>
+        <div class="risk-detail">En un contrato monolítico de 2 años, cualquier problema técnico, de licenciamiento o de cumplimiento deja todo el proyecto en disputa. <strong>Si las fases son contratos independientes y una de ellas tiene algún problema, se posterga o se replantea la contratación de la siguiente — sin contaminar lo que ya está funcionando.</strong> El riesgo queda contenido y acotado.</div>
+      </div>
+
+      <div class="risk-card warn" onclick="toggleRisk(this)">
+        <div class="risk-top"><div class="risk-num">10</div><div class="risk-body"><div class="risk-impact">No existe el proveedor con las mejores herramientas Y la mejor expertiz en todo</div><div class="risk-sub">El portafolio de un proveedor no puede ser óptimo en todos los dominios simultáneamente.</div></div><div class="risk-arrow">▾</div></div>
+        <div class="risk-detail">El mercado de ciberseguridad está especializado por dominio. Las mejores herramientas de detección de red no necesariamente vienen del mismo fabricante que las mejores de gestión de identidades o de protección de aplicaciones. <strong>Un proveedor que ofrece todo el stack en un contrato único no puede garantizar que cada herramienta sea la mejor opción para ese dominio</strong> — solo puede garantizar que es lo que tiene disponible en su portafolio.</div>
+      </div>
+
+      <div class="risk-card warn" onclick="toggleRisk(this)">
+        <div class="risk-top"><div class="risk-num">11</div><div class="risk-body"><div class="risk-impact">El consultor da respuesta técnica — no orientación sobre cómo contratar</div><div class="risk-sub">La consultoría técnica y la consultoría de contratación pública son dominios distintos.</div></div><div class="risk-arrow">▾</div></div>
+        <div class="risk-detail">Un consultor técnico de ciberseguridad responde preguntas como: ¿cuál herramienta es mejor para este caso?, ¿qué arquitectura tiene sentido?, ¿cómo integro este control con el anterior? <strong>No responde: ¿cómo estructuro el pliego?, ¿cómo justifico esto ante la contraloría?, ¿cómo redacto los TDRs?</strong> Confundir ambas cosas es una de las principales causas de fracaso en proyectos de tecnología en el sector público.</div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ══ PANEL 02 FASES ══ -->
+<!-- ══ 02 FASES ══ -->
 <div class="panel" id="panel-fases">
 <div class="fases-outer">
-  <div class="fases-intro"><p>Cuatro fases independientes, con entregables concretos y dependencias técnicas respetadas. Duración total estimada: <strong>2 años (2026–2027)</strong>. Las Fases 1, 2 y 3 pueden ser ejecutadas por Coresolutions. La Fase 4 requiere participación de proveedor externo independiente para NAC, SOC y Pentesting Continuo.</p></div>
-  <div class="exec-split">
-    <div class="exec-col exec-core"><div class="exec-label">Coresolutions ejecuta</div><div class="exec-fases">F1 · F2 · F3</div><div class="exec-note">Herramientas disponibles en portafolio actual</div></div>
-    <div class="exec-col exec-ext"><div class="exec-label">Requiere proveedor externo independiente</div><div class="exec-fases">F4 (parcial)</div><div class="exec-note">NAC (con Andrés), SOC/CSIRT, Pentesting Continuo — conflicto de interés si lo hace el implementador</div></div>
-  </div>
+  <div class="fases-intro"><p>Cuatro fases independientes, con entregables concretos y dependencias técnicas respetadas. Duración total estimada: <strong>2 años</strong>. Cada fase puede contratarse, validarse y cerrarse de forma autónoma antes de iniciar la siguiente.</p></div>
   <div class="callout-main"><div class="callout-icon">⚡</div><div class="callout-text"><div class="callout-title">La lógica es simple: <em>cada herramienta necesita a la anterior para funcionar.</em></div><div class="callout-body">No es una decisión comercial. Es una dependencia técnica. La capa de red genera los datos que necesita la Observabilidad. La detección de endpoint alimenta al SIEM. La gestión de identidades requiere el inventario de aplicaciones de F3 y los endpoints asegurados de F1 para gestionar privilegios correctamente.</div></div></div>
+
   <div class="tl-wrap">
     <div class="tl-track">
       <div class="tl-line"></div><div class="tl-fill" id="tl-fill"></div>
       <div class="fn active" data-n="1" onclick="showFase(1)"><div class="fn-dot">F1</div><div class="fn-label">Protección<br>Perimetral</div><div class="fn-period">Meses 1–6</div></div>
-      <div class="fn" data-n="2" onclick="showFase(2)"><div class="fn-dot">F2</div><div class="fn-label">Espacio<br>de Trabajo</div><div class="fn-period">Meses 5–10</div></div>
+      <div class="fn" data-n="2" onclick="showFase(2)"><div class="fn-dot">F2</div><div class="fn-label">Control<br>de Acceso</div><div class="fn-period">Meses 5–10</div></div>
       <div class="fn" data-n="3" onclick="showFase(3)"><div class="fn-dot">F3</div><div class="fn-label">Protección de<br>Aplicaciones</div><div class="fn-period">Meses 9–15</div></div>
       <div class="fn" data-n="4" onclick="showFase(4)"><div class="fn-dot">F4</div><div class="fn-label">Identidad,<br>Detección e Int.</div><div class="fn-period">Meses 14–24</div></div>
     </div>
@@ -426,63 +473,63 @@ footer{padding:18px 48px;border-top:1px solid var(--border);font-family:var(--mo
 
   <!-- F1 -->
   <div class="fd active" id="fd-1">
-    <div class="fd-top"><div><div class="fd-eyebrow">Fase 01 — Fundación del stack · Coresolutions</div><div class="fd-title">Reducción de la superficie de ataque en la red</div><div class="fd-desc">Primera capa de defensa robusta. Controla y monitorea el tráfico entrante y saliente en todos los dominios de red de CENTROSUR. Sin esta fase estabilizada, ninguna herramienta posterior puede operar con datos confiables.</div></div><div class="fd-badge exec-badge-core">Meses 1–6 · Coresolutions</div></div>
+    <div class="fd-top"><div><div class="fd-eyebrow">Fase 01</div><div class="fd-title">Reducción de la superficie de ataque en la red</div><div class="fd-desc">Primera capa de defensa robusta. Controla y monitorea el tráfico entrante y saliente en todos los dominios de red. Sin esta fase estabilizada, ninguna herramienta posterior puede operar con datos confiables.</div></div><div class="fd-badge">Meses 1–6</div></div>
     <div class="why-bar"><div class="why-bar-label">Por qué es la primera</div><div class="why-tags"><span class="why-tag k">Capa base obligatoria de toda la arquitectura</span><span class="why-tag k">Genera los logs que alimentan la Observabilidad y el SIEM</span><span class="why-tag k">Define la segmentación que necesita el acceso remoto seguro en F2</span><span class="why-tag">ROI demostrable</span></div></div>
-    <div class="fd-dominios"><div class="fd-dom-label">Dominios cubiertos</div><div class="fd-dom-tags"><span class="dom-tag">Red de usuarios</span><span class="dom-tag">Red de datacenter</span><span class="dom-tag">Red de operaciones</span><span class="dom-tag dom-note">Red del ISP (confirmar alcance)</span></div></div>
+    <div class="fd-dominios"><div class="fd-dom-label">Dominios cubiertos</div><div class="fd-dom-tags"><span class="dom-tag">Red de usuarios</span><span class="dom-tag">Red de datacenter</span><span class="dom-tag">Red de operaciones</span><span class="dom-tag">Red del ISP</span></div></div>
     <div class="tc-grid">
-      <div class="tc" style="--tc-c:var(--navy)" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Firewalls de Nueva Generación</div></div><div class="tc-brief">Todos los dominios de red — microsegmentación, inspección profunda de paquetes e inteligencia de amenazas.</div><div class="tc-expand">Configuración en todos los dominios de red de CENTROSUR. Políticas de microsegmentación y control granular de tráfico. Activación de inspección profunda, filtrado de contenido y aplicaciones. Integración con sistemas de inteligencia de amenazas para detección de indicadores de compromiso en tiempo real.<div class="dep dep-info">→ Prerequisito para Observabilidad, Detección de Endpoint y todo el stack posterior.</div></div></div>
-      <div class="tc" style="--tc-c:var(--navy)" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Observabilidad y Monitoreo de Red</div></div><div class="tc-brief">Dashboards de tráfico, latencia, errores y comportamientos anómalos — correlación temprana de eventos.</div><div class="tc-expand">Despliegue de herramientas de observabilidad de red. Creación de dashboards de tráfico, latencia y errores. Correlación de eventos para detección temprana de amenazas.<div class="dep dep-warn">⚠ Depende de los firewalls operativos y exportando logs estructurados. No arrancar antes.</div></div></div>
-      <div class="tc" style="--tc-c:var(--navy)" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Detección y Respuesta en Endpoint</div></div><div class="tc-brief">Endpoints, servidores y cargas en nube — detección y respuesta automática a incidentes.</div><div class="tc-expand">Instalación en toda la flota de endpoints y servidores. Integración con prevención de fuga de datos. Configuración de políticas de respuesta automática ante incidentes. Entrenamiento del equipo de ciberseguridad de CENTROSUR.<div class="dep dep-info">→ Fuente primaria de logs para la correlación en F4. Sin esto maduro, el SIEM opera a ciegas en endpoints.</div></div></div>
-      <div class="tc" style="--tc-c:#999" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Infraestructura de Red Base</div></div><div class="tc-brief">Segmentación base: switches, VLANs, zonas de red por dominio operacional.</div><div class="tc-expand">Debe resolverse en el levantamiento previo con CENTROSUR antes del kick-off del proyecto.<div class="dep dep-warn">⚠ Si no se define antes del inicio, bloquea la semana 1 del proyecto completo.</div></div></div>
+      <div class="tc" style="--tc-c:var(--navy)"><div class="tc-top"><div class="tc-name">Firewalls de Nueva Generación</div></div><div class="tc-brief">Todos los dominios — microsegmentación, inspección profunda de paquetes e inteligencia de amenazas en tiempo real.</div></div>
+      <div class="tc" style="--tc-c:var(--navy)"><div class="tc-top"><div class="tc-name">Observabilidad y Monitoreo de Red</div></div><div class="tc-brief">Dashboards de tráfico, latencia, errores y comportamientos anómalos — correlación temprana de eventos.</div></div>
+      <div class="tc" style="--tc-c:var(--navy)"><div class="tc-top"><div class="tc-name">Detección y Respuesta en Endpoint</div></div><div class="tc-brief">Endpoints, servidores y cargas en nube — detección y respuesta automática a incidentes.</div></div>
+      <div class="tc" style="--tc-c:#999"><div class="tc-top"><div class="tc-name">Infraestructura de Red Base</div></div><div class="tc-brief">Segmentación base: switches, VLANs, zonas de red por dominio operacional.</div></div>
     </div>
   </div>
 
   <!-- F2 -->
   <div class="fd" id="fd-2">
-    <div class="fd-top"><div><div class="fd-eyebrow">Fase 02 — Espacio de trabajo · Coresolutions</div><div class="fd-title">Reducción de la superficie en áreas de trabajo</div><div class="fd-desc">Protección del espacio de trabajo de los usuarios: equipos de escritorio, portátiles, acceso remoto y correo electrónico. Se construye sobre la segmentación y visibilidad ya establecidas en Fase 1.</div></div><div class="fd-badge exec-badge-core">Meses 5–10 · Coresolutions</div></div>
-    <div class="why-bar"><div class="why-bar-label">Por qué es la segunda</div><div class="why-tags"><span class="why-tag k">Requiere la red segmentada y detección de endpoint de F1 estabilizados</span><span class="why-tag k">El acceso remoto seguro se construye sobre la segmentación ya definida</span><span class="why-tag k">El control cloud cubre el shadow IT detectado en F1</span><span class="why-tag alert">Dispositivos móviles: requiere confirmación de inventario con CENTROSUR</span></div></div>
-    <div class="fd-dominios"><div class="fd-dom-label">Áreas cubiertas</div><div class="fd-dom-tags"><span class="dom-tag">Equipos desktop / escritorio</span><span class="dom-tag">Portátiles corporativos</span><span class="dom-tag dom-note">Dispositivos móviles (confirmar inventario)</span><span class="dom-tag">Acceso remoto</span><span class="dom-tag">Correo electrónico</span></div></div>
+    <div class="fd-top"><div><div class="fd-eyebrow">Fase 02</div><div class="fd-title">Control de Acceso</div><div class="fd-desc">Protección del espacio de trabajo de los usuarios: equipos de escritorio, portátiles, acceso remoto y correo electrónico. Se construye sobre la segmentación y visibilidad ya establecidas en Fase 1.</div></div><div class="fd-badge">Meses 5–10</div></div>
+    <div class="why-bar"><div class="why-bar-label">Por qué es la segunda</div><div class="why-tags"><span class="why-tag k">Requiere la red segmentada y la detección de endpoint de F1 estabilizados</span><span class="why-tag k">El acceso remoto seguro se construye sobre la segmentación ya definida</span><span class="why-tag k">El control cloud cubre el shadow IT detectado en F1</span><span class="why-tag alert">Dispositivos móviles: requiere confirmación de inventario</span></div></div>
+    <div class="fd-dominios"><div class="fd-dom-label">Áreas cubiertas</div><div class="fd-dom-tags"><span class="dom-tag">Equipos desktop / escritorio</span><span class="dom-tag">Portátiles corporativos</span><span class="dom-tag">Acceso remoto</span><span class="dom-tag">Correo electrónico</span></div></div>
     <div class="tc-grid">
-      <div class="tc" style="--tc-c:#1a7a9a" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Acceso Remoto Seguro — Zero Trust</div></div><div class="tc-brief">Reemplaza VPNs tradicionales — autenticación contextual por identidad, dispositivo, ubicación y riesgo.</div><div class="tc-expand">Sustitución ordenada de VPN tradicionales. Microsegmentación del acceso a aplicaciones internas y externas. Registro continuo de sesiones para auditoría y trazabilidad.<div class="dep dep-warn">⚠ Sin microsegmentación de F1 operativa, no puede aplicar políticas de mínimo privilegio por segmento.</div></div></div>
-      <div class="tc" style="--tc-c:#1a7a9a" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Control de Acceso a Servicios Cloud</div></div><div class="tc-brief">Visibilidad y control sobre servicios cloud corporativos y shadow IT detectado.</div><div class="tc-expand">Políticas de acceso contextual para servicios SaaS corporativos. Visibilidad y control de shadow IT identificado durante F1.</div></div>
-      <div class="tc" style="--tc-c:#1a7a9a" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Seguridad de Correo + Autenticación de Dominio</div></div><div class="tc-brief">Protección anti-phishing, anti-spam y autenticación del dominio corporativo con DMARC.</div><div class="tc-expand">Implementación de DMARC, DKIM y SPF para autenticación del dominio de CENTROSUR. El correo electrónico es uno de los vectores de entrada más frecuentes en incidentes documentados.<div class="dep dep-info">→ La autenticación de dominio puede activarse en paralelo desde el inicio — no depende de otras fases.</div></div></div>
-      <div class="tc" style="--tc-c:#999" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Gestión de Dispositivos Móviles</div></div><div class="tc-brief">Seguridad y gestión de dispositivos móviles corporativos.</div><div class="tc-expand">Validar con CENTROSUR: ¿cuántos dispositivos móviles corporativos existen?, ¿hay dispositivos personales con acceso corporativo?, ¿existe política de uso actual?<div class="dep dep-warn">⚠ No incluir en contrato sin validar inventario y política de dispositivos con el cliente.</div></div></div>
+      <div class="tc" style="--tc-c:#1a7a9a"><div class="tc-top"><div class="tc-name">Acceso Remoto Seguro — Zero Trust</div></div><div class="tc-brief">Reemplaza VPNs — autenticación contextual por identidad, dispositivo, ubicación y riesgo.</div></div>
+      <div class="tc" style="--tc-c:#1a7a9a"><div class="tc-top"><div class="tc-name">Control de Acceso a Servicios Cloud</div></div><div class="tc-brief">Visibilidad y control sobre servicios cloud corporativos y shadow IT detectado en F1.</div></div>
+      <div class="tc" style="--tc-c:#1a7a9a"><div class="tc-top"><div class="tc-name">Seguridad de Correo + Autenticación de Dominio</div></div><div class="tc-brief">Anti-phishing, anti-spam y autenticación del dominio corporativo con DMARC, DKIM y SPF.</div></div>
+      <div class="tc" style="--tc-c:#999"><div class="tc-top"><div class="tc-name">Gestión de Dispositivos Móviles</div></div><div class="tc-brief">Seguridad y gestión de dispositivos móviles corporativos — requiere confirmación de inventario.</div></div>
     </div>
   </div>
 
   <!-- F3 -->
   <div class="fd" id="fd-3">
-    <div class="fd-top"><div><div class="fd-eyebrow">Fase 03 — Aplicaciones y riesgos externos · Coresolutions</div><div class="fd-title">Protección de Aplicaciones y Riesgos Externos</div><div class="fd-desc">Proteger las aplicaciones web, APIs y servicios expuestos. Fortalecimiento de seguridad con estándares CIS y DISA. La Protección de IA aplica solo si CENTROSUR tiene modelos de IA en producción.</div></div><div class="fd-badge exec-badge-core">Meses 9–15 · Coresolutions</div></div>
-    <div class="why-bar"><div class="why-bar-label">Por qué es la tercera</div><div class="why-tags"><span class="why-tag k">La protección de aplicaciones requiere el inventario de apps completado en F1</span><span class="why-tag k">El fortalecimiento se aplica sobre la superficie ya mapeada por la observabilidad</span><span class="why-tag k">Valida lo implementado antes de activar gestión de identidades privilegiadas en F4</span><span class="why-tag alert">Protección de IA: solo si CENTROSUR tiene IA en producción</span></div></div>
+    <div class="fd-top"><div><div class="fd-eyebrow">Fase 03</div><div class="fd-title">Protección de Aplicaciones y Riesgos Externos</div><div class="fd-desc">Proteger las aplicaciones web, APIs y servicios expuestos. Fortalecimiento de seguridad con estándares CIS y DISA. La Protección de IA aplica solo si la organización tiene modelos de IA en producción.</div></div><div class="fd-badge">Meses 9–15</div></div>
+    <div class="why-bar"><div class="why-bar-label">Por qué es la tercera</div><div class="why-tags"><span class="why-tag k">La protección de aplicaciones requiere el inventario de apps completado en F1</span><span class="why-tag k">El fortalecimiento se aplica sobre la superficie ya mapeada</span><span class="why-tag k">Valida lo implementado antes de activar gestión de identidades en F4</span><span class="why-tag alert">Protección de IA: solo si hay IA en producción</span></div></div>
     <div class="tc-grid">
-      <div class="tc" style="--tc-c:#6a4ab5" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Protección de Aplicaciones Web y APIs</div></div><div class="tc-brief">OWASP Top 10, XSS, CSRF, SQLi — protección de APIs mediante pasarela de seguridad.</div><div class="tc-expand">Protección contra OWASP Top 10. Integración con pipelines de despliegue para pruebas automáticas de seguridad. Detección de anomalías con aprendizaje automático. Protección de APIs mediante pasarela de seguridad.<div class="dep dep-warn">⚠ Requiere catálogo de aplicaciones y APIs completo — generado por la Observabilidad de F1.</div></div></div>
-      <div class="tc" style="--tc-c:#6a4ab5" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Fortalecimiento y Endurecimiento de Sistemas</div></div><div class="tc-brief">CIS Benchmarks, DISA STIGs — parches, configuración segura y reducción de superficie.</div><div class="tc-expand">Aplicación de guías CIS Benchmarks y DISA STIGs sobre todos los sistemas. Actualización y validación de configuración segura.<div class="dep dep-info">→ Cierra el gap de endurecimiento que permitió el breach de Equifax ($700M, 2017).</div></div></div>
-      <div class="tc" style="--tc-c:var(--amber)" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Protección de Inteligencia Artificial</div></div><div class="tc-brief">Protección de modelos y datos de IA frente a manipulación y ciberataques.</div><div class="tc-expand">Validar con CENTROSUR antes de incluir: ¿tienen modelos de IA o ML en producción?, ¿datos de entrenamiento propios?<div class="dep dep-warn">⚠ No incluir en contrato sin confirmar la presencia real de IA en el entorno del cliente.</div></div></div>
-      <div class="tc" style="--tc-c:#999" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Seguridad de Red Amplia</div></div><div class="tc-brief">Seguridad en capa de aplicación sobre red corporativa distribuida.</div><div class="tc-expand">Condicional a la arquitectura real de red de CENTROSUR. Confirmar en levantamiento previo.<div class="dep dep-warn">⚠ Proponer sin confirmar la arquitectura de red es ofrecer solución para un problema que puede no existir.</div></div></div>
+      <div class="tc" style="--tc-c:#6a4ab5"><div class="tc-top"><div class="tc-name">Protección de Aplicaciones Web y APIs</div></div><div class="tc-brief">OWASP Top 10, XSS, CSRF, SQLi — protección de APIs mediante pasarela de seguridad.</div></div>
+      <div class="tc" style="--tc-c:#6a4ab5"><div class="tc-top"><div class="tc-name">Fortalecimiento y Endurecimiento de Sistemas</div></div><div class="tc-brief">CIS Benchmarks, DISA STIGs — parches, configuración segura y reducción de superficie.</div></div>
+      <div class="tc" style="--tc-c:var(--amber)"><div class="tc-top"><div class="tc-name">Protección de Inteligencia Artificial</div></div><div class="tc-brief">Protección de modelos y datos de IA — condicional a confirmar presencia real de IA en producción.</div></div>
+      <div class="tc" style="--tc-c:#999"><div class="tc-top"><div class="tc-name">Seguridad de Red Distribuida</div></div><div class="tc-brief">Seguridad en capa de aplicación — condicional a la arquitectura real de red.</div></div>
     </div>
   </div>
 
   <!-- F4 -->
   <div class="fd" id="fd-4">
-    <div class="fd-top"><div><div class="fd-eyebrow">Fase 04 — Identidad, Detección e Inteligencia · Coresolutions + Externo</div><div class="fd-title">Protección de la Identidad, Control de Acceso y Detección de Amenazas</div><div class="fd-desc">Fase final que combina la gestión de identidades privilegiadas con la inteligencia operacional centralizada. La gestión de identidades se ubica aquí porque necesita el inventario de aplicaciones de F3 y los endpoints asegurados de F1. El SOC y Pentesting Continuo requieren proveedor externo independiente.</div></div><div class="fd-badge exec-badge-mixed">Meses 14–24 · Mixto</div></div>
-    <div class="why-bar"><div class="why-bar-label">Por qué la gestión de identidades está aquí y no en F2</div><div class="why-tags"><span class="why-tag k">IAM/PAM necesita el inventario de aplicaciones de F3 para definir permisos correctamente</span><span class="why-tag k">El control de acceso a la red valida la postura del endpoint — requiere detección madura de F1</span><span class="why-tag k">El SIEM necesita logs maduros de las 3 fases anteriores para correlacionar</span><span class="why-tag alert">SOC + Pentesting Continuo: proveedor externo obligatorio</span></div></div>
+    <div class="fd-top"><div><div class="fd-eyebrow">Fase 04</div><div class="fd-title">Protección de la Identidad, Control de Acceso y Detección de Amenazas</div><div class="fd-desc">Fase final que combina gestión de identidades privilegiadas con inteligencia operacional centralizada. El SIEM, SOC, Pentesting y análisis de vulnerabilidades deben ser ejecutados por un proveedor independiente del que implementó las fases anteriores.</div></div><div class="fd-badge">Meses 14–24</div></div>
+    <div class="why-bar"><div class="why-bar-label">Por qué la gestión de identidades está aquí y no antes</div><div class="why-tags"><span class="why-tag k">IAM/PAM necesita el inventario de aplicaciones de F3 para definir permisos correctamente</span><span class="why-tag k">El control de acceso a la red requiere detección madura de F1</span><span class="why-tag k">El SIEM necesita logs maduros de las 3 fases anteriores</span><span class="why-tag alert">SIEM, SOC y Pentesting: deben ser de un proveedor independiente</span></div></div>
     <div class="f4-sections">
       <div class="f4-section">
-        <div class="f4-section-label">Identidad y control de acceso — Coresolutions + Andrés (Control de acceso a red)</div>
+        <div class="f4-section-label">Identidad y control de acceso</div>
         <div class="tc-grid">
-          <div class="tc" style="--tc-c:var(--red)" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Gestión de Identidades y Accesos Privilegiados</div></div><div class="tc-brief">Identidad digital, ciclo de vida, grabación de sesiones privilegiadas, mínimo privilegio.</div><div class="tc-expand">Gestión del ciclo de vida de identidades (provisión, desprovisión). Control y grabación de sesiones privilegiadas. Principio de menor privilegio y revisiones periódicas de permisos.<div class="dep dep-crit">⚠ Gap crítico que debe cubrirse. La integración con el control de acceso a la red y la detección de endpoint requiere validación previa de compatibilidad.</div></div></div>
-          <div class="tc" style="--tc-c:var(--red)" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Control de Acceso a la Red</div><div class="tc-vendor v-ext">Andrés · Externo</div></div><div class="tc-brief">Validación del cumplimiento de políticas de seguridad antes de permitir el acceso a la red.</div><div class="tc-expand">Verificación del estado del endpoint antes de conectar a la red. Segmentación dinámica por tipo de dispositivo y usuario. Integración con gestión de identidades y detección de endpoint.<div class="dep dep-warn">⚠ Coordinar con Andrés el diseño de integración antes de iniciar para evitar conflictos con el acceso remoto seguro de F2.</div></div></div>
-          <div class="tc" style="--tc-c:var(--navy)" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Autenticación Multifactor</div></div><div class="tc-brief">Autenticación robusta en todos los puntos de acceso críticos — cobertura total del ecosistema.</div><div class="tc-expand">Integrado con gestión de identidades y control de acceso a la red. Se implementa aquí para garantizar cobertura completa sobre todos los vectores de acceso ya mapeados en F2 y F3. La ausencia de MFA fue el vector de entrada en Panama MEF (sep 2025) y British Airways (2018).<div class="dep dep-info">→ Implementado en este punto tiene cobertura total porque ya se conocen todos los vectores de acceso.</div></div></div>
+          <div class="tc" style="--tc-c:var(--red)"><div class="tc-top"><div class="tc-name">Gestión de Identidades y Accesos Privilegiados</div></div><div class="tc-brief">Identidad digital, ciclo de vida, grabación de sesiones privilegiadas, mínimo privilegio.</div></div>
+          <div class="tc" style="--tc-c:var(--red)"><div class="tc-top"><div class="tc-name">Control de Acceso a la Red</div></div><div class="tc-brief">Validación del cumplimiento de políticas antes de permitir acceso — se integra con gestión de identidades y detección.</div></div>
+          <div class="tc" style="--tc-c:var(--navy)"><div class="tc-top"><div class="tc-name">Autenticación Multifactor</div></div><div class="tc-brief">Cobertura total del ecosistema — implementado aquí porque ya se conocen todos los vectores de acceso.</div></div>
         </div>
       </div>
       <div class="f4-section">
-        <div class="f4-section-label">Detección e inteligencia — Proveedor externo independiente</div>
+        <div class="f4-section-label">Detección e inteligencia — debe ser proveedor independiente del implementador</div>
         <div class="tc-grid">
-          <div class="tc" style="--tc-c:var(--red)" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Correlación de Eventos e Inteligencia Operacional</div></div><div class="tc-brief">SIEM, SOAR y análisis comportamental — correlación centralizada de todo el ecosistema.</div><div class="tc-expand">Integración con todos los controles de las fases anteriores. Normalización y correlación de logs. Reglas de detección basadas en MITRE ATT&CK. Dashboards de cumplimiento en tiempo real.<div class="dep dep-crit">⚠ Sin logs de calidad de las 3 fases anteriores, genera ruido — no inteligencia. Target tenía $1.6M en herramientas activas y el equipo de ciberseguridad no respondió las alertas.</div></div></div>
-          <div class="tc" style="--tc-c:var(--red)" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Centro de Operaciones de Seguridad</div><div class="tc-vendor v-ext">Proveedor externo</div></div><div class="tc-brief">SOC 24/7, Threat Hunting e Inteligencia de amenazas continua.</div><div class="tc-expand">Roles y procesos definidos (detección, análisis, contención, erradicación, recuperación). Simulacros de incidentes y Threat Hunting proactivo.<div class="dep dep-crit">⚠ Debe ser completamente independiente del integrador que implementó las fases anteriores.</div></div></div>
-          <div class="tc" style="--tc-c:var(--amber)" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Prevención de Fuga de Datos</div></div><div class="tc-brief">Clasificación, etiquetado y protección de datos sensibles en tránsito, reposo y uso.</div><div class="tc-expand">Clasificación y etiquetado de datos. Políticas de protección en tránsito, reposo y uso.<div class="dep dep-warn">⚠ ¿CENTROSUR tiene su información clasificada y etiquetada? Sin esa base, esta herramienta no sabe qué proteger.</div></div></div>
-          <div class="tc" style="--tc-c:#999" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Detección de Amenazas en Red</div></div><div class="tc-brief">Detección en tráfico lateral este–oeste no visible por el firewall perimetral.</div><div class="tc-expand">Requiere puertos de monitoreo o TAPs configurados en los switches implementados en F1.<div class="dep dep-warn">⚠ Verificar en F1 que la infraestructura de red permita captura de tráfico interno.</div></div></div>
-          <div class="tc" style="--tc-c:var(--red)" onclick="toggleTc(this)"><div class="tc-top"><div class="tc-name">Pentesting y Pruebas de Vulnerabilidad Continuas</div><div class="tc-vendor v-ext">Proveedor externo</div></div><div class="tc-brief">Escaneo automatizado continuo + ethical hacking periódico + integración con ciclos de desarrollo.</div><div class="tc-expand">Servicio permanente sobre el ecosistema completo ya maduro. Pruebas manuales periódicas. Integración con pipelines de desarrollo.<div class="dep dep-crit">⚠ No puede ejecutarlo quien implementó las fases anteriores — conflicto de interés directo (British Airways, ICO £20M, 2020).</div></div></div>
+          <div class="tc" style="--tc-c:var(--red)"><div class="tc-top"><div class="tc-name">Correlación de Eventos e Inteligencia Operacional</div></div><div class="tc-brief">SIEM, SOAR y análisis comportamental — correlación centralizada. Requiere logs maduros de F1, F2 y F3.</div></div>
+          <div class="tc" style="--tc-c:var(--red)"><div class="tc-top"><div class="tc-name">Centro de Operaciones de Seguridad</div></div><div class="tc-brief">SOC 24/7, Threat Hunting e Inteligencia de amenazas — independiente del integrador que implementó.</div></div>
+          <div class="tc" style="--tc-c:var(--amber)"><div class="tc-top"><div class="tc-name">Prevención de Fuga de Datos</div></div><div class="tc-brief">Requiere que la organización tenga datos clasificados y etiquetados previamente.</div></div>
+          <div class="tc" style="--tc-c:#999"><div class="tc-top"><div class="tc-name">Detección de Amenazas en Red</div></div><div class="tc-brief">Tráfico lateral este–oeste — requiere infraestructura de red con puertos de monitoreo de F1.</div></div>
+          <div class="tc" style="--tc-c:var(--red)"><div class="tc-top"><div class="tc-name">Pentesting, Análisis de Vulnerabilidades y Pruebas Continuas</div></div><div class="tc-brief">Servicio permanente — no puede ejecutarlo quien implementó las fases anteriores.</div></div>
         </div>
       </div>
     </div>
@@ -492,29 +539,198 @@ footer{padding:18px 48px;border-top:1px solid var(--border);font-family:var(--mo
   <div class="w11">
     <div class="w11-title">Las <span>11 razones</span> para defender la división por fases</div>
     <div class="w11-grid">
-      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">⛓</div><div class="w11-head">Las dependencias técnicas no son opcionales</div><div class="w11-body">La observabilidad depende de los firewalls. El SIEM depende de la detección de endpoint y la gestión de identidades. El control de acceso a la red necesita la detección madura. El orden no puede saltarse.</div></div>
+      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">⛓</div><div class="w11-head">Las dependencias técnicas no son opcionales</div><div class="w11-body">La observabilidad depende de los firewalls. El SIEM depende de la detección de endpoint. El control de acceso a la red necesita la detección madura. El orden no puede saltarse sin consecuencias operacionales directas.</div></div>
       <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">📦</div><div class="w11-head">Todo instalado, nada funcionando bien</div><div class="w11-body">Cuando 15+ herramientas se implementan en paralelo, cada una queda con configuración mínima. Falsa sensación de seguridad, presupuesto ejecutado sin retorno real.</div></div>
-      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">⚖️</div><div class="w11-head">El Pentesting no puede ser del mismo proveedor</div><div class="w11-body">Auditar la propia implementación no tiene validez técnica ni regulatoria. ICO UK lo documentó en British Airways — multa £20M.</div></div>
-      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">🏭</div><div class="w11-head">Nadie domina todo el stack al mismo nivel</div><div class="w11-body">Las 4 fases permiten traer el especialista correcto en el momento correcto. Seguridad perimetral, identidades, SIEM, aplicaciones web y detección de red son dominios distintos.</div></div>
+      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">⚖️</div><div class="w11-head">Pentesting, análisis de vulnerabilidades, SIEM y SOC no pueden ser del mismo proveedor que instala</div><div class="w11-body">Auditar la propia implementación no tiene validez técnica ni regulatoria. El auditor, el analista de vulnerabilidades y el operador del SOC no pueden ser el mismo que construyó el ecosistema. ICO UK lo documentó en British Airways — £20M de multa.</div></div>
+      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">🏭</div><div class="w11-head">No existe un proveedor que domine todo el stack al mismo nivel</div><div class="w11-body">Las 4 fases permiten traer el especialista correcto en el momento correcto. Seguridad perimetral, identidades, SIEM, aplicaciones web y detección de red son dominios completamente distintos.</div></div>
       <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">🔧</div><div class="w11-head">Incompatibilidades descubiertas cuando ya no hay salida</div><div class="w11-body">Las fases permiten validar integraciones antes de comprometer el siguiente contrato. Control de acceso, identidades y detección de endpoint deben diseñarse coordinados.</div></div>
-      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">💣</div><div class="w11-head">Un problema no paraliza el proyecto entero</div><div class="w11-body">Las fases son contratos independientes: el riesgo no se propaga. Un problema en F2 no afecta F1 ya entregada y cerrada.</div></div>
-      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">🔀</div><div class="w11-head">Capas de acceso sobre la misma infraestructura</div><div class="w11-body">Sin secuencia y diseño coordinado, se generan exactamente las brechas que se quieren evitar — políticas contradictorias entre controles de acceso.</div></div>
-      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">🐌</div><div class="w11-head">El cliente no puede absorber todo a la vez</div><div class="w11-body">Con 15+ herramientas activas simultáneamente, todas quedan con configuración básica. Seguridad cara, postura real mínima.</div></div>
-      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">🧑‍💼</div><div class="w11-head">El equipo de ciberseguridad no puede gestionar todo en paralelo</div><div class="w11-body">Es un problema de capacidad física. 4 fases distribuyen la carga con foco, hitos claros y entregables cerrados por fase.</div></div>
-      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">📋</div><div class="w11-head">DLP sin clasificación de datos previa</div><div class="w11-body">¿CENTROSUR tiene su información mapeada y etiquetada? Si no, el DLP no sabe qué proteger. Pregunta obligatoria antes de F4.</div></div>
-      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">🎯</div><div class="w11-head">SIEM sin madurez operacional = ruido sin respuesta</div><div class="w11-body">Sin logs de calidad de las 3 fases anteriores y sin procesos definidos, el SIEM genera alertas que el equipo de ciberseguridad no puede responder — caso Target exacto.</div></div>
+      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">🧩</div><div class="w11-head">Para el cliente es muy difícil absorber todo a la vez</div><div class="w11-body">CENTROSUR debe definir políticas, clasificar datos, entrenar equipos, validar configuraciones y operar sistemas nuevos. Hacerlo para 15+ herramientas simultáneamente no es operacionalmente viable — algo siempre queda sin la atención que requiere.</div></div>
+      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">💣</div><div class="w11-head">Un problema se posterga — no contamina todo</div><div class="w11-body">Si las fases son contratos independientes y una tiene algún problema, se posterga o se replantea la siguiente. No se paraliza todo el proyecto ni se pone en riesgo lo que ya está funcionando.</div></div>
+      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">🐌</div><div class="w11-head">El cliente no puede definir todo al mismo tiempo</div><div class="w11-body">Con 15+ herramientas activas simultáneamente, todas quedan con configuración básica porque el equipo no tiene capacidad para definir políticas, umbrales y procesos para todas a la vez.</div></div>
+      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">🧑‍💼</div><div class="w11-head">Un solo administrador no puede gestionar 15 implementaciones en paralelo</div><div class="w11-body">Es un problema de capacidad física. 4 fases distribuyen la carga con foco, hitos claros y entregables cerrados por fase.</div></div>
+      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">📈</div><div class="w11-head">ROI demostrable en cada cierre de fase</div><div class="w11-body">Cada fase tiene un presupuesto cerrado y un entregable verificable. El ROI de F1 es demostrable antes de comprometer el presupuesto de F2. En un contrato único, el ROI solo puede evaluarse al final.</div></div>
+      <div class="w11-card" onclick="toggleW11(this)"><div class="w11-icon">🔄</div><div class="w11-head">En 2 años las herramientas evolucionan radicalmente</div><div class="w11-body">Lo que se contrata hoy puede no ser lo que existe al final. Algunas herramientas incorporarán IA, cambiarán su modelo de licenciamiento o serán reemplazadas. Las fases permiten ajustar antes de comprometer la siguiente contratación.</div></div>
     </div>
   </div>
 </div>
 </div>
 
-<!-- ══ PANEL 03 CASOS ══ -->
+<!-- ══ 03 MATRIZ ══ -->
+<div class="panel" id="panel-matriz">
+<div class="matriz-outer">
+  <div class="mx-intro">
+    <div class="mx-eyebrow">Mapa de dependencias técnicas</div>
+    <h2 class="mx-title">Qué protege cada fase.<br><em>Y qué no puede proteger sin la anterior.</em></h2>
+  </div>
+
+  <div class="dep-diagram">
+    <div class="dd-title">El orden importa — mapa de dependencias entre fases</div>
+    <div class="dd-subtitle">Cada flecha representa una dependencia técnica real. No es una preferencia de diseño — es una restricción operacional.</div>
+    <div class="dd-flow">
+      <div class="dd-fase" style="border-color:var(--navy2)"><div class="dd-f-num">F1</div><div class="dd-f-name">Red y Endpoints</div><div class="dd-f-tools">Firewalls · Detección · Observabilidad · Segmentación</div><div class="dd-f-output">Genera: logs · inventario de activos · zonas de red</div></div>
+      <div class="dd-arrow">→</div>
+      <div class="dd-fase" style="border-color:#1a6a9a"><div class="dd-f-num">F2</div><div class="dd-f-name">Control de Acceso</div><div class="dd-f-tools">Acceso remoto seguro · Cloud · Correo · Dispositivos</div><div class="dd-f-output">Necesita: segmentación de F1 para aplicar mínimo privilegio</div></div>
+      <div class="dd-arrow">→</div>
+      <div class="dd-fase" style="border-color:var(--amber)"><div class="dd-f-num">F3</div><div class="dd-f-name">Aplicaciones</div><div class="dd-f-tools">Protección web · APIs · Endurecimiento · Auditoría</div><div class="dd-f-output">Necesita: inventario de apps de F1 · accesos mapeados de F2</div></div>
+      <div class="dd-arrow">→</div>
+      <div class="dd-fase" style="border-color:var(--red)"><div class="dd-f-num">F4</div><div class="dd-f-name">Identidad y Detección</div><div class="dd-f-tools">IAM · MFA · NAC · SIEM · SOC · DLP · NDR</div><div class="dd-f-output">Necesita: logs de F1 · accesos de F2 · apps validadas de F3</div></div>
+    </div>
+  </div>
+
+  <div class="mx-cards-top">
+    <div class="mxc"><div class="mxc-label">Qué muestra</div><div class="mxc-text"><strong>La matriz no compara marcas ni proveedores.</strong> Muestra en qué fase cada control empieza a producir valor real.</div></div>
+    <div class="mxc"><div class="mxc-label">Cómo se lee</div><div class="mxc-text"><strong>La fila se interpreta de izquierda a derecha.</strong> Cada columna F1–F4 indica si el control conviene activarlo ahí, si todavía depende de otra fase o si no aplica en ese momento.</div></div>
+    <div class="mxc"><div class="mxc-label">Conclusión</div><div class="mxc-text"><strong>Si se compra todo al mismo tiempo, se abren dependencias por todos lados.</strong> Si se hace por fases, cada dependencia se cierra antes de pasar a la siguiente.</div></div>
+  </div>
+  <div class="mx-pills">
+    <span class="mx-pill pill-green">Cubrir aquí: esta fase ya tiene base para activar el control.</span>
+    <span class="mx-pill pill-amber">Depende: ayuda, pero todavía necesita una fase previa.</span>
+    <span class="mx-pill pill-red">No iniciar: activarlo ahora genera ruido, falsa seguridad o mala configuración.</span>
+    <span class="mx-pill pill-gray">No aplica: el control no pertenece a esa fase.</span>
+  </div>
+  <div class="mx-table-wrap">
+    <table class="mx-table">
+      <thead><tr><th class="mx-th-control">Control / Riesgo</th><th class="mx-th-fw">Framework</th><th class="mx-th-f">F1<br><span>Perimetral</span></th><th class="mx-th-f">F2<br><span>Acceso</span></th><th class="mx-th-f">F3<br><span>Aplicaciones</span></th><th class="mx-th-f">F4<br><span>Identidad+Det.</span></th><th class="mx-th-dep">Dependencia crítica</th></tr></thead>
+      <tbody>
+        <tr class="mx-group-row"><td colspan="7">Seguridad de red y perímetro</td></tr>
+        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Filtrado de tráfico y segmentación de red</td><td class="mx-fw"><span class="fw-pill">NIST CSF PR.AC</span></td><td><span class="mx-badge badge-green">Cubrir aquí</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td class="mx-dep">—</td></tr>
+        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body"><strong>¿Qué hace?</strong> Divide la red en zonas y controla qué tráfico puede pasar entre ellas. Sin esto, quien entra por cualquier punto puede llegar a cualquier otro.<br><br><strong>¿Por qué es lo primero?</strong> Target perdió $291M exactamente porque la red de proveedores y la de puntos de venta no estaban separadas — movimiento lateral irrestricto entre zonas.<em>Fuente: NIST CSF 2.0 PR.AC-5 · Caso Target 2013</em></div></td></tr>
+        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Visibilidad de tráfico anómalo en tiempo real</td><td class="mx-fw"><span class="fw-pill">NIST DE.CM</span></td><td><span class="mx-badge badge-amber">Depende</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td class="mx-dep">Firewalls operativos y exportando logs</td></tr>
+        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body"><strong>¿Qué hace?</strong> Muestra en tiempo real el tráfico, anomalías y comportamientos sospechosos en la red.<br><br><strong>¿Por qué depende?</strong> Esta herramienta no genera sus propios datos — los recibe de los firewalls. Equifax tenía inspección activa con certificado SSL vencido 10 meses — completamente ciega sin que nadie lo supiera. 78 días de permanencia no detectada.<em>Fuente: NIST CSF 2.0 DE.CM-1 · Caso Equifax 2017</em></div></td></tr>
+        <tr class="mx-group-row"><td colspan="7">Protección de endpoint y servidores</td></tr>
+        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Detección y respuesta en endpoint</td><td class="mx-fw"><span class="fw-pill">NIST CSF DE.CM-4</span></td><td><span class="mx-badge badge-green">Cubrir aquí</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td class="mx-dep">—</td></tr>
+        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body"><strong>¿Qué hace?</strong> Monitorea equipos y servidores en busca de comportamientos maliciosos y puede detener un ataque antes de que se propague.<br><br><strong>¿Por qué en F1?</strong> El 82% de los breaches involucran el elemento humano en endpoint. Además es la principal fuente de datos para el SIEM de F4. Target: detección activa con respuesta automática desactivada — $291M en pérdidas.<em>Fuente: NIST CSF 2.0 DE.CM-4 · Verizon DBIR 2025</em></div></td></tr>
+        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Gestión de parches y endurecimiento</td><td class="mx-fw"><span class="fw-pill">NIST CSF ID.RA</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td><span class="mx-badge badge-green">Cubrir aquí</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td class="mx-dep">Visibilidad completa de superficie de F1</td></tr>
+        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body"><strong>¿Qué hace?</strong> Asegura que todos los sistemas estén actualizados y bien configurados aplicando CIS Benchmarks y DISA STIGs.<br><br><strong>¿Por qué espera hasta F3?</strong> Para saber qué parchear hay que saber qué existe. Equifax: parche disponible, DHS notificó directamente. Nadie lo aplicó. 78 días → 147M registros → $700M en settlements.<em>Fuente: NIST CSF 2.0 PR.IP-12 · Caso Equifax 2017</em></div></td></tr>
+        <tr class="mx-group-row"><td colspan="7">Acceso remoto y espacio de trabajo</td></tr>
+        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Acceso remoto seguro — Zero Trust</td><td class="mx-fw"><span class="fw-pill">NIST SP 800-207</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td><span class="mx-badge badge-green">Cubrir aquí</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td class="mx-dep">Segmentación de F1 operativa</td></tr>
+        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body"><strong>¿Qué hace?</strong> Reemplaza VPNs — acceso solo a la aplicación necesaria, validando identidad y postura del dispositivo.<br><br><strong>¿Por qué depende de F1?</strong> Mínimo privilegio requiere segmentación. Sin zonas definidas, no hay límites donde aplicar la política. Es instalar una puerta de seguridad en un espacio sin paredes.<em>Fuente: NIST SP 800-207 — Zero Trust Architecture (2020)</em></div></td></tr>
+        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Autenticación multifactor (MFA)</td><td class="mx-fw"><span class="fw-pill">NIST CSF PR.AC-7</span></td><td><span class="mx-badge badge-red">No iniciar</span></td><td><span class="mx-badge badge-red">No iniciar</span></td><td><span class="mx-badge badge-red">No iniciar</span></td><td><span class="mx-badge badge-green">Cubrir aquí</span></td><td class="mx-dep">Todos los vectores mapeados en F2 y F3</td></tr>
+        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body"><strong>¿Qué hace?</strong> Requiere verificación adicional para acceder a sistemas críticos.<br><br><strong>¿Por qué espera hasta F4?</strong> Si se activa antes de mapear todos los accesos en F2 y F3, quedan sistemas sin cubrir. MFA en F4 tiene cobertura total. Panama MEF (sep 2025): RDP sin MFA — 1.5TB exfiltrados, 50+ entidades afectadas.<em>Fuente: NIST CSF 2.0 PR.AC-7 · CISA · Caso Panama MEF 2025</em></div></td></tr>
+        <tr class="mx-group-row"><td colspan="7">Protección de aplicaciones</td></tr>
+        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Protección de aplicaciones web y APIs</td><td class="mx-fw"><span class="fw-pill">OWASP Top 10</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td><span class="mx-badge badge-green">Cubrir aquí</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td class="mx-dep">Inventario de aplicaciones de F1</td></tr>
+        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body"><strong>¿Qué hace?</strong> Protege apps web y APIs contra OWASP Top 10. British Airways: sin protección en el script de pago — 429K clientes, £20M de multa.<br><br><strong>¿Por qué depende de F1?</strong> Para proteger las aplicaciones hay que saber cuáles existen. Sin el inventario de F1, se protegen algunas y se dejan otras expuestas sin saberlo.<em>Fuente: OWASP Top 10 (2021) · Caso British Airways 2018</em></div></td></tr>
+        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Prevención de fuga de datos (DLP)</td><td class="mx-fw"><span class="fw-pill">ISO 27001 A.8.12</span></td><td><span class="mx-badge badge-red">No iniciar</span></td><td><span class="mx-badge badge-red">No iniciar</span></td><td><span class="mx-badge badge-red">No iniciar</span></td><td><span class="mx-badge badge-amber">Depende</span></td><td class="mx-dep">Datos clasificados y etiquetados por la organización</td></tr>
+        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body"><strong>¿Qué hace?</strong> Bloquea la transferencia de información sensible fuera de la organización.<br><br><strong>¿Por qué está en ámbar incluso en F4?</strong> Necesita que la organización defina qué es información sensible. Sin clasificación de datos previa, genera falsos positivos masivos o deja pasar exactamente lo que debe detener. Pregunta obligatoria antes de incluirlo en cualquier propuesta.<em>Fuente: ISO/IEC 27001:2022 Annex A-8.12</em></div></td></tr>
+        <tr class="mx-group-row"><td colspan="7">Detección centralizada — solo funciona con todo lo anterior</td></tr>
+        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Correlación de eventos — SIEM</td><td class="mx-fw"><span class="fw-pill">NIST DE.AE</span></td><td><span class="mx-badge badge-red">No iniciar</span></td><td><span class="mx-badge badge-red">No iniciar</span></td><td><span class="mx-badge badge-amber">Depende</span></td><td><span class="mx-badge badge-green">Cubrir aquí</span></td><td class="mx-dep">Logs de F1 + F2 + F3 maduros</td></tr>
+        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body"><strong>¿Qué hace?</strong> Cruza logs de todos los controles y detecta patrones de ataque que ninguna herramienta individual vería sola.<br><br><strong>¿Por qué no puede activarse antes?</strong> Sin datos de calidad de las fases anteriores, genera alertas sin contexto. Target: $1.6M en herramientas activas — 14 días de alertas ignoradas por alert fatigue. El equipo terminó apagando las reglas.<em>Fuente: NIST CSF 2.0 DE.AE · Unit 42 IR Report 2026 · Caso Target 2013</em></div></td></tr>
+        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Pentesting y análisis de vulnerabilidades</td><td class="mx-fw"><span class="fw-pill">NIST ID.RA-1</span></td><td><span class="mx-badge badge-red">No iniciar</span></td><td><span class="mx-badge badge-red">No iniciar</span></td><td><span class="mx-badge badge-green">Cubrir aquí</span></td><td><span class="mx-badge badge-gray">No aplica</span></td><td class="mx-dep">F1 y F2 estabilizadas · proveedor independiente</td></tr>
+        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body"><strong>¿Qué hace?</strong> Prueba activamente que los controles funcionan — busca vulnerabilidades reales sobre infraestructura real.<br><br><strong>¿Por qué proveedor independiente?</strong> El que implementó no puede auditarse a sí mismo. British Airways: ausencia de pruebas independientes → ICO UK → £20M de multa. Tampoco tiene valor hacer pentesting sobre una implementación incompleta.<em>Fuente: NIST CSF 2.0 ID.RA-1 · ICO Penalty Notice BA (2020)</em></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<!-- ══ 04 CONSULTOR ══ -->
+<div class="panel" id="panel-consultor">
+<div class="cons-outer">
+  <div class="cons-intro">
+    <div class="cons-eyebrow">Lo que se necesita para ejecutar esto bien</div>
+    <h2 class="cons-title">No es solo tecnología.<br><em>Es quien la implementa.</em></h2>
+    <div class="cons-lema-hero">
+      <div class="cons-lema-icon">💡</div>
+      <div>
+        <div class="cons-lema-main">No solo depende de herramientas — <em>sino de gente, procesos y definiciones.</em></div>
+        <div class="cons-lema-sub">La ciberseguridad real depende de tres cosas que ninguna herramienta puede reemplazar: las personas que la operan, los procesos que la sostienen, y las definiciones que le dan sentido. Una herramienta sin proceso es un gasto. Un proceso sin la persona correcta es un riesgo. Una definición ausente convierte cualquier herramienta en una caja negra.</div>
+      </div>
+    </div>
+  </div>
+  <div class="cons-section-title">Dominios de conocimiento que debe dominar el consultor</div>
+  <div class="cons-section-sub">Cada fase requiere profundidad técnica real — no conocimiento superficial. Un consultor que no puede demostrar experiencia operacional en cada uno de estos dominios no puede diseñar una implementación que funcione en producción.</div>
+  <div class="cons-dom-grid">
+    <div class="cons-dom-card"><div class="cdc-icon">🛡</div><div class="cdc-title">Arquitectura de seguridad de red y perímetro</div><div class="cdc-body">Diseño con firewalls de nueva generación, microsegmentación, inspección profunda, SSL/TLS, integración con inteligencia de amenazas, gestión de zonas de red y seguridad distribuida.</div><div class="cdc-fases">Crítico en F1 · Base de toda la arquitectura</div></div>
+    <div class="cons-dom-card"><div class="cdc-icon">🖥</div><div class="cdc-title">Detección y respuesta en endpoint a escala</div><div class="cdc-body">Despliegue y afinación de EDR/XDR en entornos heterogéneos. Políticas de respuesta automática. Detección pre-cifrado de ransomware e integración con correlación de eventos.</div><div class="cdc-fases">Crítico en F1 · Alimenta F4</div></div>
+    <div class="cons-dom-card"><div class="cdc-icon">🔑</div><div class="cdc-title">Zero Trust y arquitecturas de acceso moderno</div><div class="cdc-body">Diseño e implementación de Zero Trust (NIST SP 800-207). Reemplazo ordenado de VPN. Control de acceso cloud (CASB). Microsegmentación de aplicaciones y auditoría de sesiones.</div><div class="cdc-fases">Crítico en F2</div></div>
+    <div class="cons-dom-card"><div class="cdc-icon">📧</div><div class="cdc-title">Seguridad del correo y protección de colaboración</div><div class="cdc-body">Anti-phishing, anti-spam, anti-BEC. DMARC, DKIM y SPF. Seguridad en plataformas SaaS corporativas. El correo es el vector de entrada más frecuente en incidentes documentados.</div><div class="cdc-fases">Crítico en F2</div></div>
+    <div class="cons-dom-card"><div class="cdc-icon">🌐</div><div class="cdc-title">Seguridad de aplicaciones web y APIs</div><div class="cdc-body">Configuración y afinación de WAF. OWASP Top 10 operacional. Protección de APIs. Integración con pipelines CI/CD y DevSecOps. Detección de anomalías con aprendizaje automático.</div><div class="cdc-fases">Crítico en F3</div></div>
+    <div class="cons-dom-card"><div class="cdc-icon">🔩</div><div class="cdc-title">Endurecimiento y gestión de vulnerabilidades</div><div class="cdc-body">CIS Benchmarks y DISA STIGs a escala. Gestión de parches con priorización y responsabilidades definidas. Análisis de configuraciones inseguras en sistemas operativos y servicios expuestos.</div><div class="cdc-fases">Crítico en F3</div></div>
+    <div class="cons-dom-card"><div class="cdc-icon">👤</div><div class="cdc-title">Gestión de identidades y accesos privilegiados</div><div class="cdc-body">Diseño e implementación de IAM/PAM. Ciclo de vida completo de identidades. Principio de mínimo privilegio. Grabación y auditoría de sesiones privilegiadas. Integración con directorios corporativos.</div><div class="cdc-fases">Crítico en F4</div></div>
+    <div class="cons-dom-card"><div class="cdc-icon">📡</div><div class="cdc-title">Correlación de eventos y respuesta automatizada</div><div class="cdc-body">Arquitecturas de ingesta y normalización de logs. Reglas de correlación con MITRE ATT&CK. Reducción de alert fatigue. Orquestación de respuesta automatizada (SOAR).</div><div class="cdc-fases">Crítico en F4</div></div>
+    <div class="cons-dom-card"><div class="cdc-icon">🔎</div><div class="cdc-title">Inteligencia de amenazas y Threat Hunting</div><div class="cdc-body">Fuentes de inteligencia de amenazas. Análisis de IoCs e IoAs. Threat Hunting proactivo. Análisis forense básico. MITRE ATT&CK y Cyber Kill Chain aplicados operacionalmente.</div><div class="cdc-fases">Crítico en F4</div></div>
+    <div class="cons-dom-card"><div class="cdc-icon">☁️</div><div class="cdc-title">Seguridad en cloud e infraestructura híbrida</div><div class="cdc-body">Seguridad operacional en Azure, AWS, GCP. Control de shadow IT. Gestión de configuraciones cloud (CSPM). Seguridad de contenedores. Cumplimiento en entornos híbridos.</div><div class="cdc-fases">Relevante en F2 y F4</div></div>
+    <div class="cons-dom-card"><div class="cdc-icon">📋</div><div class="cdc-title">Marcos regulatorios y gobernanza de seguridad</div><div class="cdc-body">NIST CSF 2.0, ISO 27001:2022, C2M2 para infraestructura crítica. Diseño de procesos de respuesta a incidentes. Cumplimiento regulatorio aplicable al sector eléctrico en Ecuador.</div><div class="cdc-fases">Transversal a todas las fases</div></div>
+    <div class="cons-dom-card"><div class="cdc-icon">🧠</div><div class="cdc-title">Gestión del proyecto y comunicación ejecutiva</div><div class="cdc-body">Traducir requerimientos técnicos en lenguaje ejecutivo. Gestión de dependencias entre fases. Definición de hitos y métricas de aceptación verificables. Coordinación de equipos a lo largo de 2 años.</div><div class="cdc-fases">Transversal a todas las fases</div></div>
+  </div>
+  <div class="cons-pilar-block">
+    <div class="cpb-title">Por qué las personas, los procesos y las definiciones son tan importantes como las herramientas</div>
+    <div class="cpb-grid">
+      <div class="cpb-item"><div class="cpbi-icon">⚙️</div><div class="cpbi-title">Una herramienta sin proceso es ruido</div><div class="cpbi-body">Target tenía $1.6M en herramientas de detección activas. El proceso de respuesta no estaba definido. Las alertas se convirtieron en ruido durante 14 días. La herramienta correcta sin el proceso correcto produce el mismo resultado que no tener nada.</div></div>
+      <div class="cpb-item"><div class="cpbi-icon">📝</div><div class="cpbi-title">Sin definiciones, nada funciona como se espera</div><div class="cpbi-body">El DLP no sabe qué proteger si no se ha definido qué es información sensible. El SIEM no sabe qué es un incidente si no se han definido umbrales. La gestión de identidades no puede aplicar mínimo privilegio si no se han definido los roles.</div></div>
+      <div class="cpb-item"><div class="cpbi-icon">👥</div><div class="cpbi-title">Las personas determinan si la implementación funciona</div><div class="cpbi-body">British Airways tuvo configuraciones de prueba en producción 3 años. Equifax recibió la notificación del parche del DHS de EE.UU. y nadie lo aplicó. La tecnología no reemplaza la capacitación, los roles claros y la cultura de seguridad.</div></div>
+      <div class="cpb-item"><div class="cpbi-icon">🗺</div><div class="cpbi-title">Ve donde lo usas — el levantamiento no es un trámite</div><div class="cpbi-body">Un consultor que no conoce el entorno real — la arquitectura de red, las aplicaciones, los flujos de datos, las dependencias operacionales — no puede diseñar una implementación que funcione. No se puede diseñar lo que no se ha visto.</div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══ 05 COMPRAS PÚBLICAS ══ -->
+<div class="panel" id="panel-compras">
+<div class="cp-outer">
+  <div class="cp-intro">
+    <div class="cp-eyebrow">Complejidad regulatoria y contractual</div>
+    <h2 class="cp-title">Lo que un contrato único<br><em>no puede responder bien.</em></h2>
+    <p class="cp-sub">Más allá de los riesgos técnicos, un proyecto de esta magnitud en el sector público enfrenta desafíos contractuales y regulatorios que se vuelven casi irresolubles en un esquema monolítico. Estas son las preguntas que cualquier ente de control va a hacer.</p>
+  </div>
+  <div class="cp-grid">
+
+    <div class="cp-card" onclick="toggleCp(this)">
+      <div class="cp-top"><div class="cp-num">01</div><div class="cp-body"><div class="cp-impact">Es muy difícil tener TDRs bien hechos para tantas herramientas</div><div class="cp-sub-text">Cada herramienta requiere especificaciones técnicas detalladas y correctas para ser contratada válidamente.</div></div><div class="cp-arrow">▾</div></div>
+      <div class="cp-detail">Elaborar TDRs de calidad para 15+ herramientas de ciberseguridad de última generación — especificando correctamente las funcionalidades, integraciones, requisitos de rendimiento y criterios de aceptación — requiere un nivel de especialización técnica que rara vez existe concentrado en un solo equipo. <strong>Un TDR mal elaborado para una herramienta crítica puede hacer que lo que se contrata no sea lo que se necesita</strong>, o que el contrato sea impugnable ante entes de control. Con fases, cada TDR se elabora para un dominio específico, con el tiempo y la especialización necesaria.</div>
+    </div>
+
+    <div class="cp-card" onclick="toggleCp(this)">
+      <div class="cp-top"><div class="cp-num">02</div><div class="cp-body"><div class="cp-impact">¿Cómo defines los entregables y los plazos en un proyecto de este tamaño?</div><div class="cp-sub-text">Un proyecto de 2 años con 15+ herramientas — ¿cuándo se cumple un hito? ¿Quién lo verifica?</div></div><div class="cp-arrow">▾</div></div>
+      <div class="cp-detail">En un contrato único, los entregables deben definirse desde el inicio para todo el proyecto. Pero las dependencias técnicas entre herramientas hacen que muchos entregables solo puedan verificarse cuando los anteriores están completos. <strong>Esto genera ambigüedad contractual: ¿el SIEM está "entregado" cuando está instalado o cuando está correlacionando con datos reales de calidad?</strong> Las fases resuelven esto con entregables acotados, verificables y cerrados antes de iniciar la siguiente.</div>
+    </div>
+
+    <div class="cp-card" onclick="toggleCp(this)">
+      <div class="cp-top"><div class="cp-num">03</div><div class="cp-body"><div class="cp-impact">¿Cómo se cobran multas en caso de incumplimiento?</div><div class="cp-sub-text">En un proyecto tan grande e interconectado, el incumplimiento en un componente afecta a todos los demás.</div></div><div class="cp-arrow">▾</div></div>
+      <div class="cp-detail">Aplicar multas por incumplimiento requiere que el incumplimiento sea claramente atribuible, cuantificable e independiente de otras variables. <strong>Si el SIEM no funciona porque el EDR no generó los logs correctos, ¿quién incumplió?</strong> Si el proveedor alega que los prerequisitos por parte de CENTROSUR no estaban listos, ¿cómo se determina la responsabilidad? Las fases crean contratos con alcances acotados donde el incumplimiento es más fácil de identificar y atribuir.</div>
+    </div>
+
+    <div class="cp-card" onclick="toggleCp(this)">
+      <div class="cp-top"><div class="cp-num">04</div><div class="cp-body"><div class="cp-impact">Un proyecto de este tamaño es muy visible ante los entes de control</div><div class="cp-sub-text">Va a ser muy difícil justificar que las herramientas se están usando correctamente y dimensionadas adecuadamente.</div></div><div class="cp-arrow">▾</div></div>
+      <div class="cp-detail">La Contraloría General del Estado y otros entes de control van a revisar si las herramientas contratadas se usan, si están dimensionadas correctamente para el entorno real, y si el gasto está justificado. <strong>Si se contrataron licencias para 5,000 endpoints y CENTROSUR tiene 800, o si el SIEM tiene capacidad para 10TB de logs diarios pero solo procesa 50GB, esa brecha va a generar observaciones.</strong> Las fases permiten ajustar el dimensionamiento antes de comprometer el siguiente contrato.</div>
+    </div>
+
+    <div class="cp-card" onclick="toggleCp(this)">
+      <div class="cp-top"><div class="cp-num">05</div><div class="cp-body"><div class="cp-impact">Las herramientas contratadas hoy evolucionan radicalmente durante el proyecto</div><div class="cp-sub-text">En 2 años, algunas herramientas incorporarán IA, cambiarán de modelo o quedarán obsoletas.</div></div><div class="cp-arrow">▾</div></div>
+      <div class="cp-detail">El mercado de ciberseguridad está en transformación acelerada. Lo que se contrata hoy como "herramienta de correlación de eventos" puede ser una plataforma completamente diferente en 18 meses, con nuevas capacidades de IA, nuevos modelos de licenciamiento y nuevas formas de integración. <strong>Un contrato único no puede anticipar esos cambios ni tiene mecanismos para incorporarlos sin modificar el contrato original</strong> — lo que en contratación pública es un proceso largo y complejo.</div>
+    </div>
+
+    <div class="cp-card" onclick="toggleCp(this)">
+      <div class="cp-top"><div class="cp-num">06</div><div class="cp-body"><div class="cp-impact">Las herramientas contratadas pueden ser descontinuadas, fusionadas o modificadas durante el proyecto</div><div class="cp-sub-text">Los fabricantes se fusionan, discontinúan líneas de productos o cambian radicalmente su oferta.</div></div><div class="cp-arrow">▾</div></div>
+      <div class="cp-detail">Durante un proyecto de 2 años es perfectamente posible que un fabricante discontinúe una herramienta, sea adquirido por otro, cambie su nombre comercial, modifique sus condiciones de licenciamiento o simplemente decida no renovar soporte para versiones anteriores. <strong>En un contrato público de precio fijo, ¿cómo se maneja esa situación sin generar una modificación contractual o un incumplimiento?</strong> Las fases permiten actualizar la decisión de herramienta entre contratos, cuando el contexto de mercado es más claro.</div>
+    </div>
+
+    <div class="cp-card" onclick="toggleCp(this)">
+      <div class="cp-top"><div class="cp-num">07</div><div class="cp-body"><div class="cp-impact">Precio único y cómo se justifican cambios en licenciamiento o modelos</div><div class="cp-sub-text">Si el modelo de precios de un fabricante cambia durante el proyecto, el precio único del contrato ya no refleja la realidad.</div></div><div class="cp-arrow">▾</div></div>
+      <div class="cp-detail">Los contratos públicos generalmente se celebran por un precio fijo. Pero el licenciamiento de herramientas de ciberseguridad puede cambiar: de modelo perpetuo a suscripción, de precio por endpoint a precio por usuario, de precio fijo a precio por consumo. <strong>¿Cómo se justifica ante la Contraloría que el precio pagado sigue siendo el correcto si el modelo del fabricante cambió?</strong> ¿Cómo se documenta que no hubo sobreprecios ni subutilización?</div>
+    </div>
+
+    <div class="cp-card" onclick="toggleCp(this)">
+      <div class="cp-top"><div class="cp-num">08</div><div class="cp-body"><div class="cp-impact">Un solo administrador de contrato responsable de todo un proyecto que depende de todas las áreas</div><div class="cp-sub-text">La figura del administrador de contrato en contratación pública tiene responsabilidades legales y técnicas que se vuelven inmanejables a esta escala.</div></div><div class="cp-arrow">▾</div></div>
+      <div class="cp-detail">El administrador de contrato en Ecuador tiene responsabilidad legal sobre el cumplimiento del contrato. En un proyecto de esta magnitud — que depende de áreas de TI, operaciones, legal, financiero y dirección ejecutiva de CENTROSUR simultáneamente — <strong>una sola persona no puede llevar el seguimiento técnico, operacional y contractual de 15+ implementaciones paralelas sin que alguna quede con observaciones.</strong> Las fases distribuyen esa responsabilidad en contratos más manejables.</div>
+    </div>
+
+    <div class="cp-card" onclick="toggleCp(this)">
+      <div class="cp-top"><div class="cp-num">09</div><div class="cp-body"><div class="cp-impact">El proveedor aplicará prórrogas en cada demora de prerequisitos por parte de CENTROSUR</div><div class="cp-sub-text">En un proyecto tan dependiente de decisiones internas, cualquier demora del cliente se convierte en prórroga del proveedor.</div></div><div class="cp-arrow">▾</div></div>
+      <div class="cp-detail">Para implementar correctamente cada herramienta, CENTROSUR debe entregar información, tomar decisiones de política, aprobar configuraciones y proporcionar acceso a sistemas. Cada vez que esa entrega se demora — por agenda ejecutiva, procesos internos o simplemente complejidad de la decisión — <strong>el proveedor tiene fundamento contractual para solicitar prórroga en sus plazos de entrega.</strong> En un contrato único con muchas interdependencias, esas prórrogas se acumulan y el proyecto se extiende indefinidamente sin mecanismos claros para controlarlo.</div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ══ 06 CASOS ══ -->
 <div class="panel" id="panel-casos">
 <div class="casos-outer">
   <div class="casos-intro">
     <div class="casos-eyebrow">Evidencia documentada</div>
     <h2 class="casos-title">Lo que le pasó a organizaciones reales<br><em>cuando la implementación falló</em></h2>
-    <p class="casos-sub">Estos no son escenarios hipotéticos. Son incidentes con nombres, fechas, costos documentados y causas técnicas verificadas. Todos comparten un patrón: herramientas incompletas, dependencias ignoradas o implementación en paralelo sin orden.</p>
+    <p class="casos-sub">Estos no son escenarios hipotéticos. Son incidentes con nombres, fechas, costos documentados y causas técnicas verificadas. Todos comparten el mismo patrón: herramientas instaladas sin el proceso correcto, dependencias ignoradas o implementación sin orden.</p>
   </div>
   <div class="casos-grid">
 
@@ -522,406 +738,192 @@ footer{padding:18px 48px;border-top:1px solid var(--border);font-family:var(--mo
       <div class="caso-header" onclick="toggleCaso('caso-target')">
         <div class="caso-meta"><div class="caso-num">01</div><div class="caso-info"><div class="caso-org">Target Corporation</div><div class="caso-sector">Retail · EE.UU. · 2013</div></div></div>
         <div class="caso-headline">Herramientas de detección activas por $1.6M — alertas ignoradas durante 14 días</div>
-        <div class="caso-tags"><span class="ctag ctag-red">Detección de Endpoint</span><span class="ctag ctag-navy">Segmentación de red</span><span class="ctag ctag-amber">Alert fatigue</span><span class="ctag ctag-red">Acceso de terceros</span></div>
+        <div class="caso-tags"><span class="ctag ctag-red">Detección de Endpoint</span><span class="ctag ctag-navy">Segmentación de red</span><span class="ctag ctag-amber">Alert fatigue</span></div>
         <div class="caso-impact-bar"><div class="cib-item"><div class="cib-val">$291M</div><div class="cib-label">Costo total estimado</div></div><div class="cib-item"><div class="cib-val">40M</div><div class="cib-label">Tarjetas comprometidas</div></div><div class="cib-item"><div class="cib-val">14 días</div><div class="cib-label">Sin respuesta a alertas</div></div><div class="cib-item"><div class="cib-val">−46%</div><div class="cib-label">Caída utilidades Q4</div></div></div>
         <div class="caso-toggle-hint">▾ Ver análisis técnico</div>
       </div>
-      <div class="caso-detail">
-        <div class="caso-cols">
-          <div class="caso-col-t">
-            <div class="caso-section-title">¿Qué falló exactamente?</div>
-            <div class="caso-text">Target tenía implementado FireEye, una herramienta de detección de malware de $1.6 millones. La herramienta funcionaba. Las alertas se dispararon el 30 de noviembre y el 2 de diciembre de 2013. El equipo de ciberseguridad las vio. Nadie actuó.</div>
-            <div class="caso-text">El problema técnico raíz: <strong>el equipo de ciberseguridad había desactivado la función de respuesta automática, prefiriendo revisión manual.</strong> Sin esa automatización, las alertas se convirtieron en ruido. El firewall no segmentaba la red de proveedores de la red de puntos de venta. Los atacantes entraron con credenciales de un proveedor y atravesaron lateralmente hasta los sistemas POS de 1,797 tiendas.</div>
-            <div class="caso-tech-box">
-              <div class="ctb-title">Fallas técnicas documentadas</div>
-              <div class="ctb-item"><span class="ctb-dot r"></span>Sin segmentación entre red de proveedores y sistemas POS</div>
-              <div class="ctb-item"><span class="ctb-dot r"></span>Respuesta automática de la herramienta de detección desactivada</div>
-              <div class="ctb-item"><span class="ctb-dot r"></span>Sin control de acceso granular para terceros</div>
-              <div class="ctb-item"><span class="ctb-dot a"></span>Alert fatigue: demasiadas alertas sin priorización ni escalamiento</div>
-            </div>
-          </div>
-          <div class="caso-col-t">
-            <div class="caso-section-title">Conexión directa con CENTROSUR</div>
-            <div class="caso-insight"><div class="ci-icon">⚡</div><div class="ci-text">Target tenía las herramientas. La detección funcionaba y generaba alertas reales. Falló el proceso de respuesta. <strong>Tener el software instalado no equivale a tener seguridad operativa.</strong></div></div>
-            <div class="caso-insight"><div class="ci-icon">🔗</div><div class="ci-text">La falta de segmentación permitió movimiento lateral irrestricto. En CENTROSUR, sin una red correctamente segmentada en Fase 1, una credencial comprometida puede alcanzar sistemas operacionales críticos.</div></div>
-            <div class="caso-insight"><div class="ci-icon">📋</div><div class="ci-text">El sistema de detección generaba señales correctas. Sin proceso de respuesta, era ruido. Esto es lo que ocurre cuando se activa la correlación de eventos antes de tener madurez operacional en las capas base.</div></div>
-            <div class="caso-ref">
-              <div class="cr-label">Fuentes verificadas</div>
-              <a class="cr-link" href="https://www.breachsense.com/blog/target-data-breach/" target="_blank">BreachSense — Análisis técnico completo del breach</a>
-              <a class="cr-link" href="https://slate.com/technology/2022/04/breached-excerpt-hartzog-solove-target.html" target="_blank">Target Annual Report 2016 via Slate — $291M documentado</a>
-            </div>
+      <div class="caso-detail"><div class="caso-cols">
+        <div class="caso-col-t">
+          <div class="caso-section-title">¿Qué falló exactamente?</div>
+          <div class="caso-text">Target tenía implementado FireEye, herramienta de detección de malware de $1.6 millones. La herramienta funcionaba. Las alertas se dispararon el 30 de noviembre y el 2 de diciembre de 2013. El equipo de ciberseguridad las vio. Nadie actuó.</div>
+          <div class="caso-text"><strong>El equipo de ciberseguridad había desactivado la función de respuesta automática</strong>, prefiriendo revisión manual. Sin esa automatización, las alertas se convirtieron en ruido. El firewall no segmentaba la red de proveedores de los sistemas POS. Los atacantes entraron con credenciales de un proveedor HVAC y atravesaron hasta los sistemas POS de 1,797 tiendas.</div>
+          <div class="caso-tech-box"><div class="ctb-title">Fallas técnicas documentadas</div>
+            <div class="ctb-item"><span class="ctb-dot r"></span>Sin segmentación entre red de proveedores y sistemas POS</div>
+            <div class="ctb-item"><span class="ctb-dot r"></span>Respuesta automática de la herramienta de detección desactivada</div>
+            <div class="ctb-item"><span class="ctb-dot a"></span>Alert fatigue: demasiadas alertas sin priorización ni proceso de respuesta</div>
           </div>
         </div>
-      </div>
+        <div class="caso-col-t">
+          <div class="caso-section-title">Por qué importa aquí</div>
+          <div class="caso-insight"><div class="ci-icon">⚡</div><div class="ci-text">Target tenía las herramientas. Falló el proceso de respuesta. <strong>Tener el software instalado no equivale a tener seguridad operativa.</strong></div></div>
+          <div class="caso-insight"><div class="ci-icon">🔗</div><div class="ci-text">Sin segmentación de red, una credencial comprometida alcanzó sistemas críticos. La segmentación es la Fase 1 — lo primero, porque todo lo demás depende de ello.</div></div>
+          <div class="caso-insight"><div class="ci-icon">📋</div><div class="ci-text">El SIEM generaba alertas correctas. Sin proceso de respuesta era ruido. Esto es lo que ocurre cuando se activa la correlación antes de tener madurez operacional en las capas base.</div></div>
+          <div class="caso-ref"><div class="cr-label">Fuentes verificadas</div>
+            <a class="cr-link" href="https://www.breachsense.com/blog/target-data-breach/" target="_blank">BreachSense — Análisis técnico completo</a>
+            <a class="cr-link" href="https://slate.com/technology/2022/04/breached-excerpt-hartzog-solove-target.html" target="_blank">Target Annual Report 2016 via Slate — $291M</a>
+          </div>
+        </div>
+      </div></div>
     </div>
 
     <div class="caso-card" id="caso-equifax">
       <div class="caso-header" onclick="toggleCaso('caso-equifax')">
         <div class="caso-meta"><div class="caso-num">02</div><div class="caso-info"><div class="caso-org">Equifax Inc.</div><div class="caso-sector">Financiero / Crédito · EE.UU. · 2017</div></div></div>
         <div class="caso-headline">Parche disponible 78 días antes — nadie lo aplicó. Herramienta de inspección con certificado vencido 10 meses</div>
-        <div class="caso-tags"><span class="ctag ctag-red">Gestión de Parches</span><span class="ctag ctag-navy">Monitoreo de red</span><span class="ctag ctag-amber">Vulnerabilidades no gestionadas</span></div>
-        <div class="caso-impact-bar"><div class="cib-item"><div class="cib-val">$700M</div><div class="cib-label">Settlement FTC + estados</div></div><div class="cib-item"><div class="cib-val">147M</div><div class="cib-label">Registros expuestos</div></div><div class="cib-item"><div class="cib-val">78 días</div><div class="cib-label">Sin detectar el breach</div></div><div class="cib-item"><div class="cib-val">10 meses</div><div class="cib-label">Certificado SSL vencido</div></div></div>
+        <div class="caso-tags"><span class="ctag ctag-red">Gestión de Parches</span><span class="ctag ctag-navy">Monitoreo de red</span><span class="ctag ctag-amber">Configuración incorrecta</span></div>
+        <div class="caso-impact-bar"><div class="cib-item"><div class="cib-val">$700M</div><div class="cib-label">Settlement FTC</div></div><div class="cib-item"><div class="cib-val">147M</div><div class="cib-label">Registros expuestos</div></div><div class="cib-item"><div class="cib-val">78 días</div><div class="cib-label">Sin detectar</div></div><div class="cib-item"><div class="cib-val">10 meses</div><div class="cib-label">Certificado vencido</div></div></div>
         <div class="caso-toggle-hint">▾ Ver análisis técnico</div>
       </div>
-      <div class="caso-detail">
-        <div class="caso-cols">
-          <div class="caso-col-t">
-            <div class="caso-section-title">¿Qué falló exactamente?</div>
-            <div class="caso-text">El 7 de marzo de 2017, se publicó el parche para una vulnerabilidad crítica. El mismo día, el DHS de EE.UU. notificó directamente a Equifax. La organización tenía un proceso de gestión de parches. El proceso falló: nadie aplicó el parche. Los atacantes explotaron la vulnerabilidad el 13 de mayo. El breach se detectó el 29 de julio — <strong>78 días después</strong>.</div>
-            <div class="caso-text">Pero hay más: <strong>Equifax tenía una herramienta de inspección de tráfico que no funcionaba porque su certificado SSL había vencido 10 meses antes.</strong> Durante esos 10 meses, el tráfico cifrado de los atacantes pasó sin ser inspeccionado. La herramienta estaba instalada, activa — y completamente ciega.</div>
-            <div class="caso-tech-box">
-              <div class="ctb-title">Fallas técnicas documentadas</div>
-              <div class="ctb-item"><span class="ctb-dot r"></span>Sin proceso de gestión de parches con responsabilidades definidas</div>
-              <div class="ctb-item"><span class="ctb-dot r"></span>Herramienta de inspección con certificado vencido 10 meses</div>
-              <div class="ctb-item"><span class="ctb-dot r"></span>Sin segmentación de bases de datos — movimiento lateral irrestricto</div>
-              <div class="ctb-item"><span class="ctb-dot r"></span>78 días sin detección — ausencia efectiva de monitoreo continuo</div>
-            </div>
-          </div>
-          <div class="caso-col-t">
-            <div class="caso-section-title">Conexión directa con CENTROSUR</div>
-            <div class="caso-insight"><div class="ci-icon">🔐</div><div class="ci-text">Equifax tenía herramientas de inspección instaladas y marcadas como "operativas". Nadie verificaba que realmente funcionaran. <strong>En un proyecto monolítico, la validación del funcionamiento real de cada herramienta es la primera víctima.</strong></div></div>
-            <div class="caso-insight"><div class="ci-icon">📦</div><div class="ci-text">El fortalecimiento de sistemas es exactamente la Fase 3 de la propuesta. Equifax falló porque implementó herramientas sin un proceso de mantenimiento verificable posterior.</div></div>
-            <div class="caso-insight"><div class="ci-icon">👁</div><div class="ci-text">78 días sin detección con herramientas activas. Una herramienta con un certificado vencido es igual que no tener la herramienta.</div></div>
-            <div class="caso-ref">
-              <div class="cr-label">Fuentes verificadas</div>
-              <a class="cr-link" href="https://www.ftc.gov/news-events/news/press-releases/2019/07/equifax-pay-575-million-part-settlement-ftc-cfpb-states" target="_blank">FTC.gov — Settlement oficial $575M (2019)</a>
-              <a class="cr-link" href="https://republicans-oversight.house.gov/release/equifax-data-breach-was-entirely-preventable-new-house-report-finds/" target="_blank">U.S. House Committee — "Entirely preventable" report</a>
-            </div>
+      <div class="caso-detail"><div class="caso-cols">
+        <div class="caso-col-t">
+          <div class="caso-section-title">¿Qué falló exactamente?</div>
+          <div class="caso-text">Parche publicado el 7 de marzo de 2017. DHS de EE.UU. notificó directamente a Equifax. Nadie lo aplicó. Atacantes explotaron la vulnerabilidad el 13 de mayo. Breach detectado el 29 de julio — <strong>78 días después</strong>.</div>
+          <div class="caso-text"><strong>Equifax tenía herramienta de inspección de tráfico con certificado SSL vencido 10 meses.</strong> El tráfico cifrado de los atacantes pasó sin ser inspeccionado. Instalada, activa — y completamente ciega.</div>
+          <div class="caso-tech-box"><div class="ctb-title">Fallas técnicas documentadas</div>
+            <div class="ctb-item"><span class="ctb-dot r"></span>Sin proceso de gestión de parches con responsabilidades definidas</div>
+            <div class="ctb-item"><span class="ctb-dot r"></span>Herramienta de inspección con certificado vencido 10 meses</div>
+            <div class="ctb-item"><span class="ctb-dot r"></span>Sin segmentación de bases de datos — movimiento lateral irrestricto</div>
           </div>
         </div>
-      </div>
+        <div class="caso-col-t">
+          <div class="caso-section-title">Por qué importa aquí</div>
+          <div class="caso-insight"><div class="ci-icon">🔐</div><div class="ci-text">Herramientas instaladas y marcadas como operativas. Nadie verificaba que funcionaran. <strong>En un proyecto monolítico, la validación del funcionamiento real de cada herramienta es la primera víctima.</strong></div></div>
+          <div class="caso-insight"><div class="ci-icon">📦</div><div class="ci-text">El fortalecimiento de sistemas es la Fase 3. Equifax falló porque implementó sin un proceso de mantenimiento verificable posterior.</div></div>
+          <div class="caso-ref"><div class="cr-label">Fuentes verificadas</div>
+            <a class="cr-link" href="https://www.ftc.gov/news-events/news/press-releases/2019/07/equifax-pay-575-million-part-settlement-ftc-cfpb-states" target="_blank">FTC.gov — Settlement $575M (2019)</a>
+            <a class="cr-link" href="https://republicans-oversight.house.gov/release/equifax-data-breach-was-entirely-preventable-new-house-report-finds/" target="_blank">U.S. House Committee — "Entirely preventable"</a>
+          </div>
+        </div>
+      </div></div>
     </div>
 
     <div class="caso-card" id="caso-ba">
       <div class="caso-header" onclick="toggleCaso('caso-ba')">
         <div class="caso-meta"><div class="caso-num">03</div><div class="caso-info"><div class="caso-org">British Airways</div><div class="caso-sector">Transporte / Infraestructura · Reino Unido · 2018–2020</div></div></div>
         <div class="caso-headline">Configuraciones de prueba en producción — datos de pago en texto plano durante 3 años sin saberlo</div>
-        <div class="caso-tags"><span class="ctag ctag-red">Seguridad de Aplicaciones</span><span class="ctag ctag-navy">Endurecimiento de sistemas</span><span class="ctag ctag-amber">Gestión de configuración</span></div>
-        <div class="caso-impact-bar"><div class="cib-item"><div class="cib-val">£20M</div><div class="cib-label">Multa ICO (GDPR)</div></div><div class="cib-item"><div class="cib-val">429K</div><div class="cib-label">Clientes afectados</div></div><div class="cib-item"><div class="cib-val">3 años</div><div class="cib-label">Datos expuestos sin detección</div></div><div class="cib-item"><div class="cib-val">0</div><div class="cib-label">Tests en sistemas críticos</div></div></div>
+        <div class="caso-tags"><span class="ctag ctag-red">Seguridad de Aplicaciones</span><span class="ctag ctag-navy">Endurecimiento</span><span class="ctag ctag-amber">Gestión de configuración</span></div>
+        <div class="caso-impact-bar"><div class="cib-item"><div class="cib-val">£20M</div><div class="cib-label">Multa ICO (GDPR)</div></div><div class="cib-item"><div class="cib-val">429K</div><div class="cib-label">Clientes afectados</div></div><div class="cib-item"><div class="cib-val">3 años</div><div class="cib-label">Datos expuestos</div></div><div class="cib-item"><div class="cib-val">0</div><div class="cib-label">Tests independientes</div></div></div>
         <div class="caso-toggle-hint">▾ Ver análisis técnico</div>
       </div>
-      <div class="caso-detail">
-        <div class="caso-cols">
-          <div class="caso-col-t">
-            <div class="caso-section-title">¿Qué falló exactamente?</div>
-            <div class="caso-text">En 2018, un ataque inyectó código malicioso en el sitio de British Airways capturando datos de 429,612 clientes. Pero la falla crítica fue que desde diciembre de 2015 los datos de tarjetas <strong>se almacenaban en texto plano por un error humano en la configuración del sistema</strong>. Nadie lo había detectado en tres años.</div>
-            <div class="caso-tech-box">
-              <div class="ctb-title">Fallas técnicas documentadas (ICO Penalty Notice)</div>
-              <div class="ctb-item"><span class="ctb-dot r"></span>Datos de pago en texto plano desde dic 2015 por error de configuración</div>
-              <div class="ctb-item"><span class="ctb-dot r"></span>Configuraciones de fase de prueba activas en sistemas de producción</div>
-              <div class="ctb-item"><span class="ctb-dot r"></span>Sin autenticación multifactor en sistemas críticos</div>
-              <div class="ctb-item"><span class="ctb-dot r"></span>Sin pruebas de seguridad rigurosas en sistemas críticos</div>
-            </div>
-          </div>
-          <div class="caso-col-t">
-            <div class="caso-section-title">Conexión directa con CENTROSUR</div>
-            <div class="caso-insight"><div class="ci-icon">🧪</div><div class="ci-text">British Airways tenía configuraciones de prueba en producción durante años sin saberlo. <strong>Esto es exactamente el riesgo de implementar sin un proceso de endurecimiento y Pentesting independiente.</strong> La Fase 3 existe para cerrar ese gap.</div></div>
-            <div class="caso-insight"><div class="ci-icon">⚖️</div><div class="ci-text">La multa de £20M bajo GDPR demuestra la exposición regulatoria. CENTROSUR opera en sector regulado — el riesgo de sanción es real.</div></div>
-            <div class="caso-ref">
-              <div class="cr-label">Fuentes verificadas</div>
-              <a class="cr-link" href="https://ico.org.uk/action-weve-taken/enforcement/british-airways/" target="_blank">ICO.org.uk — Penalty Notice oficial £20M</a>
-              <a class="cr-link" href="https://techcrunch.com/2020/10/16/uk-ico-reduces-british-airways-data-breach-fine-to-20m/" target="_blank">TechCrunch — ICO fine reduction (2020)</a>
-            </div>
+      <div class="caso-detail"><div class="caso-cols">
+        <div class="caso-col-t">
+          <div class="caso-section-title">¿Qué falló exactamente?</div>
+          <div class="caso-text">Desde diciembre de 2015, datos de tarjetas <strong>se almacenaban en texto plano por un error de configuración del sistema</strong>. Nadie lo detectó en tres años. En 2018, un ataque inyectó código malicioso que capturó datos de 429,612 clientes.</div>
+          <div class="caso-tech-box"><div class="ctb-title">Fallas técnicas documentadas (ICO Penalty Notice)</div>
+            <div class="ctb-item"><span class="ctb-dot r"></span>Datos de pago en texto plano desde dic 2015 — error de configuración</div>
+            <div class="ctb-item"><span class="ctb-dot r"></span>Configuraciones de fase de prueba activas en producción</div>
+            <div class="ctb-item"><span class="ctb-dot r"></span>Sin autenticación multifactor en sistemas críticos</div>
+            <div class="ctb-item"><span class="ctb-dot r"></span>Sin pruebas de seguridad independientes sobre sistemas críticos</div>
           </div>
         </div>
-      </div>
+        <div class="caso-col-t">
+          <div class="caso-section-title">Por qué importa aquí</div>
+          <div class="caso-insight"><div class="ci-icon">🧪</div><div class="ci-text">Configuraciones de prueba en producción durante años sin saberlo. <strong>Exactamente el riesgo de implementar sin endurecimiento y Pentesting independiente.</strong></div></div>
+          <div class="caso-insight"><div class="ci-icon">⚖️</div><div class="ci-text">£20M de multa por ausencia de pruebas independientes. El auditor no puede ser el mismo que construyó.</div></div>
+          <div class="caso-ref"><div class="cr-label">Fuentes verificadas</div>
+            <a class="cr-link" href="https://ico.org.uk/action-weve-taken/enforcement/british-airways/" target="_blank">ICO.org.uk — Penalty Notice £20M</a>
+            <a class="cr-link" href="https://techcrunch.com/2020/10/16/uk-ico-reduces-british-airways-data-breach-fine-to-20m/" target="_blank">TechCrunch — ICO fine (2020)</a>
+          </div>
+        </div>
+      </div></div>
     </div>
 
     <div class="caso-card" id="caso-panama">
       <div class="caso-header" onclick="toggleCaso('caso-panama')">
         <div class="caso-meta"><div class="caso-num">04</div><div class="caso-info"><div class="caso-org">Ministerio de Economía y Finanzas — Panamá</div><div class="caso-sector">Gobierno / Infraestructura crítica · Latam · 2025</div></div></div>
         <div class="caso-headline">Ransomware en infraestructura crítica regional — sin MFA, sin segmentación, sin plan de respuesta</div>
-        <div class="caso-tags"><span class="ctag ctag-red">Ransomware</span><span class="ctag ctag-navy">Autenticación</span><span class="ctag ctag-amber">Segmentación de red</span></div>
-        <div class="caso-impact-bar"><div class="cib-item"><div class="cib-val">1.5 TB</div><div class="cib-label">Datos exfiltrados</div></div><div class="cib-item"><div class="cib-val">50+</div><div class="cib-label">Entidades impactadas</div></div><div class="cib-item"><div class="cib-val">Sep 2025</div><div class="cib-label">Fecha del incidente</div></div><div class="cib-item"><div class="cib-val">RDP</div><div class="cib-label">Vector sin MFA</div></div></div>
+        <div class="caso-tags"><span class="ctag ctag-red">Ransomware</span><span class="ctag ctag-navy">Autenticación</span><span class="ctag ctag-amber">Segmentación</span></div>
+        <div class="caso-impact-bar"><div class="cib-item"><div class="cib-val">1.5 TB</div><div class="cib-label">Datos exfiltrados</div></div><div class="cib-item"><div class="cib-val">50+</div><div class="cib-label">Entidades impactadas</div></div><div class="cib-item"><div class="cib-val">Sep 2025</div><div class="cib-label">Fecha del incidente</div></div><div class="cib-item"><div class="cib-val">RDP sin MFA</div><div class="cib-label">Vector de entrada</div></div></div>
         <div class="caso-toggle-hint">▾ Ver análisis técnico</div>
       </div>
-      <div class="caso-detail">
-        <div class="caso-cols">
-          <div class="caso-col-t">
-            <div class="caso-section-title">¿Qué falló exactamente?</div>
-            <div class="caso-text">En septiembre de 2025, el grupo INC Ransom comprometió el MEF de Panamá. El vector de entrada: <strong>acceso remoto expuesto sin autenticación multifactor</strong>. La falta de segmentación interna permitió movimiento lateral hasta sistemas de planificación presupuestal, nómina gubernamental y contratos de préstamos internacionales.</div>
-            <div class="caso-tech-box">
-              <div class="ctb-title">Fallas técnicas documentadas</div>
-              <div class="ctb-item"><span class="ctb-dot r"></span>Acceso remoto expuesto sin MFA — vector de entrada primario</div>
-              <div class="ctb-item"><span class="ctb-dot r"></span>Sin segmentación interna — movimiento lateral irrestricto</div>
-              <div class="ctb-item"><span class="ctb-dot r"></span>Sin plan de respuesta a incidentes actualizado</div>
-              <div class="ctb-item"><span class="ctb-dot a"></span>Breach confirmado externamente — capacidad de detección insuficiente</div>
-            </div>
-          </div>
-          <div class="caso-col-t">
-            <div class="caso-section-title">Conexión directa con CENTROSUR</div>
-            <div class="caso-insight"><div class="ci-icon">🌎</div><div class="ci-text"><strong>Infraestructura crítica gubernamental latinoamericana</strong>, con el mismo perfil regulatorio y político que CENTROSUR. No es un escenario teórico — ocurrió en la región, en 2025.</div></div>
-            <div class="caso-insight"><div class="ci-icon">🔑</div><div class="ci-text">El vector de entrada fue acceso remoto sin MFA. La autenticación multifactor es parte central de la Fase 4. Sin esa capa, cualquier servicio de acceso remoto de CENTROSUR es el mismo vector.</div></div>
-            <div class="caso-insight"><div class="ci-icon">🏛</div><div class="ci-text">El impacto se propagó a 50+ entidades por falta de segmentación. CENTROSUR distribuye energía a múltiples provincias — un incidente no es aislado.</div></div>
-            <div class="caso-ref">
-              <div class="cr-label">Fuentes verificadas</div>
-              <a class="cr-link" href="https://www.securityweek.com/panama-ministry-of-economy-discloses-breach-claimed-by-inc-ransomware/" target="_blank">SecurityWeek — MEF breach disclosure (sep 2025)</a>
-              <a class="cr-link" href="https://scmagazine.com/brief/data-security-incident-admitted-by-panama-ministry-of-economy-and-finance" target="_blank">SC Media — 1.5TB data theft claim</a>
-            </div>
+      <div class="caso-detail"><div class="caso-cols">
+        <div class="caso-col-t">
+          <div class="caso-section-title">¿Qué falló exactamente?</div>
+          <div class="caso-text">Septiembre 2025, grupo INC Ransom comprometió el MEF de Panamá. Vector de entrada: <strong>acceso remoto expuesto sin autenticación multifactor</strong>. Sin segmentación interna, movimiento lateral hasta planificación presupuestal, nómina y contratos de préstamos internacionales.</div>
+          <div class="caso-tech-box"><div class="ctb-title">Fallas técnicas documentadas</div>
+            <div class="ctb-item"><span class="ctb-dot r"></span>Acceso remoto sin MFA — vector de entrada primario</div>
+            <div class="ctb-item"><span class="ctb-dot r"></span>Sin segmentación interna — movimiento lateral irrestricto</div>
+            <div class="ctb-item"><span class="ctb-dot r"></span>Sin plan de respuesta a incidentes actualizado</div>
           </div>
         </div>
-      </div>
+        <div class="caso-col-t">
+          <div class="caso-section-title">Por qué importa aquí</div>
+          <div class="caso-insight"><div class="ci-icon">🌎</div><div class="ci-text"><strong>Infraestructura crítica gubernamental latinoamericana</strong> — mismo perfil regulatorio y político que CENTROSUR. Ocurrió en la región, en 2025.</div></div>
+          <div class="caso-insight"><div class="ci-icon">🔑</div><div class="ci-text">Vector: acceso remoto sin MFA. Exactamente lo que la Fase 4 resuelve. Sin esa capa, cualquier servicio de acceso remoto es el mismo vector.</div></div>
+          <div class="caso-insight"><div class="ci-icon">🏛</div><div class="ci-text">Impacto en 50+ entidades por falta de segmentación. CENTROSUR distribuye energía a múltiples provincias — un incidente no es aislado.</div></div>
+          <div class="caso-ref"><div class="cr-label">Fuentes verificadas</div>
+            <a class="cr-link" href="https://www.securityweek.com/panama-ministry-of-economy-discloses-breach-claimed-by-inc-ransomware/" target="_blank">SecurityWeek — MEF breach (sep 2025)</a>
+            <a class="cr-link" href="https://scmagazine.com/brief/data-security-incident-admitted-by-panama-ministry-of-economy-and-finance" target="_blank">SC Media — 1.5TB claim</a>
+          </div>
+        </div>
+      </div></div>
     </div>
 
   </div>
-  <div class="casos-footer-note"><div class="cfn-icon">📌</div><div class="cfn-text">Los cuatro casos comparten el mismo patrón: <strong>herramientas instaladas que no funcionaban correctamente, ausencia de procesos de validación, y falta de una secuencia de implementación que respete dependencias técnicas.</strong> Todos fueron declarados prevenibles por los organismos reguladores que los investigaron.</div></div>
+  <div class="casos-footer-note"><div class="cfn-icon">📌</div><div class="cfn-text">Los cuatro casos comparten el mismo patrón: <strong>herramientas instaladas que no funcionaban correctamente, ausencia de procesos de validación, y falta de una secuencia de implementación que respete dependencias técnicas.</strong> Todos fueron declarados prevenibles.</div></div>
 </div>
 </div>
 
-<!-- ══ PANEL 04 DATOS ══ -->
+<!-- ══ 07 DATOS ══ -->
 <div class="panel" id="panel-datos">
 <div class="datos-outer">
   <div class="datos-intro">
-    <div class="datos-eyebrow">Evidencia cuantitativa</div>
-    <h2 class="datos-title">Datos con fuente.<br><em>No estimaciones, no suposiciones.</em></h2>
-    <p class="datos-sub">Cada número tiene una referencia verificable. Fuentes: IBM Cost of a Data Breach Report, Verizon DBIR, Gartner, ITIC, Uptime Institute, reportes de organismos reguladores.</p>
+    <div class="datos-eyebrow">Evidencia cuantitativa de breaches</div>
+    <h2 class="datos-title">El costo real de<br><em>una mala implementación.</em></h2>
+    <p class="datos-sub">Cada número tiene una referencia verificable. Lo que estos datos muestran es siempre lo mismo: no es el ataque lo que cuesta más — es no estar preparado cuando ocurre.</p>
   </div>
 
   <div class="datos-bloque">
-    <div class="db-header"><div class="db-icon">⏱</div><div><div class="db-title">Costo de inactividad operacional</div><div class="db-sub">¿Cuánto cuesta por hora una interrupción causada por falla de seguridad?</div></div></div>
+    <div class="db-header"><div class="db-icon">💥</div><div><div class="db-title">El costo real de los breaches documentados</div><div class="db-sub">Números verificados de casos reales — no proyecciones ni estimaciones teóricas</div></div></div>
     <div class="db-stats">
-      <div class="db-stat"><div class="ds-val">$336K</div><div class="ds-label">por hora — promedio cross-industry</div><div class="ds-source">Gartner · baseline ampliamente citado</div></div>
-      <div class="db-stat"><div class="ds-val">90%+</div><div class="ds-label">de medianas y grandes empresas reportan pérdidas &gt;$300K/hora</div><div class="ds-source">ITIC · Hourly Cost of Downtime Survey 2024</div></div>
-      <div class="db-stat"><div class="ds-val">41%</div><div class="ds-label">de organizaciones reportan pérdidas de $1M–$5M+ por hora</div><div class="ds-source">ITIC · Hourly Cost of Downtime Survey 2024</div></div>
-      <div class="db-stat"><div class="ds-val">53%</div><div class="ds-label">de todos los outages provienen de fallas IT/red</div><div class="ds-source">Uptime Institute · Annual Outage Analysis 2024</div></div>
+      <div class="db-stat"><div class="ds-val">$291M</div><div class="ds-label">Costo total del breach de Target (2013) — con herramientas de detección activas y funcionando</div><div class="ds-source">Target Annual Report 2016 · BreachSense post-mortem</div></div>
+      <div class="db-stat"><div class="ds-val">$700M</div><div class="ds-label">Settlement total de Equifax (2017) — parche disponible 78 días antes, nadie lo aplicó</div><div class="ds-source">FTC.gov Settlement 2019 · U.S. House Committee Report</div></div>
+      <div class="db-stat"><div class="ds-val">£20M</div><div class="ds-label">Multa a British Airways (2020) — configuraciones de prueba en producción durante 3 años</div><div class="ds-source">ICO UK Penalty Notice 2020</div></div>
+      <div class="db-stat"><div class="ds-val">$4.44M</div><div class="ds-label">Costo promedio global de un breach en 2025 — promedio, no el peor caso</div><div class="ds-source">IBM Cost of a Data Breach Report 2025</div></div>
     </div>
-    <div class="db-note">Para infraestructura crítica del sector eléctrico, los costos incluyen componentes regulatorios y operacionales adicionales que elevan este número significativamente.</div>
+    <div class="db-note">En todos estos casos el denominador común no fue un ataque sofisticado — fue una implementación incompleta, un proceso ausente, o una herramienta que nadie verificó que funcionara correctamente.</div>
   </div>
 
   <div class="datos-bloque">
-    <div class="db-header"><div class="db-icon">🔍</div><div><div class="db-title">Tiempos de detección y su impacto en el costo</div><div class="db-sub">Cada día sin detección tiene un costo directo documentado</div></div></div>
+    <div class="db-header"><div class="db-icon">⚙️</div><div><div class="db-title">La causa más frecuente de breach no es el hacker — es la configuración incorrecta</div><div class="db-sub">La mayoría de los incidentes documentados son prevenibles y no requieren atacantes sofisticados</div></div></div>
     <div class="db-stats">
-      <div class="db-stat"><div class="ds-val">$4.44M</div><div class="ds-label">costo promedio global de un breach (ciclo de 241 días)</div><div class="ds-source">IBM Cost of a Data Breach Report 2025</div></div>
-      <div class="db-stat"><div class="ds-val">$18K</div><div class="ds-label">costo estimado por día de acceso no detectado</div><div class="ds-source">Derivado de IBM 2025 — $4.44M / 241 días</div></div>
-      <div class="db-stat"><div class="ds-val">$1.9M</div><div class="ds-label">ahorro promedio con detección automatizada madura</div><div class="ds-source">IBM Cost of a Data Breach Report 2025</div></div>
-      <div class="db-stat"><div class="ds-val">241 días</div><div class="ds-label">lifecycle promedio: 181 en detectar + 60 en contener</div><div class="ds-source">IBM Cost of a Data Breach Report 2025</div></div>
+      <div class="db-stat"><div class="ds-val">90%+</div><div class="ds-label">de incidentes investigados en 2026 tuvieron una configuración incorrecta que materialmente habilitó la intrusión</div><div class="ds-source">Palo Alto Networks · Unit 42 Global IR Report 2026</div></div>
+      <div class="db-stat"><div class="ds-val">99%</div><div class="ds-label">de las fallas de seguridad en entornos cloud serán responsabilidad del cliente — no del proveedor</div><div class="ds-source">Gartner · Cloud Security Forecast 2021–2025</div></div>
+      <div class="db-stat"><div class="ds-val">82%</div><div class="ds-label">de los breaches documentados involucran el elemento humano — error, phishing o credenciales comprometidas</div><div class="ds-source">Verizon DBIR 2025</div></div>
+      <div class="db-stat"><div class="ds-val">35%</div><div class="ds-label">de todos los incidentes históricos son atribuibles directamente a error humano o uso indebido</div><div class="ds-source">VERIS Framework · Verizon DBIR base histórica</div></div>
     </div>
-    <div class="db-note">La detección automatizada solo reduce ese tiempo si tiene datos de calidad de las fases anteriores. Sin esa base, los 241 días se mantienen — con el equipo de ciberseguridad sin visibilidad real.</div>
+    <div class="db-note">Una implementación en paralelo sin orden multiplica exactamente estos riesgos. Cada herramienta mal configurada es una superficie de ataque adicional, no una capa de protección.</div>
   </div>
 
   <div class="datos-bloque">
-    <div class="db-header"><div class="db-icon">⚙️</div><div><div class="db-title">Mala configuración como causa principal de breaches</div><div class="db-sub">La mayoría de los incidentes no son ataques sofisticados — son configuraciones incorrectas</div></div></div>
+    <div class="db-header"><div class="db-icon">🕐</div><div><div class="db-title">Cuánto tiempo permanecen sin ser detectados</div><div class="db-sub">El tiempo de permanencia no detectada determina el tamaño del daño</div></div></div>
     <div class="db-stats">
-      <div class="db-stat"><div class="ds-val">90%+</div><div class="ds-label">de incidentes donde las configuraciones incorrectas habilitaron materialmente la intrusión</div><div class="ds-source">Palo Alto Networks · Unit 42 Global IR Report 2026</div></div>
-      <div class="db-stat"><div class="ds-val">99%</div><div class="ds-label">de fallas de seguridad cloud serán por culpa del cliente (configuración)</div><div class="ds-source">Gartner · análisis acumulado 2021–2025</div></div>
-      <div class="db-stat"><div class="ds-val">35%</div><div class="ds-label">de todos los incidentes históricos causados por error humano o mal uso</div><div class="ds-source">VERIS / Verizon DBIR — base histórica</div></div>
-      <div class="db-stat"><div class="ds-val">82%</div><div class="ds-label">de breaches involucran el elemento humano</div><div class="ds-source">Verizon DBIR 2025</div></div>
+      <div class="db-stat"><div class="ds-val">241 días</div><div class="ds-label">lifecycle promedio de un breach: 181 días para detectarlo + 60 días para contenerlo</div><div class="ds-source">IBM Cost of a Data Breach Report 2025</div></div>
+      <div class="db-stat"><div class="ds-val">14 días</div><div class="ds-label">Target: herramientas activas generando alertas reales — sin respuesta durante 14 días por alert fatigue</div><div class="ds-source">BreachSense · Target breach post-mortem</div></div>
+      <div class="db-stat"><div class="ds-val">78 días</div><div class="ds-label">Equifax: atacantes adentro 78 días con herramienta de inspección activa pero ciega por certificado vencido</div><div class="ds-source">FTC.gov · U.S. House Committee Report</div></div>
+      <div class="db-stat"><div class="ds-val">$1.9M</div><div class="ds-label">ahorro promedio por breach cuando la detección automatizada está madura y bien implementada</div><div class="ds-source">IBM Cost of a Data Breach Report 2025</div></div>
     </div>
-  </div>
-
-  <div class="datos-bloque">
-    <div class="db-header"><div class="db-icon">📈</div><div><div class="db-title">ROI — Por fases vs. contrato único</div><div class="db-sub">El enfoque por fases no es más caro — cada inversión produce retorno medible antes de la siguiente</div></div></div>
-    <div class="db-roi-compare">
-      <div class="roi-col"><div class="roi-col-title roi-bad">Contrato único — ROI no medible hasta el final</div><div class="roi-item">✗ Licencias pagadas desde mes 1 sobre herramientas sin configurar</div><div class="roi-item">✗ ROI solo visible al final del proyecto (18–24 meses)</div><div class="roi-item">✗ Sin entregables intermedios para justificar el gasto</div><div class="roi-item">✗ Si algo falla, el presupuesto completo queda en disputa</div></div>
-      <div class="roi-col"><div class="roi-col-title roi-good">Por fases — ROI demostrable en cada cierre</div><div class="roi-item">✓ F1 completada = reducción de superficie de ataque medible</div><div class="roi-item">✓ Cada fase tiene presupuesto cerrado y entregable verificable</div><div class="roi-item">✓ Posibilidad de ajustar antes de comprometer el siguiente contrato</div><div class="roi-item">✓ Las licencias se activan cuando la herramienta está lista para producir valor</div></div>
-    </div>
-    <div class="db-note">IBM 2025 documenta un ahorro promedio de $1.9M por breach en organizaciones con detección automatizada madura. Esa madurez solo se construye en secuencia — no se instala de golpe.</div>
+    <div class="db-note">La detección automatizada reduce ese tiempo — pero solo si tiene datos de calidad de las fases anteriores. Sin esa base, el atacante permanece 241 días con las herramientas instaladas, pagadas y generando falsa sensación de protección.</div>
   </div>
 
   <div class="ref-section">
-    <div class="ref-title">Fuentes y referencias completas</div>
+    <div class="ref-title">Fuentes y referencias</div>
     <div class="ref-grid">
       <div class="ref-item"><span class="ref-badge">IBM</span><span class="ref-text">Cost of a Data Breach Report 2025 — ibm.com/security/data-breach</span></div>
-      <div class="ref-item"><span class="ref-badge">Verizon</span><span class="ref-text">Data Breach Investigations Report 2024 & 2025 — verizon.com/business/resources/reports/dbir</span></div>
-      <div class="ref-item"><span class="ref-badge">Gartner</span><span class="ref-text">Security & Risk Management Spending Forecast 2024</span></div>
-      <div class="ref-item"><span class="ref-badge">ITIC</span><span class="ref-text">Hourly Cost of Downtime Survey 2024 — itic-corp.com</span></div>
-      <div class="ref-item"><span class="ref-badge">Uptime</span><span class="ref-text">Annual Outage Analysis 2024 — uptimeinstitute.com</span></div>
-      <div class="ref-item"><span class="ref-badge">Palo Alto</span><span class="ref-text">Unit 42 Global Incident Response Report 2026 — unit42.paloaltonetworks.com</span></div>
+      <div class="ref-item"><span class="ref-badge">Verizon</span><span class="ref-text">Data Breach Investigations Report 2025 — verizon.com/business/resources/reports/dbir</span></div>
+      <div class="ref-item"><span class="ref-badge">Gartner</span><span class="ref-text">Cloud Security Forecast 2021–2025</span></div>
+      <div class="ref-item"><span class="ref-badge">Palo Alto</span><span class="ref-text">Unit 42 Global Incident Response Report 2026</span></div>
       <div class="ref-item"><span class="ref-badge">FTC</span><span class="ref-text">Equifax Settlement $575M — ftc.gov (2019)</span></div>
       <div class="ref-item"><span class="ref-badge">ICO UK</span><span class="ref-text">British Airways Penalty Notice £20M — ico.org.uk (2020)</span></div>
       <div class="ref-item"><span class="ref-badge">SC Media</span><span class="ref-text">Panama MEF breach — INC Ransom 1.5TB (sep 2025)</span></div>
+      <div class="ref-item"><span class="ref-badge">BreachSense</span><span class="ref-text">Target breach technical post-mortem — breachsense.com</span></div>
     </div>
   </div>
-</div>
-</div>
-
-<!-- ══ PANEL 05 MATRIZ ══ -->
-<div class="panel" id="panel-matriz">
-<div class="matriz-outer">
-  <div class="mx-intro">
-    <div class="mx-eyebrow">Dependencias técnicas y controles</div>
-    <h2 class="mx-title">Qué controla cada fase.<br><em>Por qué el orden no es negociable.</em></h2>
-    <p class="mx-sub">Cada control de seguridad mitiga riesgos específicos. Pero solo puede mitigarlos si las capas anteriores están operativas. Referenciado contra NIST CSF 2.0, C2M2 (DOE/NIST) y los casos documentados.</p>
-  </div>
-  <div class="mx-legend">
-    <div class="mxl-item"><div class="mxl-dot" style="background:var(--green)"></div>Mitigado por esta fase</div>
-    <div class="mxl-item"><div class="mxl-dot" style="background:var(--amber)"></div>Parcialmente mitigado — depende de fase anterior</div>
-    <div class="mxl-item"><div class="mxl-dot" style="background:var(--red)"></div>No mitigado — requiere fases anteriores completas</div>
-    <div class="mxl-item"><div class="mxl-dot" style="background:var(--border)"></div>Fuera de alcance en esta fase</div>
-  </div>
-  <div class="mx-table-wrap">
-    <table class="mx-table">
-      <thead><tr><th class="mx-th-control">Control / Riesgo</th><th class="mx-th-fw">Framework</th><th class="mx-th-f">F1<br><span>Perimetral</span></th><th class="mx-th-f">F2<br><span>Trabajo</span></th><th class="mx-th-f">F3<br><span>Aplicaciones</span></th><th class="mx-th-f">F4<br><span>Identidad+Det.</span></th><th class="mx-th-dep">Dependencia crítica</th></tr></thead>
-      <tbody>
-        <tr class="mx-group-row"><td colspan="7">Seguridad de red y perímetro</td></tr>
-        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Filtrado de tráfico y segmentación de red</td><td class="mx-fw"><span class="fw-pill">NIST CSF PR.AC</span></td><td><div class="mx-dot g"></div></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot b"></div></td><td class="mx-dep">—</td></tr>
-        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body">La segmentación de red fue la falla técnica principal en Target y Panama MEF — ambos sufrieron movimiento lateral irrestricto. Sin segmentación correcta, cualquier credencial comprometida puede alcanzar sistemas críticos.<em>Fuente: NIST CSF 2.0 PR.AC-5 — Manage network integrity / C2M2 v2.1 ACM</em></div></td></tr>
-        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Visibilidad de tráfico anómalo</td><td class="mx-fw"><span class="fw-pill">NIST CSF DE.CM</span></td><td><div class="mx-dot a"></div></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot b"></div></td><td class="mx-dep">Firewalls operativos → logs estructurados</td></tr>
-        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body">La observabilidad depende de que los controles de red exporten logs estructurados. Sin esa base, los dashboards muestran métricas vacías. Equifax: herramienta de inspección activa pero con certificado vencido — 78 días sin detección.<em>Fuente: NIST CSF 2.0 DE.CM-1 — Monitor networks</em></div></td></tr>
-        <tr class="mx-group-row"><td colspan="7">Protección de endpoint y servidores</td></tr>
-        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Detección y respuesta en endpoint</td><td class="mx-fw"><span class="fw-pill">NIST CSF DE.CM-4</span></td><td><div class="mx-dot g"></div></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot b"></div></td><td class="mx-dep">—</td></tr>
-        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body">La detección de endpoint es fuente primaria de logs para la correlación en F4. El 82% de los breaches involucran el elemento humano en el endpoint (Verizon DBIR 2025). Target tenía detección activa — con respuesta automática desactivada.<em>Fuente: NIST CSF 2.0 DE.CM-4 / Verizon DBIR 2025</em></div></td></tr>
-        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Gestión de parches y endurecimiento</td><td class="mx-fw"><span class="fw-pill">NIST CSF ID.RA</span></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot g"></div></td><td><div class="mx-dot b"></div></td><td class="mx-dep">Visibilidad completa de superficie de F1</td></tr>
-        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body">El endurecimiento requiere conocer la superficie de ataque completa — posible solo con observabilidad y detección de F1. Equifax: parche disponible, notificación del DHS recibida, proceso de aplicación ausente. Costo: $700M.<em>Fuente: NIST CSF 2.0 PR.IP-12 / C2M2 TVM</em></div></td></tr>
-        <tr class="mx-group-row"><td colspan="7">Acceso remoto y espacio de trabajo</td></tr>
-        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Acceso remoto seguro — Zero Trust</td><td class="mx-fw"><span class="fw-pill">NIST SP 800-207</span></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot g"></div></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot b"></div></td><td class="mx-dep">Segmentación de F1 operativa</td></tr>
-        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body">Sin microsegmentación de F1, el acceso remoto seguro no puede aplicar el principio de mínimo privilegio por segmento — no tiene fronteras sobre las cuales aplicar la política.<em>Fuente: NIST SP 800-207 — Zero Trust Architecture (2020)</em></div></td></tr>
-        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Autenticación multifactor (MFA)</td><td class="mx-fw"><span class="fw-pill">NIST CSF PR.AC-7</span></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot g"></div></td><td class="mx-dep">Todos los vectores de acceso mapeados en F2 y F3</td></tr>
-        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body">MFA implementado en F4 tiene cobertura total porque F2 y F3 ya mapearon todos los vectores de acceso. Implementarlo antes deja puntos ciegos. Panama MEF: acceso remoto sin MFA fue el vector de entrada (sep 2025).<em>Fuente: NIST CSF 2.0 PR.AC-7 / CISA — StopRansomware Guide</em></div></td></tr>
-        <tr class="mx-group-row"><td colspan="7">Protección de aplicaciones</td></tr>
-        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Protección de aplicaciones web y APIs</td><td class="mx-fw"><span class="fw-pill">OWASP Top 10</span></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot g"></div></td><td><div class="mx-dot b"></div></td><td class="mx-dep">Inventario de aplicaciones de F1</td></tr>
-        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body">La protección de aplicaciones necesita conocer todas las apps y APIs a proteger — inventario generado por la observabilidad de F1. Sin ese mapa, se configura sobre supuestos. British Airways: sin protección en el script de pago — vector del ataque.<em>Fuente: OWASP Top 10 Web Application Security Risks (2021)</em></div></td></tr>
-        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Prevención de fuga de datos (DLP)</td><td class="mx-fw"><span class="fw-pill">ISO 27001 A.8.12</span></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot b"></div></td><td><div class="mx-dot a"></div></td><td class="mx-dep">Clasificación de datos completada por CENTROSUR</td></tr>
-        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body">El DLP requiere que CENTROSUR haya definido y etiquetado sus datos sensibles previamente. Sin esa base, genera falsos positivos masivos o deja pasar datos críticos. Pregunta obligatoria antes de incluirlo en cualquier propuesta.<em>Fuente: ISO/IEC 27001:2022 Annex A-8.12</em></div></td></tr>
-        <tr class="mx-group-row"><td colspan="7">Detección, respuesta e inteligencia</td></tr>
-        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Correlación de eventos — SIEM</td><td class="mx-fw"><span class="fw-pill">NIST CSF DE.AE</span></td><td><div class="mx-dot r"></div></td><td><div class="mx-dot r"></div></td><td><div class="mx-dot a"></div></td><td><div class="mx-dot g"></div></td><td class="mx-dep">Logs estructurados de F1 + F2 + F3</td></tr>
-        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body">Sin logs de calidad de las fases anteriores, el SIEM no tiene datos que correlacionar — solo genera ruido. Target: sistema de correlación activo con alertas reales, equipo de ciberseguridad sin proceso de respuesta — 14 días sin acción.<em>Fuente: NIST CSF 2.0 DE.AE / Unit 42 IR Report 2026</em></div></td></tr>
-        <tr class="mx-row" onclick="toggleMxRow(this)"><td class="mx-ctrl">Pentesting y validación independiente</td><td class="mx-fw"><span class="fw-pill">NIST CSF ID.RA-1</span></td><td><div class="mx-dot r"></div></td><td><div class="mx-dot r"></div></td><td><div class="mx-dot g"></div></td><td><div class="mx-dot b"></div></td><td class="mx-dep">Controles de F1 + F2 estabilizados para auditar</td></tr>
-        <tr class="mx-detail-row"><td colspan="7"><div class="mx-detail-body">El Pentesting puntual en F3 valida lo implementado. El proveedor debe ser completamente independiente del implementador. British Airways: sin pruebas independientes — ICO UK lo documentó con £20M de multa.<em>Fuente: NIST CSF 2.0 ID.RA-1 / ICO Penalty Notice BA (2020)</em></div></td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="dep-diagram">
-    <div class="dd-title">Mapa de dependencias entre fases</div>
-    <div class="dd-subtitle">Las flechas indican dependencias técnicas obligatorias — una fase no produce valor real sin las anteriores estabilizadas.</div>
-    <div class="dd-flow">
-      <div class="dd-fase" style="border-color:var(--navy2)"><div class="dd-f-num">F1</div><div class="dd-f-name">Protección Perimetral</div><div class="dd-f-tools">Firewalls · Detección de Endpoint · Observabilidad · Red</div><div class="dd-f-output">Salida: Logs estructurados · Segmentación · Inventario de activos</div></div>
-      <div class="dd-arrow">→</div>
-      <div class="dd-fase" style="border-color:#1a6a9a"><div class="dd-f-num">F2</div><div class="dd-f-name">Espacio de Trabajo</div><div class="dd-f-tools">Acceso remoto seguro · Control cloud · Correo · DMARC</div><div class="dd-f-output">Necesita: Segmentación F1 · Detección de endpoint estable</div></div>
-      <div class="dd-arrow">→</div>
-      <div class="dd-fase" style="border-color:var(--amber)"><div class="dd-f-num">F3</div><div class="dd-f-name">Protección de Aplicaciones</div><div class="dd-f-tools">Protección web · APIs · Endurecimiento</div><div class="dd-f-output">Necesita: Inventario de apps F1 · Accesos mapeados F2</div></div>
-      <div class="dd-arrow">→</div>
-      <div class="dd-fase" style="border-color:var(--red)"><div class="dd-f-num">F4</div><div class="dd-f-name">Identidad, Detección e Inteligencia</div><div class="dd-f-tools">IAM/PAM · NAC · MFA · SIEM · SOC · DLP · NDR · Pentesting</div><div class="dd-f-output">Necesita: Logs F1 · Accesos F2 · Apps F3 · Datos clasificados</div></div>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- ══ PANEL 06 CONSULTOR ══ -->
-<div class="panel" id="panel-consultor">
-<div class="cons-outer">
-
-  <div class="cons-intro">
-    <div class="cons-eyebrow">Lo que se necesita para ejecutar esto bien</div>
-    <h2 class="cons-title">No es solo tecnología.<br><em>Es quien la implementa.</em></h2>
-    <div class="cons-lema-hero">
-      <div class="cons-lema-icon">💡</div>
-      <div>
-        <div class="cons-lema-main">Ve donde lo usas — <em>no solo depende de herramientas.</em></div>
-        <div class="cons-lema-sub">La ciberseguridad real depende de tres cosas que ninguna herramienta puede reemplazar: las personas que la operan, los procesos que la sostienen, y las definiciones que le dan sentido. Una herramienta sin proceso es un gasto. Un proceso sin la persona correcta es un riesgo. Una definición ausente convierte cualquier herramienta en una caja negra.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="cons-section-title">Dominios de conocimiento que debe dominar el consultor</div>
-  <div class="cons-section-sub">Cada fase requiere profundidad técnica real — no conocimiento superficial ni marketing de producto. Un consultor que no puede demostrar experiencia operacional en cada uno de estos dominios no puede diseñar una implementación que funcione en producción.</div>
-
-  <div class="cons-dom-grid">
-    <div class="cons-dom-card">
-      <div class="cdc-icon">🛡</div>
-      <div class="cdc-title">Arquitectura de seguridad de red y perímetro</div>
-      <div class="cdc-body">Diseño de arquitecturas con firewalls de nueva generación, microsegmentación, políticas de filtrado de tráfico, inspección profunda de paquetes, inspección SSL/TLS, integración con inteligencia de amenazas, gestión de zonas de red, NAT, y seguridad de redes distribuidas.</div>
-      <div class="cdc-fases">Crítico en F1 · Base de toda la arquitectura</div>
-    </div>
-    <div class="cons-dom-card">
-      <div class="cdc-icon">🖥</div>
-      <div class="cdc-title">Detección y respuesta en endpoint a escala empresarial</div>
-      <div class="cdc-body">Despliegue y afinación de soluciones EDR/XDR en entornos heterogéneos. Diseño de políticas de respuesta automática. Análisis de comportamiento, detección pre-cifrado de ransomware, integración con correlación de eventos y gestión de logs de endpoint.</div>
-      <div class="cdc-fases">Crítico en F1 · Alimenta F4</div>
-    </div>
-    <div class="cons-dom-card">
-      <div class="cdc-icon">🔑</div>
-      <div class="cdc-title">Zero Trust y arquitecturas de acceso moderno</div>
-      <div class="cdc-body">Diseño e implementación de arquitecturas Zero Trust (NIST SP 800-207). Reemplazo ordenado de VPN. Control de acceso a servicios cloud (CASB). Microsegmentación de aplicaciones. Registro y auditoría de sesiones. Gestión de acceso contextual por identidad, dispositivo y postura.</div>
-      <div class="cdc-fases">Crítico en F2</div>
-    </div>
-    <div class="cons-dom-card">
-      <div class="cdc-icon">📧</div>
-      <div class="cdc-title">Seguridad del correo y protección de colaboración</div>
-      <div class="cdc-body">Protección anti-phishing, anti-spam y anti-BEC (Business Email Compromise). Implementación técnica de DMARC, DKIM y SPF. Seguridad en plataformas de colaboración corporativa. Análisis de adjuntos y URLs en tiempo real. El correo electrónico es el vector de entrada más común en incidentes documentados.</div>
-      <div class="cdc-fases">Crítico en F2</div>
-    </div>
-    <div class="cons-dom-card">
-      <div class="cdc-icon">🌐</div>
-      <div class="cdc-title">Seguridad de aplicaciones web y APIs</div>
-      <div class="cdc-body">Configuración y afinación de WAF. Conocimiento profundo y operacional de OWASP Top 10. Protección de APIs con pasarelas de seguridad. Integración con pipelines CI/CD y metodologías DevSecOps. Análisis de tráfico de aplicaciones y detección de anomalías con aprendizaje automático.</div>
-      <div class="cdc-fases">Crítico en F3</div>
-    </div>
-    <div class="cons-dom-card">
-      <div class="cdc-icon">🔩</div>
-      <div class="cdc-title">Endurecimiento y gestión de vulnerabilidades</div>
-      <div class="cdc-body">Aplicación de CIS Benchmarks y DISA STIGs a escala. Gestión de parches con procesos de priorización y responsabilidades definidas. Análisis de configuraciones inseguras. Validación de superficies de ataque en sistemas operativos, servicios y aplicaciones expuestas.</div>
-      <div class="cdc-fases">Crítico en F3</div>
-    </div>
-    <div class="cons-dom-card">
-      <div class="cdc-icon">👤</div>
-      <div class="cdc-title">Gestión de identidades y accesos privilegiados</div>
-      <div class="cdc-body">Diseño e implementación de IAM/PAM. Ciclo de vida completo de identidades (provisión, desprovisión, revisión periódica). Principio de mínimo privilegio aplicado. Grabación y auditoría de sesiones privilegiadas. Integración con directorios corporativos y sistemas de autenticación multifactor.</div>
-      <div class="cdc-fases">Crítico en F4</div>
-    </div>
-    <div class="cons-dom-card">
-      <div class="cdc-icon">📡</div>
-      <div class="cdc-title">Correlación de eventos y respuesta automatizada</div>
-      <div class="cdc-body">Diseño de arquitecturas de ingesta y normalización de logs a escala. Creación de reglas de correlación basadas en MITRE ATT&CK. Integración de múltiples fuentes heterogéneas. Reducción de alert fatigue con priorización inteligente. Orquestación de respuesta automatizada (SOAR).</div>
-      <div class="cdc-fases">Crítico en F4</div>
-    </div>
-    <div class="cons-dom-card">
-      <div class="cdc-icon">🔎</div>
-      <div class="cdc-title">Inteligencia de amenazas y Threat Hunting</div>
-      <div class="cdc-body">Integración y operación de fuentes de inteligencia de amenazas. Análisis de IoCs e IoAs. Metodologías de Threat Hunting proactivo. Investigación de incidentes y análisis forense básico. Conocimiento profundo de frameworks adversariales: MITRE ATT&CK, Cyber Kill Chain.</div>
-      <div class="cdc-fases">Crítico en F4</div>
-    </div>
-    <div class="cons-dom-card">
-      <div class="cdc-icon">☁️</div>
-      <div class="cdc-title">Seguridad en cloud e infraestructura híbrida</div>
-      <div class="cdc-body">Seguridad operacional en entornos cloud (Azure, AWS, GCP). Control de acceso a servicios cloud y shadow IT. Gestión de configuraciones cloud (CSPM). Seguridad de cargas de trabajo en contenedores. Cumplimiento de políticas en entornos híbridos on-premise + cloud.</div>
-      <div class="cdc-fases">Relevante en F2 y F4</div>
-    </div>
-    <div class="cons-dom-card">
-      <div class="cdc-icon">📋</div>
-      <div class="cdc-title">Marcos regulatorios y gobernanza de seguridad</div>
-      <div class="cdc-body">Conocimiento operacional de NIST CSF 2.0, ISO 27001:2022, C2M2 para infraestructura crítica. Diseño de procesos de respuesta a incidentes. Definición de políticas de seguridad verificables. Cumplimiento regulatorio aplicable al sector eléctrico en Ecuador y Latam.</div>
-      <div class="cdc-fases">Transversal a todas las fases</div>
-    </div>
-    <div class="cons-dom-card">
-      <div class="cdc-icon">🧠</div>
-      <div class="cdc-title">Gestión del proyecto y comunicación ejecutiva</div>
-      <div class="cdc-body">Capacidad de traducir requerimientos técnicos complejos en lenguaje ejecutivo y justificaciones financieras. Gestión de dependencias entre fases y múltiples proveedores. Definición de hitos verificables y métricas de aceptación. Coordinación de equipos técnicos heterogéneos a lo largo de 2 años de implementación.</div>
-      <div class="cdc-fases">Transversal a todas las fases</div>
-    </div>
-  </div>
-
-  <div class="cons-pilar-block">
-    <div class="cpb-title">Por qué las personas, los procesos y las definiciones son tan importantes como las herramientas</div>
-    <div class="cpb-grid">
-      <div class="cpb-item">
-        <div class="cpbi-icon">⚙️</div>
-        <div class="cpbi-title">Una herramienta sin proceso es ruido</div>
-        <div class="cpbi-body">Target tenía $1.6M en herramientas de detección activas. El proceso de respuesta no estaba definido. Las alertas se convirtieron en ruido y el equipo de ciberseguridad no actuó durante 14 días. La herramienta correcta, sin el proceso correcto, produce exactamente el mismo resultado que no tener nada.</div>
-      </div>
-      <div class="cpb-item">
-        <div class="cpbi-icon">📝</div>
-        <div class="cpbi-title">Sin definiciones, nada funciona como se espera</div>
-        <div class="cpbi-body">El DLP no sabe qué proteger si no se ha definido qué es "información sensible". El SIEM no sabe qué es un incidente si no se han definido los umbrales. La gestión de identidades no puede aplicar mínimo privilegio si no se han definido los roles. Las definiciones son prerequisito técnico — no burocracia.</div>
-      </div>
-      <div class="cpb-item">
-        <div class="cpbi-icon">👥</div>
-        <div class="cpbi-title">Las personas determinan si la implementación funciona</div>
-        <div class="cpbi-body">British Airways tenía configuraciones de prueba en producción durante 3 años. Equifax recibió la notificación del parche del DHS de EE.UU. y nadie lo aplicó. En ambos casos, las personas con acceso a la información no tomaron acción. La tecnología no reemplaza la capacitación, los roles claros y la cultura de seguridad.</div>
-      </div>
-      <div class="cpb-item">
-        <div class="cpbi-icon">🗺</div>
-        <div class="cpbi-title">Ve donde lo usas — el levantamiento no es un trámite</div>
-        <div class="cpbi-body">Un consultor que no conoce el entorno real de CENTROSUR — su arquitectura de red, sus aplicaciones, sus flujos de datos, sus dependencias operacionales — no puede diseñar una implementación que funcione. El levantamiento de información es la base de todo lo que viene después. No se puede diseñar lo que no se ha visto.</div>
-      </div>
-    </div>
-  </div>
-
 </div>
 </div>
 
 <footer>
-  <span>Coresolutions · Documento de uso interno · No distribuir</span>
+  <span>Documento de uso interno · No distribuir</span>
   <span id="fdate"></span>
 </footer>
 
@@ -933,6 +935,7 @@ function toggleTc(el){el.classList.toggle('open');}
 function toggleW11(el){const wasOpen=el.classList.contains('open');document.querySelectorAll('.w11-card').forEach(c=>c.classList.remove('open'));if(!wasOpen)el.classList.add('open');}
 function toggleCaso(id){const card=document.getElementById(id);const wasOpen=card.classList.contains('open');document.querySelectorAll('.caso-card').forEach(c=>c.classList.remove('open'));if(!wasOpen)card.classList.add('open');}
 function toggleMxRow(row){const next=row.nextElementSibling;const isOpen=next.classList.contains('open');document.querySelectorAll('.mx-detail-row').forEach(r=>r.classList.remove('open'));document.querySelectorAll('.mx-row').forEach(r=>r.classList.remove('open'));if(!isOpen){next.classList.add('open');row.classList.add('open');}}
+function toggleCp(el){const wasOpen=el.classList.contains('open');document.querySelectorAll('.cp-card').forEach(c=>c.classList.remove('open'));if(!wasOpen)el.classList.add('open');}
 document.getElementById('fdate').textContent=new Date().toLocaleDateString('es-EC',{year:'numeric',month:'long',day:'numeric'});
 </script>
 </body>
